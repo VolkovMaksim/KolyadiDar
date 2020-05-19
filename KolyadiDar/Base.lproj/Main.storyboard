@@ -146,6 +146,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Название лета" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GQ8-EN-WNh">
+                                <rect key="frame" x="8" y="431" width="129" height="29.5"/>
+                                <fontDescription key="fontDescription" name="-Normal" family="Родникъ" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -168,6 +174,7 @@
                             <constraint firstItem="GWn-TC-ixV" firstAttribute="leading" secondItem="9xu-pn-Bfd" secondAttribute="trailing" constant="17.5" id="LGC-e3-z0N"/>
                             <constraint firstItem="QDG-hj-C5b" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="LXj-KC-NAC"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="Eei-cI-3ho" secondAttribute="trailing" constant="214" id="Ram-UU-YPy"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="GQ8-EN-WNh" secondAttribute="trailing" constant="183" id="Rd9-DR-JEq"/>
                             <constraint firstItem="bBr-zp-GEk" firstAttribute="top" secondItem="UpH-A5-4iy" secondAttribute="bottom" constant="2" id="Ryi-j0-zWt"/>
                             <constraint firstItem="Urp-0F-DBg" firstAttribute="leading" secondItem="Uax-A3-tse" secondAttribute="trailing" constant="7" id="VGR-0V-xmy"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="4NK-Yr-Ikp" secondAttribute="trailing" constant="106.5" id="X9g-oz-hQq"/>
@@ -177,11 +184,13 @@
                             <constraint firstItem="cRe-Tg-Oqt" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="21" id="e2q-UL-zew"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="GWn-TC-ixV" secondAttribute="trailing" constant="74.5" id="ezu-zx-enn"/>
                             <constraint firstItem="Eei-cI-3ho" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="fJO-6i-IPo"/>
+                            <constraint firstItem="GQ8-EN-WNh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="fbY-92-XU6"/>
                             <constraint firstItem="4NK-Yr-Ikp" firstAttribute="leading" secondItem="bBr-zp-GEk" secondAttribute="trailing" constant="9" id="iuH-LL-MZR"/>
                             <constraint firstItem="TLO-MX-kzC" firstAttribute="top" secondItem="Urp-0F-DBg" secondAttribute="bottom" constant="5" id="j4x-RD-dZZ"/>
                             <constraint firstItem="TLO-MX-kzC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="jLo-mZ-yTK"/>
                             <constraint firstItem="4C0-gc-7HD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="lBu-qM-Olx"/>
                             <constraint firstItem="Eei-cI-3ho" firstAttribute="top" secondItem="TLO-MX-kzC" secondAttribute="bottom" constant="12.5" id="lfr-ah-fgQ"/>
+                            <constraint firstItem="GQ8-EN-WNh" firstAttribute="top" secondItem="9xu-pn-Bfd" secondAttribute="bottom" constant="15" id="loV-XH-dLS"/>
                             <constraint firstItem="X6f-M8-VF0" firstAttribute="top" secondItem="4C0-gc-7HD" secondAttribute="bottom" constant="11.5" id="n3o-6t-qVI"/>
                             <constraint firstItem="IgQ-mg-dEo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="naF-zF-04S"/>
                             <constraint firstItem="Urp-0F-DBg" firstAttribute="top" secondItem="iPD-vn-Yc7" secondAttribute="bottom" constant="13" id="qZD-dX-HqV"/>
@@ -198,6 +207,7 @@
                     <navigationItem key="navigationItem" title="Текущие дата и время" id="W0O-qt-q7K"/>
                     <connections>
                         <outlet property="dayLabel" destination="bBr-zp-GEk" id="WPa-TW-xIu"/>
+                        <outlet property="dayOfWeekLabel" destination="GQ8-EN-WNh" id="xDO-4H-1hk"/>
                         <outlet property="fullTitleOfHour" destination="UpH-A5-4iy" id="hkw-Jg-Poe"/>
                         <outlet property="holidayLabel" destination="Eei-cI-3ho" id="8qi-lr-CyS"/>
                         <outlet property="hourLabel" destination="S2A-y6-a9a" id="CZw-r4-FfG"/>

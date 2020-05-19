@@ -27,6 +27,7 @@ class CurrentViewController: UIViewController {
     @IBOutlet weak var titleOfConstellation: UILabel!
     
     @IBOutlet weak var holidayLabel: UILabel!
+    @IBOutlet weak var dayOfWeekLabel: UILabel!
     
     var currentDate = CurrentDate()
     var timer = Timer()
@@ -38,17 +39,6 @@ class CurrentViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //dayLabel.text = "\(41)"
-//        let calendar = Calendar.current
-//        var dateComponents = DateComponents()
-//        dateComponents.year = 2019
-//        dateComponents.month = 9
-//        dateComponents.day = 22
-//        let dateFromDC = calendar.date(from: dateComponents as DateComponents)
-//        let timeInterval = Int(-((dateFromDC?.timeIntervalSinceNow)!)) / 60 / 60 / 24
-//
-        //print("Year \(year), month \(month), day \(day), hour \(hour), minute \(minute), second \(second), nanosecond \(nanosecond)")
-        //print(timeInterval)
     }
     
     /*
@@ -129,80 +119,160 @@ class CurrentViewController: UIViewController {
     
     func oldMonth(oldYearsNumber: Int, year: Int, month: Int, day: Int, hour: Int) {
         if oldYearsNumber >= 1 && oldYearsNumber <= 3 {
+            var startYear: Int = 0
+            if month >= 1 && month <= 9 {
+                if month == 9 {
+                    if (day == 22 && hour <= 18) || day < 22 {
+                        startYear = year - 1
+                    }
+                } else {
+                    startYear = year - 1
+                }
+            } else if month >= 10 && month <= 12 {
+                startYear = year
+            }
+            let startMonth = 9
+            let startDay = 22
+            let startHour = 18
+            let differenceSecond = currentDate.getDifferenceTime(year: startYear, month: startMonth, day: startDay, hour: startHour)
+            let differenceMinute = differenceSecond / 60
+            let differenceHour = differenceMinute / 90
+            let differenceDay = differenceHour / 16
+            let oldDayOfWeek = Int(Double(differenceDay).truncatingRemainder(dividingBy: 9))
+            let endMonth = Int(differenceDay / 41)
+            let addOldDay = Int(endMonth / 2)
+            let endDay = Int(Double(differenceDay).truncatingRemainder(dividingBy: 41)) + addOldDay
             
+            //let oldHour = Int(Double(differenceHour).truncatingRemainder(dividingBy: 16))
+            let oldMonth = endMonth + 1
+            let oldDay = endDay + 1
             
+            dayLabel.text = String(oldDay)
+            dayOfWeekLabel.text = (OldDaysOfWeek.init().dayOfWeek(day: oldDayOfWeek - 1))
             
-            
-            
-//            if (month >= 12 && day >= 12 && hour >= 18)  {
-//                monthLabel.text = "Бейлѣтъ"
-//            } else if (month >= 11 && day >= 2 && hour >= 18)  {
-//                monthLabel.text = "Айлѣтъ"
-//            } else if (month >= 9 && day >= 22 && hour >= 18) {
-//                monthLabel.text = "Рамхатъ"
-//            } else if (month >= 8 && day >= 12 && hour >= 18)  {
-//                monthLabel.text = "Тайлѣтъ"
-//            } else if (month >= 7 && day >= 3 && hour >= 18)  {
-//                monthLabel.text = "Хейлѣтъ"
-//            } else if (month >= 5 && day >= 23 && hour >= 18)  {
-//                monthLabel.text = "Вэйлѣтъ"
-//            } else if (month >= 4 && day >= 13 && hour >= 18)  {
-//                monthLabel.text = "Элѣтъ"
-//            } else if (month >= 3 && day >= 3 && hour >= 18)  {
-//                monthLabel.text = "Дайлѣтъ"
-//            } else if (month >= 1 && day >= 22 && hour >= 18)  {
-//                monthLabel.text = "Гэйлѣтъ"
-//            }
+            if oldMonth == 1 {
+                monthLabel.text = "Рамхатъ"
+            } else if oldMonth == 2 {
+                monthLabel.text = "Айлѣтъ"
+            } else if oldMonth == 3 {
+                monthLabel.text = "Бейлѣтъ"
+            } else if oldMonth == 4 {
+                monthLabel.text = "Гэйлѣтъ"
+            } else if oldMonth == 5 {
+                monthLabel.text = "Дайлѣтъ"
+            } else if oldMonth == 6 {
+                monthLabel.text = "Элѣтъ"
+            } else if oldMonth == 7 {
+                monthLabel.text = "Вэйлѣтъ"
+            } else if oldMonth == 8 {
+                monthLabel.text = "Хейлѣтъ"
+            } else if oldMonth == 9 {
+                monthLabel.text = "Тайлѣтъ"
+            }
         }
         else if oldYearsNumber == 4 {
+            var startYear: Int = 0
+            if month >= 1 && month <= 9 {
+                if month == 9 {
+                    if (day == 21 && hour <= 18) || day < 21 {
+                        startYear = year - 1
+                    }
+                } else {
+                    startYear = year - 1
+                }
+            } else if month >= 10 && month <= 12 {
+                startYear = year
+            }
+            let startMonth = 9
+            let startDay = 22
+            let startHour = 18
+            let differenceSecond = currentDate.getDifferenceTime(year: startYear, month: startMonth, day: startDay, hour: startHour)
+            let differenceMinute = differenceSecond / 60
+            let differenceHour = differenceMinute / 90
+            let differenceDay = differenceHour / 16
+            let oldDayOfWeek = Int(Double(differenceDay).truncatingRemainder(dividingBy: 9))
+            let endMonth = Int(differenceDay / 41)
+            let addOldDay = Int(endMonth / 2)
+            let endDay = Int(Double(differenceDay).truncatingRemainder(dividingBy: 41)) + addOldDay
             
+            //let oldHour = Int(Double(differenceHour).truncatingRemainder(dividingBy: 16))
+            let oldMonth = endMonth + 1
+            let oldDay = endDay + 1
             
+            dayLabel.text = String(oldDay)
+            dayOfWeekLabel.text = (OldDaysOfWeek.init().dayOfWeek(day: oldDayOfWeek - 1))
             
-            
-//            if (month >= 12 && day >= 12 && hour >= 18) {
-//                monthLabel.text = "Бейлѣтъ"
-//            } else if (month >= 11 && day >= 2 && hour >= 18) {
-//                monthLabel.text = "Айлѣтъ"
-//            } else if (month >= 9 && day >= 22 && hour >= 18) {
-//                monthLabel.text = "Рамхатъ"
-//            } else if (month >= 8 && day >= 11 && hour >= 18) {
-//                monthLabel.text = "Тайлѣтъ"
-//            } else if (month >= 7 && day >= 2 && hour >= 18) {
-//                monthLabel.text = "Хейлѣтъ"
-//            } else if (month >= 5 && day >= 22 && hour >= 18) {
-//                monthLabel.text = "Вэйлѣтъ"
-//            } else if (month >= 4 && day >= 12 && hour >= 18) {
-//                monthLabel.text = "Элѣтъ"
-//            } else if (month >= 3 && day >= 2 && hour >= 18) {
-//                monthLabel.text = "Дайлѣтъ"
-//            } else if (month >= 1 && day >= 22 && hour >= 18) {
-//                monthLabel.text = "Гэйлѣтъ"
-//            }
+            if oldMonth == 1 {
+                monthLabel.text = "Рамхатъ"
+            } else if oldMonth == 2 {
+                monthLabel.text = "Айлѣтъ"
+            } else if oldMonth == 3 {
+                monthLabel.text = "Бейлѣтъ"
+            } else if oldMonth == 4 {
+                monthLabel.text = "Гэйлѣтъ"
+            } else if oldMonth == 5 {
+                monthLabel.text = "Дайлѣтъ"
+            } else if oldMonth == 6 {
+                monthLabel.text = "Элѣтъ"
+            } else if oldMonth == 7 {
+                monthLabel.text = "Вэйлѣтъ"
+            } else if oldMonth == 8 {
+                monthLabel.text = "Хейлѣтъ"
+            } else if oldMonth == 9 {
+                monthLabel.text = "Тайлѣтъ"
+            }
         }
         else if oldYearsNumber >= 5 && oldYearsNumber <= 7 {
+            var startYear: Int = 0
+            if month >= 1 && month <= 9 {
+                if month == 9 {
+                    if (day == 21 && hour <= 18) || day < 21 {
+                        startYear = year - 1
+                    }
+                } else {
+                    startYear = year - 1
+                }
+            } else if month >= 10 && month <= 12 {
+                startYear = year
+            }
+            let startMonth = 9
+            let startDay = 21
+            let startHour = 18
+            let differenceSecond = currentDate.getDifferenceTime(year: startYear, month: startMonth, day: startDay, hour: startHour)
+            let differenceMinute = differenceSecond / 60
+            let differenceHour = differenceMinute / 90
+            let differenceDay = differenceHour / 16
+            let oldDayOfWeek = Int(Double(differenceDay).truncatingRemainder(dividingBy: 9))
+            let endMonth = Int(differenceDay / 41)
+            let addOldDay = Int(endMonth / 2)
+            let endDay = Int(Double(differenceDay).truncatingRemainder(dividingBy: 41)) + addOldDay
             
+            //let oldHour = Int(Double(differenceHour).truncatingRemainder(dividingBy: 16))
+            let oldMonth = endMonth + 1
+            let oldDay = endDay + 1
             
+            dayLabel.text = String(oldDay)
+            dayOfWeekLabel.text = (OldDaysOfWeek.init().dayOfWeek(day: oldDayOfWeek - 1))
             
-            
-//            if (month >= 12 && day >= 11 && hour >= 18) {
-//                monthLabel.text = "Бейлѣтъ"
-//            } else if (month >= 11 && day >= 1 && hour >= 18) {
-//                monthLabel.text = "Айлѣтъ"
-//            } else if (month >= 9 && day >= 21 && hour >= 18) {
-//                monthLabel.text = "Рамхатъ"
-//            } else if (month >= 8 && day >= 11 && hour >= 18) {
-//                monthLabel.text = "Тайлѣтъ"
-//            } else if (month >= 7 && day >= 2 && hour >= 18) {
-//                monthLabel.text = "Хейлѣтъ"
-//            } else if (month >= 5 && day >= 22 && hour >= 18) {
-//                monthLabel.text = "Вэйлѣтъ"
-//            } else if (month >= 4 && day >= 12 && hour >= 18) {
-//                monthLabel.text = "Элѣтъ"
-//            } else if (month >= 3 && day >= 2 && hour >= 18) {
-//                monthLabel.text = "Дайлѣтъ"
-//            } else if (month >= 1 && day >= 21 && hour >= 18) {
-//                monthLabel.text = "Гэйлѣтъ"
-//            }
+            if oldMonth == 1 {
+                monthLabel.text = "Рамхатъ"
+            } else if oldMonth == 2 {
+                monthLabel.text = "Айлѣтъ"
+            } else if oldMonth == 3 {
+                monthLabel.text = "Бейлѣтъ"
+            } else if oldMonth == 4 {
+                monthLabel.text = "Гэйлѣтъ"
+            } else if oldMonth == 5 {
+                monthLabel.text = "Дайлѣтъ"
+            } else if oldMonth == 6 {
+                monthLabel.text = "Элѣтъ"
+            } else if oldMonth == 7 {
+                monthLabel.text = "Вэйлѣтъ"
+            } else if oldMonth == 8 {
+                monthLabel.text = "Хейлѣтъ"
+            } else if oldMonth == 9 {
+                monthLabel.text = "Тайлѣтъ"
+            }
         }
         else if oldYearsNumber == 8 {
             var startYear: Int = 0
@@ -224,6 +294,7 @@ class CurrentViewController: UIViewController {
             let differenceMinute = differenceSecond / 60
             let differenceHour = differenceMinute / 90
             let differenceDay = differenceHour / 16
+            let oldDayOfWeek = Int(Double(differenceDay).truncatingRemainder(dividingBy: 9))
             let endMonth = Int(differenceDay / 41)
             let addOldDay = Int(endMonth / 2)
             let endDay = Int(Double(differenceDay).truncatingRemainder(dividingBy: 41)) + addOldDay
@@ -233,6 +304,7 @@ class CurrentViewController: UIViewController {
             let oldDay = endDay + 1
             
             dayLabel.text = String(oldDay)
+            dayOfWeekLabel.text = (OldDaysOfWeek.init().dayOfWeek(day: oldDayOfWeek - 1))
             
             if oldMonth == 1 {
                 monthLabel.text = "Рамхатъ"
@@ -253,117 +325,213 @@ class CurrentViewController: UIViewController {
             } else if oldMonth == 9 {
                 monthLabel.text = "Тайлѣтъ"
             }
-            
-//            if (month >= 12 && ((day >= 11 && hour >= 18) || (day >= 12 && hour >= 00))) {
-//                monthLabel.text = "Бейлѣтъ"
-//            } else if (month >= 11 && ((day >= 1 && hour >= 18) || (day >= 2 && hour >= 00))) {
-//                monthLabel.text = "Айлѣтъ"
-//            } else if (month >= 10) {
-//                monthLabel.text = "Рамхатъ"
-//            } else if (month >= 9 && ((day >= 21 && hour >= 18) || (day >= 22 && hour >= 00))) {
-//                monthLabel.text = "Рамхатъ"
-//            } else if (month >= 8 && ((day >= 10 && hour >= 18) || (day >= 11 && hour >= 00))) {
-//                monthLabel.text = "Тайлѣтъ"
-//            } else if (month >= 7 && ((day >= 1 && hour >= 18) || (day >= 2 && hour >= 00))) {
-//                monthLabel.text = "Хейлѣтъ"
-//            } else if (month >= 6 ) {
-//                monthLabel.text = "Вэйлѣтъ"
-//            } else if (month >= 5 && ((day >= 21 && hour >= 18) || (day >= 22 && hour >= 00))) {
-//                monthLabel.text = "Вэйлѣтъ"
-//            } else if (month >= 4 && ((day >= 11 && hour >= 18) || (day >= 12 && hour >= 00))) {
-//                monthLabel.text = "Элѣтъ"
-//            } else if (month >= 3 && ((day >= 1 && hour >= 18) || (day >= 2 && hour >= 00))) {
-//                monthLabel.text = "Дайлѣтъ"
-//            } else if (month >= 2) {
-//                monthLabel.text = "Гэйлѣтъ"
-//            } else if (month >= 1 && ((day >= 21 && hour >= 18) || (day >= 22 && hour >= 00))) {
-//                monthLabel.text = "Гэйлѣтъ"
-//            }
         }
-            
         else if oldYearsNumber >= 9 && oldYearsNumber <= 11 {
-//            if (month >= 12 && day >= 10 && hour >= 18) {
-//                monthLabel.text = "Бейлѣтъ"
-//            } else if (month >= 10 && day >= 31 && hour >= 18) {
-//                monthLabel.text = "Айлѣтъ"
-//            } else if (month >= 9 && day >= 20 && hour >= 18) {
-//                monthLabel.text = "Рамхатъ"
-//            } else if (month >= 8 && day >= 10 && hour >= 18) {
-//                monthLabel.text = "Тайлѣтъ"
-//            } else if (month >= 7 && day >= 1 && hour >= 18) {
-//                monthLabel.text = "Хейлѣтъ"
-//            } else if (month >= 5 && day >= 21 && hour >= 18) {
-//                monthLabel.text = "Вэйлѣтъ"
-//            } else if (month >= 4 && day >= 11 && hour >= 18) {
-//                monthLabel.text = "Элѣтъ"
-//            } else if (month >= 3 && day >= 1 && hour >= 18) {
-//                monthLabel.text = "Дайлѣтъ"
-//            } else if (month >= 1 && day >= 20 && hour >= 18) {
-//                monthLabel.text = "Гэйлѣтъ"
-//            }
+            var startYear: Int = 0
+            if month >= 1 && month <= 9 {
+                if month == 9 {
+                    if (day == 20 && hour <= 18) || day < 20 {
+                        startYear = year - 1
+                    }
+                } else {
+                    startYear = year - 1
+                }
+            } else if month >= 10 && month <= 12 {
+                startYear = year
+            }
+            let startMonth = 9
+            let startDay = 20
+            let startHour = 18
+            let differenceSecond = currentDate.getDifferenceTime(year: startYear, month: startMonth, day: startDay, hour: startHour)
+            let differenceMinute = differenceSecond / 60
+            let differenceHour = differenceMinute / 90
+            let differenceDay = differenceHour / 16
+            let oldDayOfWeek = Int(Double(differenceDay).truncatingRemainder(dividingBy: 9))
+            let endMonth = Int(differenceDay / 41)
+            let addOldDay = Int(endMonth / 2)
+            let endDay = Int(Double(differenceDay).truncatingRemainder(dividingBy: 41)) + addOldDay
+            
+            //let oldHour = Int(Double(differenceHour).truncatingRemainder(dividingBy: 16))
+            let oldMonth = endMonth + 1
+            let oldDay = endDay + 1
+            
+            dayLabel.text = String(oldDay)
+            dayOfWeekLabel.text = (OldDaysOfWeek.init().dayOfWeek(day: oldDayOfWeek - 1))
+            
+            if oldMonth == 1 {
+                monthLabel.text = "Рамхатъ"
+            } else if oldMonth == 2 {
+                monthLabel.text = "Айлѣтъ"
+            } else if oldMonth == 3 {
+                monthLabel.text = "Бейлѣтъ"
+            } else if oldMonth == 4 {
+                monthLabel.text = "Гэйлѣтъ"
+            } else if oldMonth == 5 {
+                monthLabel.text = "Дайлѣтъ"
+            } else if oldMonth == 6 {
+                monthLabel.text = "Элѣтъ"
+            } else if oldMonth == 7 {
+                monthLabel.text = "Вэйлѣтъ"
+            } else if oldMonth == 8 {
+                monthLabel.text = "Хейлѣтъ"
+            } else if oldMonth == 9 {
+                monthLabel.text = "Тайлѣтъ"
+            }
         }
         else if oldYearsNumber == 12 {
-//            if (month >= 12 && day >= 10 && hour >= 18) {
-//                monthLabel.text = "Бейлѣтъ"
-//            } else if (month >= 10 && day >= 31 && hour >= 18) {
-//                monthLabel.text = "Айлѣтъ"
-//            } else if (month >= 9 && day >= 20 && hour >= 18) {
-//                monthLabel.text = "Рамхатъ"
-//            } else if (month >= 8 && day >= 9 && hour >= 18) {
-//                monthLabel.text = "Тайлѣтъ"
-//            } else if (month >= 6 && day >= 30 && hour >= 18) {
-//                monthLabel.text = "Хейлѣтъ"
-//            } else if (month >= 5 && day >= 20 && hour >= 18) {
-//                monthLabel.text = "Вэйлѣтъ"
-//            } else if (month >= 4 && day >= 10 && hour >= 18) {
-//                monthLabel.text = "Элѣтъ"
-//            } else if (month >= 2 && day >= 29 && hour >= 18) {
-//                monthLabel.text = "Дайлѣтъ"
-//            } else if (month >= 1 && day >= 20 && hour >= 18) {
-//                monthLabel.text = "Гэйлѣтъ"
-//            }
+            var startYear: Int = 0
+            if month >= 1 && month <= 9 {
+                if month == 9 {
+                    if (day == 19 && hour <= 18) || day < 19 {
+                        startYear = year - 1
+                    }
+                } else {
+                    startYear = year - 1
+                }
+            } else if month >= 10 && month <= 12 {
+                startYear = year
+            }
+            let startMonth = 9
+            let startDay = 20
+            let startHour = 18
+            let differenceSecond = currentDate.getDifferenceTime(year: startYear, month: startMonth, day: startDay, hour: startHour)
+            let differenceMinute = differenceSecond / 60
+            let differenceHour = differenceMinute / 90
+            let differenceDay = differenceHour / 16
+            let oldDayOfWeek = Int(Double(differenceDay).truncatingRemainder(dividingBy: 9))
+            let endMonth = Int(differenceDay / 41)
+            let addOldDay = Int(endMonth / 2)
+            let endDay = Int(Double(differenceDay).truncatingRemainder(dividingBy: 41)) + addOldDay
+            
+            //let oldHour = Int(Double(differenceHour).truncatingRemainder(dividingBy: 16))
+            let oldMonth = endMonth + 1
+            let oldDay = endDay + 1
+            
+            dayLabel.text = String(oldDay)
+            dayOfWeekLabel.text = (OldDaysOfWeek.init().dayOfWeek(day: oldDayOfWeek - 1))
+            
+            if oldMonth == 1 {
+                monthLabel.text = "Рамхатъ"
+            } else if oldMonth == 2 {
+                monthLabel.text = "Айлѣтъ"
+            } else if oldMonth == 3 {
+                monthLabel.text = "Бейлѣтъ"
+            } else if oldMonth == 4 {
+                monthLabel.text = "Гэйлѣтъ"
+            } else if oldMonth == 5 {
+                monthLabel.text = "Дайлѣтъ"
+            } else if oldMonth == 6 {
+                monthLabel.text = "Элѣтъ"
+            } else if oldMonth == 7 {
+                monthLabel.text = "Вэйлѣтъ"
+            } else if oldMonth == 8 {
+                monthLabel.text = "Хейлѣтъ"
+            } else if oldMonth == 9 {
+                monthLabel.text = "Тайлѣтъ"
+            }
         }
         else if oldYearsNumber >= 13 && oldYearsNumber <= 15 {
-//            if (month >= 12 && day >= 9 && hour >= 18) {
-//                monthLabel.text = "Бейлѣтъ"
-//            } else if (month >= 10 && day >= 30 && hour >= 18) {
-//                monthLabel.text = "Айлѣтъ"
-//            } else if (month >= 9 && day >= 19 && hour >= 18) {
-//                monthLabel.text = "Рамхатъ"
-//            } else if (month >= 8 && day >= 9 && hour >= 18) {
-//                monthLabel.text = "Тайлѣтъ"
-//            } else if (month >= 6 && day >= 30 && hour >= 18) {
-//                monthLabel.text = "Хейлѣтъ"
-//            } else if (month >= 5 && day >= 20 && hour >= 18) {
-//                monthLabel.text = "Вэйлѣтъ"
-//            } else if (month >= 4 && day >= 10 && hour >= 18) {
-//                monthLabel.text = "Элѣтъ"
-//            } else if (month >= 2 && day >= 28 && hour >= 18) {
-//                monthLabel.text = "Дайлѣтъ"
-//            } else if (month >= 1 && day >= 19 && hour >= 18) {
-//                monthLabel.text = "Гэйлѣтъ"
-//            }
+            var startYear: Int = 0
+            if month >= 1 && month <= 9 {
+                if month == 9 {
+                    if (day == 19 && hour <= 18) || day < 19 {
+                        startYear = year - 1
+                    }
+                } else {
+                    startYear = year - 1
+                }
+            } else if month >= 10 && month <= 12 {
+                startYear = year
+            }
+            let startMonth = 9
+            let startDay = 19
+            let startHour = 18
+            let differenceSecond = currentDate.getDifferenceTime(year: startYear, month: startMonth, day: startDay, hour: startHour)
+            let differenceMinute = differenceSecond / 60
+            let differenceHour = differenceMinute / 90
+            let differenceDay = differenceHour / 16
+            let oldDayOfWeek = Int(Double(differenceDay).truncatingRemainder(dividingBy: 9))
+            let endMonth = Int(differenceDay / 41)
+            let addOldDay = Int(endMonth / 2)
+            let endDay = Int(Double(differenceDay).truncatingRemainder(dividingBy: 41)) + addOldDay
+            
+            //let oldHour = Int(Double(differenceHour).truncatingRemainder(dividingBy: 16))
+            let oldMonth = endMonth + 1
+            let oldDay = endDay + 1
+            
+            dayLabel.text = String(oldDay)
+            dayOfWeekLabel.text = (OldDaysOfWeek.init().dayOfWeek(day: oldDayOfWeek - 1))
+            
+            if oldMonth == 1 {
+                monthLabel.text = "Рамхатъ"
+            } else if oldMonth == 2 {
+                monthLabel.text = "Айлѣтъ"
+            } else if oldMonth == 3 {
+                monthLabel.text = "Бейлѣтъ"
+            } else if oldMonth == 4 {
+                monthLabel.text = "Гэйлѣтъ"
+            } else if oldMonth == 5 {
+                monthLabel.text = "Дайлѣтъ"
+            } else if oldMonth == 6 {
+                monthLabel.text = "Элѣтъ"
+            } else if oldMonth == 7 {
+                monthLabel.text = "Вэйлѣтъ"
+            } else if oldMonth == 8 {
+                monthLabel.text = "Хейлѣтъ"
+            } else if oldMonth == 9 {
+                monthLabel.text = "Тайлѣтъ"
+            }
         }
         else if oldYearsNumber == 0 || oldYearsNumber == 16 {
-//            if (month >= 12 && day >= 10 && hour >= 18) {
-//                monthLabel.text = "Бейлѣтъ"
-//            } else if (month >= 10 && day >= 30 && hour >= 18) {
-//                monthLabel.text = "Айлѣтъ"
-//            } else if (month >= 9 && day >= 19 && hour >= 18) {
-//                monthLabel.text = "Рамхатъ"
-//            } else if (month >= 8 && day >= 12 && hour >= 18) {
-//                monthLabel.text = "Тайлѣтъ"
-//            } else if (month >= 7 && day >= 2 && hour >= 18) {
-//                monthLabel.text = "Хейлѣтъ"
-//            } else if (month >= 5 && day >= 22 && hour >= 18) {
-//                monthLabel.text = "Вэйлѣтъ"
-//            } else if (month >= 4 && day >= 11 && hour >= 18) {
-//                monthLabel.text = "Элѣтъ"
-//            } else if (month >= 3 && day >= 1 && hour >= 18) {
-//                monthLabel.text = "Дайлѣтъ"
-//            } else if (month >= 1 && day >= 20 && hour >= 18) {
-//                monthLabel.text = "Гэйлѣтъ"
-//            }
+            var startYear: Int = 0
+            if month >= 1 && month <= 9 {
+                if month == 9 {
+                    if (day == 19 && hour <= 18) || day < 19 {
+                        startYear = year - 1
+                    }
+                } else {
+                    startYear = year - 1
+                }
+            } else if month >= 10 && month <= 12 {
+                startYear = year
+            }
+            let startMonth = 9
+            let startDay = 19
+            let startHour = 18
+            let differenceSecond = currentDate.getDifferenceTime(year: startYear, month: startMonth, day: startDay, hour: startHour)
+            let differenceMinute = differenceSecond / 60
+            let differenceHour = differenceMinute / 90
+            let differenceDay = differenceHour / 16
+            let oldDayOfWeek = Int(Double(differenceDay).truncatingRemainder(dividingBy: 9))
+            let endMonth = Int(differenceDay / 41)
+            let endDay = Int(Double(differenceDay).truncatingRemainder(dividingBy: 41))
+            
+            //let oldHour = Int(Double(differenceHour).truncatingRemainder(dividingBy: 16))
+            let oldMonth = endMonth + 1
+            let oldDay = endDay + 1
+            
+            dayLabel.text = String(oldDay)
+            dayOfWeekLabel.text = (OldDaysOfWeek.init().dayOfWeek(day: oldDayOfWeek - 1))
+            
+            if oldMonth == 1 {
+                monthLabel.text = "Рамхатъ"
+            } else if oldMonth == 2 {
+                monthLabel.text = "Айлѣтъ"
+            } else if oldMonth == 3 {
+                monthLabel.text = "Бейлѣтъ"
+            } else if oldMonth == 4 {
+                monthLabel.text = "Гэйлѣтъ"
+            } else if oldMonth == 5 {
+                monthLabel.text = "Дайлѣтъ"
+            } else if oldMonth == 6 {
+                monthLabel.text = "Элѣтъ"
+            } else if oldMonth == 7 {
+                monthLabel.text = "Вэйлѣтъ"
+            } else if oldMonth == 8 {
+                monthLabel.text = "Хейлѣтъ"
+            } else if oldMonth == 9 {
+                monthLabel.text = "Тайлѣтъ"
+            }
         }
     }
     
@@ -523,7 +691,7 @@ class CurrentViewController: UIViewController {
     }
     
     func setupTimer() {
-        timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(liveOldTime), userInfo: Date(), repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(liveOldTime), userInfo: Date(), repeats: true)
     }
     
     @objc func liveOldTime() {

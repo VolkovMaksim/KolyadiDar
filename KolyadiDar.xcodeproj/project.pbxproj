@@ -19,6 +19,7 @@
 		37D8C26B2462BA6000E9C5F4 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D8C26A2462BA6000E9C5F4 /* AboutViewController.swift */; };
 		37D8C26D2462BAAE00E9C5F4 /* MyDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D8C26C2462BAAE00E9C5F4 /* MyDateViewController.swift */; };
 		37D8C26F2462BAD600E9C5F4 /* CurrentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D8C26E2462BAD600E9C5F4 /* CurrentViewController.swift */; };
+		37EA819724740657008FEC79 /* OldDaysOfWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EA819624740657008FEC79 /* OldDaysOfWeek.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		37D8C26A2462BA6000E9C5F4 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		37D8C26C2462BAAE00E9C5F4 /* MyDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDateViewController.swift; sourceTree = "<group>"; };
 		37D8C26E2462BAD600E9C5F4 /* CurrentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentViewController.swift; sourceTree = "<group>"; };
+		37EA819624740657008FEC79 /* OldDaysOfWeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldDaysOfWeek.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				37D8C2542462A3E000E9C5F4 /* SceneDelegate.swift */,
 				37D8C26E2462BAD600E9C5F4 /* CurrentViewController.swift */,
 				375E90F5246C252F00C7D49C /* CurrentDate.swift */,
+				37EA819624740657008FEC79 /* OldDaysOfWeek.swift */,
 				37D8C26C2462BAAE00E9C5F4 /* MyDateViewController.swift */,
 				37D8C2662462B9F900E9C5F4 /* YearsTableViewController.swift */,
 				37D8C2682462BA2700E9C5F4 /* MainDaysTableViewController.swift */,
@@ -164,6 +167,7 @@
 				37D8C2552462A3E000E9C5F4 /* SceneDelegate.swift in Sources */,
 				375E90F6246C252F00C7D49C /* CurrentDate.swift in Sources */,
 				37D8C26F2462BAD600E9C5F4 /* CurrentViewController.swift in Sources */,
+				37EA819724740657008FEC79 /* OldDaysOfWeek.swift in Sources */,
 				37D8C26D2462BAAE00E9C5F4 /* MyDateViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
