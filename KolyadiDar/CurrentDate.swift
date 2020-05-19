@@ -74,4 +74,16 @@ class CurrentDate {
         let currentDateString = dateFormatter.string(from: currentDate)
         return currentDateString
     }
+    
+    func getDifferenceTime(year: Int, month: Int, day: Int, hour: Int) -> Int {
+        let calendar = Calendar.current
+        var dateComponents = DateComponents()
+        dateComponents.year = year
+        dateComponents.month = month
+        dateComponents.day = day
+        dateComponents.hour = hour
+        let dateFromDC = calendar.date(from: dateComponents as DateComponents)
+        let difference = Int(-((dateFromDC?.timeIntervalSinceNow)!))
+        return difference
+    }
 }

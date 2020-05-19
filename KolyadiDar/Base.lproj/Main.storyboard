@@ -30,7 +30,7 @@
                                             <constraint firstAttribute="height" constant="36" id="Xbb-MY-hFb"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="40"/>
-                                        <color key="textColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=":" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hf4-IL-0H6">
@@ -45,15 +45,14 @@
                                             <constraint firstAttribute="height" constant="36" id="Rca-nY-fNL"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="40"/>
-                                        <color key="textColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iPD-vn-Yc7">
-                                <rect key="frame" x="74" y="160" width="101" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="40"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iPD-vn-Yc7">
+                                <rect key="frame" x="64" y="203" width="69.5" height="44"/>
+                                <fontDescription key="fontDescription" name="-Normal" family="Родникъ" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -63,157 +62,136 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="С.М.З.Х." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y4A-Dt-Va6">
-                                <rect key="frame" x="180" y="174" width="61" height="23.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Сороковник" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4NK-Yr-Ikp">
+                                <rect key="frame" x="108" y="170" width="105.5" height="29.5"/>
+                                <fontDescription key="fontDescription" name="-Normal" family="Родникъ" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="День " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4C0-gc-7HD">
+                                <rect key="frame" x="8" y="170" width="51.5" height="29.5"/>
+                                <fontDescription key="fontDescription" name="-Normal" family="Родникъ" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Лето" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X6f-M8-VF0">
+                                <rect key="frame" x="8" y="211" width="42.5" height="29.5"/>
+                                <fontDescription key="fontDescription" name="-Normal" family="Родникъ" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Чертог" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9xu-pn-Bfd">
+                                <rect key="frame" x="8" y="386.5" width="61.5" height="29.5"/>
+                                <fontDescription key="fontDescription" name="-Normal" family="Родникъ" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Событие" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eei-cI-3ho">
+                                <rect key="frame" x="8" y="336.5" width="98" height="36.5"/>
+                                <fontDescription key="fontDescription" name="-Normal" family="Родникъ" pointSize="25"/>
+                                <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uax-A3-tse">
+                                <rect key="frame" x="8" y="249" width="35" height="44"/>
+                                <fontDescription key="fontDescription" name="-Normal" family="Родникъ" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Название лета" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TLO-MX-kzC">
+                                <rect key="frame" x="8" y="294.5" width="129" height="29.5"/>
+                                <fontDescription key="fontDescription" name="-Normal" family="Родникъ" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Пер дня" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VSN-Fa-3Jt">
+                                <rect key="frame" x="136" y="97" width="73" height="29.5"/>
+                                <fontDescription key="fontDescription" name="-Normal" family="Родникъ" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bBr-zp-GEk">
+                                <rect key="frame" x="64" y="159" width="35" height="44"/>
+                                <fontDescription key="fontDescription" name="-Normal" family="Родникъ" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Назв часа" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IgQ-mg-dEo">
+                                <rect key="frame" x="8" y="98" width="89" height="29.5"/>
+                                <fontDescription key="fontDescription" name="-Normal" family="Родникъ" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Полн назв часа" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UpH-A5-4iy">
+                                <rect key="frame" x="8" y="132" width="304" height="25"/>
+                                <fontDescription key="fontDescription" name="-Normal" family="Родникъ" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="С.М.З.Х." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y4A-Dt-Va6">
+                                <rect key="frame" x="142" y="215" width="61" height="23.5"/>
                                 <fontDescription key="fontDescription" name="-Normal" family="Родникъ" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4NK-Yr-Ikp">
-                                <rect key="frame" x="129" y="138" width="103" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Название чертога" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GWn-TC-ixV">
+                                <rect key="frame" x="87" y="386.5" width="158.5" height="29.5"/>
+                                <fontDescription key="fontDescription" name="-Normal" family="Родникъ" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="День " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4C0-gc-7HD">
-                                <rect key="frame" x="16" y="98" width="45" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Сороковник" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aad-Gd-Ugg">
-                                <rect key="frame" x="16" y="138" width="98" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Лето" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X6f-M8-VF0">
-                                <rect key="frame" x="16" y="174" width="39" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Лето в Круге лет" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Urp-0F-DBg">
-                                <rect key="frame" x="16" y="274" width="133" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Событие" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9fF-pk-nec">
-                                <rect key="frame" x="16" y="235" width="71" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Название Лета" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DRR-kx-Dle">
-                                <rect key="frame" x="16" y="303" width="120" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Чертог" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9xu-pn-Bfd">
-                                <rect key="frame" x="16" y="344" width="56" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Период дня" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gsr-Cf-Rfk">
-                                <rect key="frame" x="16" y="387" width="95" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Название часа" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bYh-je-sSo">
-                                <rect key="frame" x="16" y="427" width="119" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Расш. названия часа" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5I8-KU-c0S">
-                                <rect key="frame" x="16" y="456" width="167" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Событ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eei-cI-3ho">
-                                <rect key="frame" x="246" y="235" width="52" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="№ лета" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uax-A3-tse">
-                                <rect key="frame" x="246" y="274" width="59" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Назв лета" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TLO-MX-kzC">
-                                <rect key="frame" x="226" y="302" width="79" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Назв черт" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GWn-TC-ixV">
-                                <rect key="frame" x="226" y="344" width="80" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Пер дня" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VSN-Fa-3Jt">
-                                <rect key="frame" x="226" y="387" width="65" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Назв часа" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IgQ-mg-dEo">
-                                <rect key="frame" x="226" y="427" width="81" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Полн назв часа" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UpH-A5-4iy">
-                                <rect key="frame" x="188" y="456" width="124" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bBr-zp-GEk">
-                                <rect key="frame" x="161" y="95" width="55" height="36"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="36" id="i4p-DI-TYx"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Лето в Круге лет" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Urp-0F-DBg">
+                                <rect key="frame" x="50" y="260" width="153" height="29.5"/>
+                                <fontDescription key="fontDescription" name="-Normal" family="Родникъ" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="bBr-zp-GEk" firstAttribute="leading" secondItem="4C0-gc-7HD" secondAttribute="trailing" constant="100" id="0gC-Df-jN7"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="Urp-0F-DBg" secondAttribute="trailing" constant="117" id="2iq-4R-xlC"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="VSN-Fa-3Jt" secondAttribute="trailing" constant="111" id="3fe-sj-dkA"/>
+                            <constraint firstItem="UpH-A5-4iy" firstAttribute="top" secondItem="IgQ-mg-dEo" secondAttribute="bottom" constant="4.5" id="3oG-cH-Zla"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="TLO-MX-kzC" secondAttribute="trailing" constant="183" id="4dq-l8-Qch"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="cRe-Tg-Oqt" secondAttribute="trailing" constant="122.5" id="8Cj-Te-6bd"/>
                             <constraint firstItem="QDG-hj-C5b" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="9iC-Gi-K9t"/>
+                            <constraint firstItem="Uax-A3-tse" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="A2B-7o-qrJ"/>
+                            <constraint firstItem="Uax-A3-tse" firstAttribute="top" secondItem="X6f-M8-VF0" secondAttribute="bottom" constant="8.5" id="B09-we-eRW"/>
+                            <constraint firstItem="9xu-pn-Bfd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="BUi-e4-Fwp"/>
+                            <constraint firstItem="4NK-Yr-Ikp" firstAttribute="top" secondItem="UpH-A5-4iy" secondAttribute="bottom" constant="13" id="Bre-Qx-gZA"/>
+                            <constraint firstItem="GWn-TC-ixV" firstAttribute="top" secondItem="Eei-cI-3ho" secondAttribute="bottom" constant="13.5" id="E9B-Mx-ulE"/>
+                            <constraint firstItem="9xu-pn-Bfd" firstAttribute="top" secondItem="Eei-cI-3ho" secondAttribute="bottom" constant="13.5" id="Eb6-J8-b3J"/>
+                            <constraint firstItem="VSN-Fa-3Jt" firstAttribute="leading" secondItem="IgQ-mg-dEo" secondAttribute="trailing" constant="39" id="Efn-3G-mSz"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="UpH-A5-4iy" secondAttribute="trailing" constant="8" id="FwR-gd-gE7"/>
                             <constraint firstItem="cRe-Tg-Oqt" firstAttribute="leading" secondItem="QDG-hj-C5b" secondAttribute="trailing" constant="-0.5" id="Gba-Zl-vFn"/>
-                            <constraint firstItem="4C0-gc-7HD" firstAttribute="top" secondItem="S2A-y6-a9a" secondAttribute="bottom" constant="8" id="Gm0-r0-G54"/>
+                            <constraint firstItem="4C0-gc-7HD" firstAttribute="top" secondItem="UpH-A5-4iy" secondAttribute="bottom" constant="13" id="JIl-o2-x7B"/>
+                            <constraint firstItem="GWn-TC-ixV" firstAttribute="leading" secondItem="9xu-pn-Bfd" secondAttribute="trailing" constant="17.5" id="LGC-e3-z0N"/>
                             <constraint firstItem="QDG-hj-C5b" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="LXj-KC-NAC"/>
-                            <constraint firstItem="bBr-zp-GEk" firstAttribute="top" secondItem="cRe-Tg-Oqt" secondAttribute="bottom" constant="6" id="dSh-0L-EUr"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="Eei-cI-3ho" secondAttribute="trailing" constant="214" id="Ram-UU-YPy"/>
+                            <constraint firstItem="bBr-zp-GEk" firstAttribute="top" secondItem="UpH-A5-4iy" secondAttribute="bottom" constant="2" id="Ryi-j0-zWt"/>
+                            <constraint firstItem="Urp-0F-DBg" firstAttribute="leading" secondItem="Uax-A3-tse" secondAttribute="trailing" constant="7" id="VGR-0V-xmy"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="4NK-Yr-Ikp" secondAttribute="trailing" constant="106.5" id="X9g-oz-hQq"/>
+                            <constraint firstItem="iPD-vn-Yc7" firstAttribute="leading" secondItem="X6f-M8-VF0" secondAttribute="trailing" constant="13.5" id="Xls-xu-RZq"/>
+                            <constraint firstItem="y4A-Dt-Va6" firstAttribute="top" secondItem="4NK-Yr-Ikp" secondAttribute="bottom" constant="15.5" id="c5M-Ga-RA8"/>
+                            <constraint firstItem="X6f-M8-VF0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="d4q-zW-ual"/>
                             <constraint firstItem="cRe-Tg-Oqt" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="21" id="e2q-UL-zew"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="y4A-Dt-Va6" secondAttribute="trailing" constant="79" id="t0E-hm-Pg8"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="GWn-TC-ixV" secondAttribute="trailing" constant="74.5" id="ezu-zx-enn"/>
+                            <constraint firstItem="Eei-cI-3ho" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="fJO-6i-IPo"/>
+                            <constraint firstItem="4NK-Yr-Ikp" firstAttribute="leading" secondItem="bBr-zp-GEk" secondAttribute="trailing" constant="9" id="iuH-LL-MZR"/>
+                            <constraint firstItem="TLO-MX-kzC" firstAttribute="top" secondItem="Urp-0F-DBg" secondAttribute="bottom" constant="5" id="j4x-RD-dZZ"/>
+                            <constraint firstItem="TLO-MX-kzC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="jLo-mZ-yTK"/>
+                            <constraint firstItem="4C0-gc-7HD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="lBu-qM-Olx"/>
+                            <constraint firstItem="Eei-cI-3ho" firstAttribute="top" secondItem="TLO-MX-kzC" secondAttribute="bottom" constant="12.5" id="lfr-ah-fgQ"/>
+                            <constraint firstItem="X6f-M8-VF0" firstAttribute="top" secondItem="4C0-gc-7HD" secondAttribute="bottom" constant="11.5" id="n3o-6t-qVI"/>
+                            <constraint firstItem="IgQ-mg-dEo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="naF-zF-04S"/>
+                            <constraint firstItem="Urp-0F-DBg" firstAttribute="top" secondItem="iPD-vn-Yc7" secondAttribute="bottom" constant="13" id="qZD-dX-HqV"/>
+                            <constraint firstItem="UpH-A5-4iy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="srg-7X-tcM"/>
+                            <constraint firstItem="iPD-vn-Yc7" firstAttribute="top" secondItem="bBr-zp-GEk" secondAttribute="bottom" id="tTm-t6-lRq"/>
+                            <constraint firstItem="y4A-Dt-Va6" firstAttribute="leading" secondItem="iPD-vn-Yc7" secondAttribute="trailing" constant="8.5" id="u9I-bo-eWu"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="y4A-Dt-Va6" secondAttribute="trailing" constant="117" id="uzK-DR-wZh"/>
+                            <constraint firstItem="bBr-zp-GEk" firstAttribute="leading" secondItem="4C0-gc-7HD" secondAttribute="trailing" constant="4.5" id="wjl-Dx-G11"/>
+                            <constraint firstItem="IgQ-mg-dEo" firstAttribute="top" secondItem="S2A-y6-a9a" secondAttribute="bottom" constant="8" id="zM3-EL-Zki"/>
+                            <constraint firstItem="VSN-Fa-3Jt" firstAttribute="top" secondItem="cRe-Tg-Oqt" secondAttribute="bottom" constant="8" id="zwl-HG-JwS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
