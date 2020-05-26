@@ -15,19 +15,22 @@ class CurrentViewController: UIViewController {
     @IBOutlet weak var secondLabel: UILabel!
     @IBOutlet weak var sepLabel: UILabel!
     
-    @IBOutlet weak var dayLabel: UILabel!
     @IBOutlet weak var monthLabel: UILabel!
+    @IBOutlet weak var fullTitleOfMonth: UILabel!
     @IBOutlet weak var letoLabel: UILabel!
     @IBOutlet weak var numberOfYear: UILabel!
+    @IBOutlet weak var numberOfYearInRoundOfLife: UILabel!
     @IBOutlet weak var titleOfYear: UILabel!
     
     @IBOutlet weak var titleOfHour: UILabel!
     @IBOutlet weak var fullTitleOfHour: UILabel!
-    @IBOutlet weak var periodOfDay: UILabel!
     @IBOutlet weak var titleOfConstellation: UILabel!
     
     @IBOutlet weak var holidayLabel: UILabel!
     @IBOutlet weak var dayOfWeekLabel: UILabel!
+    @IBOutlet weak var runesOfHour: UIImageView!
+    @IBOutlet weak var scratchesOfHour: UIImageView!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     var currentDate = CurrentDate()
     var timer = Timer()
@@ -39,6 +42,7 @@ class CurrentViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        scrollView.showsVerticalScrollIndicator = false
     }
     
     /*
@@ -61,8 +65,12 @@ class CurrentViewController: UIViewController {
             
             if oldH < 10 {
                 hourLabel.text = "0\(oldH)"
+                runesOfHour.image = UIImage(named: "runes_\(hourLabel.text!)")
+                scratchesOfHour.image = UIImage(named: "scr_\(hourLabel.text!)")
             } else if oldH >= 10 {
                 hourLabel.text = "\(oldH)"
+                runesOfHour.image = UIImage(named: "runes_\(hourLabel.text!)")
+                scratchesOfHour.image = UIImage(named: "scr_\(hourLabel.text!)")
             }
             
             if oldM < 10 {
@@ -74,13 +82,13 @@ class CurrentViewController: UIViewController {
             }
             
             if oldS < 10 {
-                secondLabel.text = ".000\(oldS)"
+                secondLabel.text = "000\(oldS)"
             } else if oldS >= 10 && oldS < 100 {
-                secondLabel.text = ".00\(oldS)"
+                secondLabel.text = "00\(oldS)"
             } else if oldS >= 100 && oldS < 1000 {
-                secondLabel.text = ".0\(oldS)"
+                secondLabel.text = "0\(oldS)"
             } else if oldS >= 1000 {
-                secondLabel.text = ".\(oldS)"
+                secondLabel.text = "\(oldS)"
             }
         } else if hour > 18 {
             let time = (hour - 18) * 3600 + minute * 60 + second
@@ -93,8 +101,12 @@ class CurrentViewController: UIViewController {
             
             if oldH < 10 {
                 hourLabel.text = "0\(oldH)"
+                runesOfHour.image = UIImage(named: "runes_\(hourLabel.text!)")
+                scratchesOfHour.image = UIImage(named: "scr_\(hourLabel.text!)")
             } else if oldH >= 10 {
                 hourLabel.text = "\(oldH)"
+                runesOfHour.image = UIImage(named: "runes_\(hourLabel.text!)")
+                scratchesOfHour.image = UIImage(named: "scr_\(hourLabel.text!)")
             }
             
             if oldM < 10 {
@@ -138,36 +150,42 @@ class CurrentViewController: UIViewController {
             let differenceMinute = differenceSecond / 60
             let differenceHour = differenceMinute / 90
             let differenceDay = differenceHour / 16
+            
+            if differenceDay >= 0 && differenceDay <= 40 {
+                monthLabel.text = "Рамхатъ, день \(differenceDay + 1)"
+                fullTitleOfMonth.text = "Сороковник Божественного Начала"
+            } else if differenceDay >= 41 && differenceDay <= 80 {
+                monthLabel.text = "Айлѣтъ, день \(differenceDay - 40)"
+                fullTitleOfMonth.text = "Сороковник Новых Даров"
+            } else if differenceDay >= 81 && differenceDay <= 121 {
+                monthLabel.text = "Бейлѣтъ, день \(differenceDay - 80)"
+                fullTitleOfMonth.text = "Сороковник Белого Сияния и Покоя Мира"
+            } else if differenceDay >= 122 && differenceDay <= 161 {
+                monthLabel.text = "Гэйлѣтъ, день \(differenceDay - 121)"
+                fullTitleOfMonth.text = "Сороковник Вьюг и Стужи"
+            } else if differenceDay >= 162 && differenceDay <= 202 {
+                monthLabel.text = "Дайлѣтъ, день \(differenceDay - 161)"
+                fullTitleOfMonth.text = "Сороковник Пробуждения Природы"
+            } else if differenceDay >= 203 && differenceDay <= 242 {
+                monthLabel.text = "Элѣтъ, день \(differenceDay - 202)"
+                fullTitleOfMonth.text = "Сороковник Посева и Наречения"
+            } else if differenceDay >= 243 && differenceDay <= 283 {
+                monthLabel.text = "Вэйлѣтъ, день \(differenceDay - 242)"
+                fullTitleOfMonth.text = "Сороковник Ветров"
+            } else if differenceDay >= 284 && differenceDay <= 323 {
+                monthLabel.text = "Хейлѣтъ, день \(differenceDay - 283)"
+                fullTitleOfMonth.text = "Сороковник Получения Даров Природы"
+            } else if differenceDay >= 324 && differenceDay <= 364 {
+                monthLabel.text = "Тайлѣтъ, день \(differenceDay - 323)"
+                fullTitleOfMonth.text = "Сороковник Завершения"
+            }
+            
             let oldDayOfWeek = Int(Double(differenceDay).truncatingRemainder(dividingBy: 9))
-            let endMonth = Int(differenceDay / 41)
-            let addOldDay = Int(endMonth / 2)
-            let endDay = Int(Double(differenceDay).truncatingRemainder(dividingBy: 41)) + addOldDay
-            
-            //let oldHour = Int(Double(differenceHour).truncatingRemainder(dividingBy: 16))
-            let oldMonth = endMonth + 1
-            let oldDay = endDay + 1
-            
-            dayLabel.text = String(oldDay)
-            dayOfWeekLabel.text = (OldDaysOfWeek.init().dayOfWeek(day: oldDayOfWeek - 1))
-            
-            if oldMonth == 1 {
-                monthLabel.text = "Рамхатъ"
-            } else if oldMonth == 2 {
-                monthLabel.text = "Айлѣтъ"
-            } else if oldMonth == 3 {
-                monthLabel.text = "Бейлѣтъ"
-            } else if oldMonth == 4 {
-                monthLabel.text = "Гэйлѣтъ"
-            } else if oldMonth == 5 {
-                monthLabel.text = "Дайлѣтъ"
-            } else if oldMonth == 6 {
-                monthLabel.text = "Элѣтъ"
-            } else if oldMonth == 7 {
-                monthLabel.text = "Вэйлѣтъ"
-            } else if oldMonth == 8 {
-                monthLabel.text = "Хейлѣтъ"
-            } else if oldMonth == 9 {
-                monthLabel.text = "Тайлѣтъ"
+            if oldDayOfWeek != 0 {
+                dayOfWeekLabel.text = (OldDaysOfWeek.init().dayOfWeek(day: oldDayOfWeek - 1))
+            } else {
+                dayOfWeekLabel.text = (OldDaysOfWeek.init().dayOfWeek(day: 8))
+                dayOfWeekLabel.textColor = .red
             }
         }
         else if oldYearsNumber == 4 {
@@ -190,36 +208,42 @@ class CurrentViewController: UIViewController {
             let differenceMinute = differenceSecond / 60
             let differenceHour = differenceMinute / 90
             let differenceDay = differenceHour / 16
+            
+            if differenceDay >= 0 && differenceDay <= 40 {
+                monthLabel.text = "Рамхатъ, день \(differenceDay + 1)"
+                fullTitleOfMonth.text = "Сороковник Божественного Начала"
+            } else if differenceDay >= 41 && differenceDay <= 80 {
+                monthLabel.text = "Айлѣтъ, день \(differenceDay - 40)"
+                fullTitleOfMonth.text = "Сороковник Новых Даров"
+            } else if differenceDay >= 81 && differenceDay <= 121 {
+                monthLabel.text = "Бейлѣтъ, день \(differenceDay - 80)"
+                fullTitleOfMonth.text = "Сороковник Белого Сияния и Покоя Мира"
+            } else if differenceDay >= 122 && differenceDay <= 161 {
+                monthLabel.text = "Гэйлѣтъ, день \(differenceDay - 121)"
+                fullTitleOfMonth.text = "Сороковник Вьюг и Стужи"
+            } else if differenceDay >= 162 && differenceDay <= 202 {
+                monthLabel.text = "Дайлѣтъ, день \(differenceDay - 161)"
+                fullTitleOfMonth.text = "Сороковник Пробуждения Природы"
+            } else if differenceDay >= 203 && differenceDay <= 242 {
+                monthLabel.text = "Элѣтъ, день \(differenceDay - 202)"
+                fullTitleOfMonth.text = "Сороковник Посева и Наречения"
+            } else if differenceDay >= 243 && differenceDay <= 283 {
+                monthLabel.text = "Вэйлѣтъ, день \(differenceDay - 242)"
+                fullTitleOfMonth.text = "Сороковник Ветров"
+            } else if differenceDay >= 284 && differenceDay <= 323 {
+                monthLabel.text = "Хейлѣтъ, день \(differenceDay - 283)"
+                fullTitleOfMonth.text = "Сороковник Получения Даров Природы"
+            } else if differenceDay >= 324 && differenceDay <= 364 {
+                monthLabel.text = "Тайлѣтъ, день \(differenceDay - 323)"
+                fullTitleOfMonth.text = "Сороковник Завершения"
+            }
+            
             let oldDayOfWeek = Int(Double(differenceDay).truncatingRemainder(dividingBy: 9))
-            let endMonth = Int(differenceDay / 41)
-            let addOldDay = Int(endMonth / 2)
-            let endDay = Int(Double(differenceDay).truncatingRemainder(dividingBy: 41)) + addOldDay
-            
-            //let oldHour = Int(Double(differenceHour).truncatingRemainder(dividingBy: 16))
-            let oldMonth = endMonth + 1
-            let oldDay = endDay + 1
-            
-            dayLabel.text = String(oldDay)
-            dayOfWeekLabel.text = (OldDaysOfWeek.init().dayOfWeek(day: oldDayOfWeek - 1))
-            
-            if oldMonth == 1 {
-                monthLabel.text = "Рамхатъ"
-            } else if oldMonth == 2 {
-                monthLabel.text = "Айлѣтъ"
-            } else if oldMonth == 3 {
-                monthLabel.text = "Бейлѣтъ"
-            } else if oldMonth == 4 {
-                monthLabel.text = "Гэйлѣтъ"
-            } else if oldMonth == 5 {
-                monthLabel.text = "Дайлѣтъ"
-            } else if oldMonth == 6 {
-                monthLabel.text = "Элѣтъ"
-            } else if oldMonth == 7 {
-                monthLabel.text = "Вэйлѣтъ"
-            } else if oldMonth == 8 {
-                monthLabel.text = "Хейлѣтъ"
-            } else if oldMonth == 9 {
-                monthLabel.text = "Тайлѣтъ"
+            if oldDayOfWeek != 0 {
+                dayOfWeekLabel.text = (OldDaysOfWeek.init().dayOfWeek(day: oldDayOfWeek - 1))
+            } else {
+                dayOfWeekLabel.text = (OldDaysOfWeek.init().dayOfWeek(day: 8))
+                dayOfWeekLabel.textColor = .red
             }
         }
         else if oldYearsNumber >= 5 && oldYearsNumber <= 7 {
@@ -242,36 +266,42 @@ class CurrentViewController: UIViewController {
             let differenceMinute = differenceSecond / 60
             let differenceHour = differenceMinute / 90
             let differenceDay = differenceHour / 16
+            
+            if differenceDay >= 0 && differenceDay <= 40 {
+                monthLabel.text = "Рамхатъ, день \(differenceDay + 1)"
+                fullTitleOfMonth.text = "Сороковник Божественного Начала"
+            } else if differenceDay >= 41 && differenceDay <= 80 {
+                monthLabel.text = "Айлѣтъ, день \(differenceDay - 40)"
+                fullTitleOfMonth.text = "Сороковник Новых Даров"
+            } else if differenceDay >= 81 && differenceDay <= 121 {
+                monthLabel.text = "Бейлѣтъ, день \(differenceDay - 80)"
+                fullTitleOfMonth.text = "Сороковник Белого Сияния и Покоя Мира"
+            } else if differenceDay >= 122 && differenceDay <= 161 {
+                monthLabel.text = "Гэйлѣтъ, день \(differenceDay - 121)"
+                fullTitleOfMonth.text = "Сороковник Вьюг и Стужи"
+            } else if differenceDay >= 162 && differenceDay <= 202 {
+                monthLabel.text = "Дайлѣтъ, день \(differenceDay - 161)"
+                fullTitleOfMonth.text = "Сороковник Пробуждения Природы"
+            } else if differenceDay >= 203 && differenceDay <= 242 {
+                monthLabel.text = "Элѣтъ, день \(differenceDay - 202)"
+                fullTitleOfMonth.text = "Сороковник Посева и Наречения"
+            } else if differenceDay >= 243 && differenceDay <= 283 {
+                monthLabel.text = "Вэйлѣтъ, день \(differenceDay - 242)"
+                fullTitleOfMonth.text = "Сороковник Ветров"
+            } else if differenceDay >= 284 && differenceDay <= 323 {
+                monthLabel.text = "Хейлѣтъ, день \(differenceDay - 283)"
+                fullTitleOfMonth.text = "Сороковник Получения Даров Природы"
+            } else if differenceDay >= 324 && differenceDay <= 364 {
+                monthLabel.text = "Тайлѣтъ, день \(differenceDay - 323)"
+                fullTitleOfMonth.text = "Сороковник Завершения"
+            }
+            
             let oldDayOfWeek = Int(Double(differenceDay).truncatingRemainder(dividingBy: 9))
-            let endMonth = Int(differenceDay / 41)
-            let addOldDay = Int(endMonth / 2)
-            let endDay = Int(Double(differenceDay).truncatingRemainder(dividingBy: 41)) + addOldDay
-            
-            //let oldHour = Int(Double(differenceHour).truncatingRemainder(dividingBy: 16))
-            let oldMonth = endMonth + 1
-            let oldDay = endDay + 1
-            
-            dayLabel.text = String(oldDay)
-            dayOfWeekLabel.text = (OldDaysOfWeek.init().dayOfWeek(day: oldDayOfWeek - 1))
-            
-            if oldMonth == 1 {
-                monthLabel.text = "Рамхатъ"
-            } else if oldMonth == 2 {
-                monthLabel.text = "Айлѣтъ"
-            } else if oldMonth == 3 {
-                monthLabel.text = "Бейлѣтъ"
-            } else if oldMonth == 4 {
-                monthLabel.text = "Гэйлѣтъ"
-            } else if oldMonth == 5 {
-                monthLabel.text = "Дайлѣтъ"
-            } else if oldMonth == 6 {
-                monthLabel.text = "Элѣтъ"
-            } else if oldMonth == 7 {
-                monthLabel.text = "Вэйлѣтъ"
-            } else if oldMonth == 8 {
-                monthLabel.text = "Хейлѣтъ"
-            } else if oldMonth == 9 {
-                monthLabel.text = "Тайлѣтъ"
+            if oldDayOfWeek != 0 {
+                dayOfWeekLabel.text = (OldDaysOfWeek.init().dayOfWeek(day: oldDayOfWeek - 1))
+            } else {
+                dayOfWeekLabel.text = (OldDaysOfWeek.init().dayOfWeek(day: 8))
+                dayOfWeekLabel.textColor = .red
             }
         }
         else if oldYearsNumber == 8 {
@@ -290,40 +320,55 @@ class CurrentViewController: UIViewController {
             let startMonth = 9
             let startDay = 21
             let startHour = 18
+            
             let differenceSecond = currentDate.getDifferenceTime(year: startYear, month: startMonth, day: startDay, hour: startHour)
             let differenceMinute = differenceSecond / 60
             let differenceHour = differenceMinute / 90
             let differenceDay = differenceHour / 16
+            
+            if differenceDay >= 0 && differenceDay <= 40 {
+                monthLabel.text = "Рамхатъ, день \(differenceDay + 1)"
+                fullTitleOfMonth.text = "Сороковник Божественного Начала"
+            } else if differenceDay >= 41 && differenceDay <= 80 {
+                monthLabel.text = "Айлѣтъ, день \(differenceDay - 40)"
+                fullTitleOfMonth.text = "Сороковник Новых Даров"
+            } else if differenceDay >= 81 && differenceDay <= 121 {
+                monthLabel.text = "Бейлѣтъ, день \(differenceDay - 80)"
+                fullTitleOfMonth.text = "Сороковник Белого Сияния и Покоя Мира"
+            } else if differenceDay >= 122 && differenceDay <= 161 {
+                monthLabel.text = "Гэйлѣтъ, день \(differenceDay - 121)"
+                fullTitleOfMonth.text = "Сороковник Вьюг и Стужи"
+            } else if differenceDay >= 162 && differenceDay <= 202 {
+                monthLabel.text = "Дайлѣтъ, день \(differenceDay - 161)"
+                fullTitleOfMonth.text = "Сороковник Пробуждения Природы"
+            } else if differenceDay >= 203 && differenceDay <= 242 {
+                monthLabel.text = "Элѣтъ, день \(differenceDay - 202)"
+                fullTitleOfMonth.text = "Сороковник Посева и Наречения"
+            } else if differenceDay >= 243 && differenceDay <= 283 {
+                monthLabel.text = "Вэйлѣтъ, день \(differenceDay - 242)"
+                fullTitleOfMonth.text = "Сороковник Ветров"
+            } else if differenceDay >= 284 && differenceDay <= 323 {
+                monthLabel.text = "Хейлѣтъ, день \(differenceDay - 283)"
+                fullTitleOfMonth.text = "Сороковник Получения Даров Природы"
+            } else if differenceDay >= 324 && differenceDay <= 364 {
+                monthLabel.text = "Тайлѣтъ, день \(differenceDay - 323)"
+                fullTitleOfMonth.text = "Сороковник Завершения"
+            }
+            
+            if differenceDay >= 0 && differenceDay <= 20 {
+                titleOfConstellation.text = "Чертог Вепря"
+            } else if differenceDay >= 21 && differenceDay >= 43 {
+                titleOfConstellation.text = "Чертог Щуки"
+            } else if differenceDay >= 21 && differenceDay >= 43 {
+                titleOfConstellation.text = "Чертог Щуки"
+            }
+            
             let oldDayOfWeek = Int(Double(differenceDay).truncatingRemainder(dividingBy: 9))
-            let endMonth = Int(differenceDay / 41)
-            let addOldDay = Int(endMonth / 2)
-            let endDay = Int(Double(differenceDay).truncatingRemainder(dividingBy: 41)) + addOldDay
-            
-            //let oldHour = Int(Double(differenceHour).truncatingRemainder(dividingBy: 16))
-            let oldMonth = endMonth + 1
-            let oldDay = endDay + 1
-            
-            dayLabel.text = String(oldDay)
-            dayOfWeekLabel.text = (OldDaysOfWeek.init().dayOfWeek(day: oldDayOfWeek - 1))
-            
-            if oldMonth == 1 {
-                monthLabel.text = "Рамхатъ"
-            } else if oldMonth == 2 {
-                monthLabel.text = "Айлѣтъ"
-            } else if oldMonth == 3 {
-                monthLabel.text = "Бейлѣтъ"
-            } else if oldMonth == 4 {
-                monthLabel.text = "Гэйлѣтъ"
-            } else if oldMonth == 5 {
-                monthLabel.text = "Дайлѣтъ"
-            } else if oldMonth == 6 {
-                monthLabel.text = "Элѣтъ"
-            } else if oldMonth == 7 {
-                monthLabel.text = "Вэйлѣтъ"
-            } else if oldMonth == 8 {
-                monthLabel.text = "Хейлѣтъ"
-            } else if oldMonth == 9 {
-                monthLabel.text = "Тайлѣтъ"
+            if oldDayOfWeek != 0 {
+                dayOfWeekLabel.text = (OldDaysOfWeek.init().dayOfWeek(day: oldDayOfWeek - 1))
+            } else {
+                dayOfWeekLabel.text = (OldDaysOfWeek.init().dayOfWeek(day: 8))
+                dayOfWeekLabel.textColor = .red
             }
         }
         else if oldYearsNumber >= 9 && oldYearsNumber <= 11 {
@@ -346,36 +391,42 @@ class CurrentViewController: UIViewController {
             let differenceMinute = differenceSecond / 60
             let differenceHour = differenceMinute / 90
             let differenceDay = differenceHour / 16
+            
+            if differenceDay >= 0 && differenceDay <= 40 {
+                monthLabel.text = "Рамхатъ, день \(differenceDay + 1)"
+                fullTitleOfMonth.text = "Сороковник Божественного Начала"
+            } else if differenceDay >= 41 && differenceDay <= 80 {
+                monthLabel.text = "Айлѣтъ, день \(differenceDay - 40)"
+                fullTitleOfMonth.text = "Сороковник Новых Даров"
+            } else if differenceDay >= 81 && differenceDay <= 121 {
+                monthLabel.text = "Бейлѣтъ, день \(differenceDay - 80)"
+                fullTitleOfMonth.text = "Сороковник Белого Сияния и Покоя Мира"
+            } else if differenceDay >= 122 && differenceDay <= 161 {
+                monthLabel.text = "Гэйлѣтъ, день \(differenceDay - 121)"
+                fullTitleOfMonth.text = "Сороковник Вьюг и Стужи"
+            } else if differenceDay >= 162 && differenceDay <= 202 {
+                monthLabel.text = "Дайлѣтъ, день \(differenceDay - 161)"
+                fullTitleOfMonth.text = "Сороковник Пробуждения Природы"
+            } else if differenceDay >= 203 && differenceDay <= 242 {
+                monthLabel.text = "Элѣтъ, день \(differenceDay - 202)"
+                fullTitleOfMonth.text = "Сороковник Посева и Наречения"
+            } else if differenceDay >= 243 && differenceDay <= 283 {
+                monthLabel.text = "Вэйлѣтъ, день \(differenceDay - 242)"
+                fullTitleOfMonth.text = "Сороковник Ветров"
+            } else if differenceDay >= 284 && differenceDay <= 323 {
+                monthLabel.text = "Хейлѣтъ, день \(differenceDay - 283)"
+                fullTitleOfMonth.text = "Сороковник Получения Даров Природы"
+            } else if differenceDay >= 324 && differenceDay <= 364 {
+                monthLabel.text = "Тайлѣтъ, день \(differenceDay - 323)"
+                fullTitleOfMonth.text = "Сороковник Завершения"
+            }
+            
             let oldDayOfWeek = Int(Double(differenceDay).truncatingRemainder(dividingBy: 9))
-            let endMonth = Int(differenceDay / 41)
-            let addOldDay = Int(endMonth / 2)
-            let endDay = Int(Double(differenceDay).truncatingRemainder(dividingBy: 41)) + addOldDay
-            
-            //let oldHour = Int(Double(differenceHour).truncatingRemainder(dividingBy: 16))
-            let oldMonth = endMonth + 1
-            let oldDay = endDay + 1
-            
-            dayLabel.text = String(oldDay)
-            dayOfWeekLabel.text = (OldDaysOfWeek.init().dayOfWeek(day: oldDayOfWeek - 1))
-            
-            if oldMonth == 1 {
-                monthLabel.text = "Рамхатъ"
-            } else if oldMonth == 2 {
-                monthLabel.text = "Айлѣтъ"
-            } else if oldMonth == 3 {
-                monthLabel.text = "Бейлѣтъ"
-            } else if oldMonth == 4 {
-                monthLabel.text = "Гэйлѣтъ"
-            } else if oldMonth == 5 {
-                monthLabel.text = "Дайлѣтъ"
-            } else if oldMonth == 6 {
-                monthLabel.text = "Элѣтъ"
-            } else if oldMonth == 7 {
-                monthLabel.text = "Вэйлѣтъ"
-            } else if oldMonth == 8 {
-                monthLabel.text = "Хейлѣтъ"
-            } else if oldMonth == 9 {
-                monthLabel.text = "Тайлѣтъ"
+            if oldDayOfWeek != 0 {
+                dayOfWeekLabel.text = (OldDaysOfWeek.init().dayOfWeek(day: oldDayOfWeek - 1))
+            } else {
+                dayOfWeekLabel.text = (OldDaysOfWeek.init().dayOfWeek(day: 8))
+                dayOfWeekLabel.textColor = .red
             }
         }
         else if oldYearsNumber == 12 {
@@ -398,36 +449,42 @@ class CurrentViewController: UIViewController {
             let differenceMinute = differenceSecond / 60
             let differenceHour = differenceMinute / 90
             let differenceDay = differenceHour / 16
+            
+            if differenceDay >= 0 && differenceDay <= 40 {
+                monthLabel.text = "Рамхатъ, день \(differenceDay + 1)"
+                fullTitleOfMonth.text = "Сороковник Божественного Начала"
+            } else if differenceDay >= 41 && differenceDay <= 80 {
+                monthLabel.text = "Айлѣтъ, день \(differenceDay - 40)"
+                fullTitleOfMonth.text = "Сороковник Новых Даров"
+            } else if differenceDay >= 81 && differenceDay <= 121 {
+                monthLabel.text = "Бейлѣтъ, день \(differenceDay - 80)"
+                fullTitleOfMonth.text = "Сороковник Белого Сияния и Покоя Мира"
+            } else if differenceDay >= 122 && differenceDay <= 161 {
+                monthLabel.text = "Гэйлѣтъ, день \(differenceDay - 121)"
+                fullTitleOfMonth.text = "Сороковник Вьюг и Стужи"
+            } else if differenceDay >= 162 && differenceDay <= 202 {
+                monthLabel.text = "Дайлѣтъ, день \(differenceDay - 161)"
+                fullTitleOfMonth.text = "Сороковник Пробуждения Природы"
+            } else if differenceDay >= 203 && differenceDay <= 242 {
+                monthLabel.text = "Элѣтъ, день \(differenceDay - 202)"
+                fullTitleOfMonth.text = "Сороковник Посева и Наречения"
+            } else if differenceDay >= 243 && differenceDay <= 283 {
+                monthLabel.text = "Вэйлѣтъ, день \(differenceDay - 242)"
+                fullTitleOfMonth.text = "Сороковник Ветров"
+            } else if differenceDay >= 284 && differenceDay <= 323 {
+                monthLabel.text = "Хейлѣтъ, день \(differenceDay - 283)"
+                fullTitleOfMonth.text = "Сороковник Получения Даров Природы"
+            } else if differenceDay >= 324 && differenceDay <= 364 {
+                monthLabel.text = "Тайлѣтъ, день \(differenceDay - 323)"
+                fullTitleOfMonth.text = "Сороковник Завершения"
+            }
+            
             let oldDayOfWeek = Int(Double(differenceDay).truncatingRemainder(dividingBy: 9))
-            let endMonth = Int(differenceDay / 41)
-            let addOldDay = Int(endMonth / 2)
-            let endDay = Int(Double(differenceDay).truncatingRemainder(dividingBy: 41)) + addOldDay
-            
-            //let oldHour = Int(Double(differenceHour).truncatingRemainder(dividingBy: 16))
-            let oldMonth = endMonth + 1
-            let oldDay = endDay + 1
-            
-            dayLabel.text = String(oldDay)
-            dayOfWeekLabel.text = (OldDaysOfWeek.init().dayOfWeek(day: oldDayOfWeek - 1))
-            
-            if oldMonth == 1 {
-                monthLabel.text = "Рамхатъ"
-            } else if oldMonth == 2 {
-                monthLabel.text = "Айлѣтъ"
-            } else if oldMonth == 3 {
-                monthLabel.text = "Бейлѣтъ"
-            } else if oldMonth == 4 {
-                monthLabel.text = "Гэйлѣтъ"
-            } else if oldMonth == 5 {
-                monthLabel.text = "Дайлѣтъ"
-            } else if oldMonth == 6 {
-                monthLabel.text = "Элѣтъ"
-            } else if oldMonth == 7 {
-                monthLabel.text = "Вэйлѣтъ"
-            } else if oldMonth == 8 {
-                monthLabel.text = "Хейлѣтъ"
-            } else if oldMonth == 9 {
-                monthLabel.text = "Тайлѣтъ"
+            if oldDayOfWeek != 0 {
+                dayOfWeekLabel.text = (OldDaysOfWeek.init().dayOfWeek(day: oldDayOfWeek - 1))
+            } else {
+                dayOfWeekLabel.text = (OldDaysOfWeek.init().dayOfWeek(day: 8))
+                dayOfWeekLabel.textColor = .red
             }
         }
         else if oldYearsNumber >= 13 && oldYearsNumber <= 15 {
@@ -450,36 +507,42 @@ class CurrentViewController: UIViewController {
             let differenceMinute = differenceSecond / 60
             let differenceHour = differenceMinute / 90
             let differenceDay = differenceHour / 16
+            
+            if differenceDay >= 0 && differenceDay <= 40 {
+                monthLabel.text = "Рамхатъ, день \(differenceDay + 1)"
+                fullTitleOfMonth.text = "Сороковник Божественного Начала"
+            } else if differenceDay >= 41 && differenceDay <= 80 {
+                monthLabel.text = "Айлѣтъ, день \(differenceDay - 40)"
+                fullTitleOfMonth.text = "Сороковник Новых Даров"
+            } else if differenceDay >= 81 && differenceDay <= 121 {
+                monthLabel.text = "Бейлѣтъ, день \(differenceDay - 80)"
+                fullTitleOfMonth.text = "Сороковник Белого Сияния и Покоя Мира"
+            } else if differenceDay >= 122 && differenceDay <= 161 {
+                monthLabel.text = "Гэйлѣтъ, день \(differenceDay - 121)"
+                fullTitleOfMonth.text = "Сороковник Вьюг и Стужи"
+            } else if differenceDay >= 162 && differenceDay <= 202 {
+                monthLabel.text = "Дайлѣтъ, день \(differenceDay - 161)"
+                fullTitleOfMonth.text = "Сороковник Пробуждения Природы"
+            } else if differenceDay >= 203 && differenceDay <= 242 {
+                monthLabel.text = "Элѣтъ, день \(differenceDay - 202)"
+                fullTitleOfMonth.text = "Сороковник Посева и Наречения"
+            } else if differenceDay >= 243 && differenceDay <= 283 {
+                monthLabel.text = "Вэйлѣтъ, день \(differenceDay - 242)"
+                fullTitleOfMonth.text = "Сороковник Ветров"
+            } else if differenceDay >= 284 && differenceDay <= 323 {
+                monthLabel.text = "Хейлѣтъ, день \(differenceDay - 283)"
+                fullTitleOfMonth.text = "Сороковник Получения Даров Природы"
+            } else if differenceDay >= 324 && differenceDay <= 364 {
+                monthLabel.text = "Тайлѣтъ, день \(differenceDay - 323)"
+                fullTitleOfMonth.text = "Сороковник Завершения"
+            }
+            
             let oldDayOfWeek = Int(Double(differenceDay).truncatingRemainder(dividingBy: 9))
-            let endMonth = Int(differenceDay / 41)
-            let addOldDay = Int(endMonth / 2)
-            let endDay = Int(Double(differenceDay).truncatingRemainder(dividingBy: 41)) + addOldDay
-            
-            //let oldHour = Int(Double(differenceHour).truncatingRemainder(dividingBy: 16))
-            let oldMonth = endMonth + 1
-            let oldDay = endDay + 1
-            
-            dayLabel.text = String(oldDay)
-            dayOfWeekLabel.text = (OldDaysOfWeek.init().dayOfWeek(day: oldDayOfWeek - 1))
-            
-            if oldMonth == 1 {
-                monthLabel.text = "Рамхатъ"
-            } else if oldMonth == 2 {
-                monthLabel.text = "Айлѣтъ"
-            } else if oldMonth == 3 {
-                monthLabel.text = "Бейлѣтъ"
-            } else if oldMonth == 4 {
-                monthLabel.text = "Гэйлѣтъ"
-            } else if oldMonth == 5 {
-                monthLabel.text = "Дайлѣтъ"
-            } else if oldMonth == 6 {
-                monthLabel.text = "Элѣтъ"
-            } else if oldMonth == 7 {
-                monthLabel.text = "Вэйлѣтъ"
-            } else if oldMonth == 8 {
-                monthLabel.text = "Хейлѣтъ"
-            } else if oldMonth == 9 {
-                monthLabel.text = "Тайлѣтъ"
+            if oldDayOfWeek != 0 {
+                dayOfWeekLabel.text = (OldDaysOfWeek.init().dayOfWeek(day: oldDayOfWeek - 1))
+            } else {
+                dayOfWeekLabel.text = (OldDaysOfWeek.init().dayOfWeek(day: 8))
+                dayOfWeekLabel.textColor = .red
             }
         }
         else if oldYearsNumber == 0 || oldYearsNumber == 16 {
@@ -502,104 +565,86 @@ class CurrentViewController: UIViewController {
             let differenceMinute = differenceSecond / 60
             let differenceHour = differenceMinute / 90
             let differenceDay = differenceHour / 16
+            
+            if differenceDay >= 0 && differenceDay <= 40 {
+                monthLabel.text = "Рамхатъ, день \(differenceDay + 1)"
+            } else if differenceDay >= 41 && differenceDay <= 81 {
+                monthLabel.text = "Айлѣтъ, день \(differenceDay - 40)"
+            } else if differenceDay >= 82 && differenceDay <= 122 {
+                monthLabel.text = "Бейлѣтъ, день \(differenceDay - 81)"
+            } else if differenceDay >= 123 && differenceDay <= 163 {
+                monthLabel.text = "Гэйлѣтъ, день \(differenceDay - 122)"
+            } else if differenceDay >= 164 && differenceDay <= 204 {
+                monthLabel.text = "Дайлѣтъ, день \(differenceDay - 163)"
+            } else if differenceDay >= 205 && differenceDay <= 245 {
+                monthLabel.text = "Элѣтъ, день \(differenceDay - 204)"
+            } else if differenceDay >= 246 && differenceDay <= 286 {
+                monthLabel.text = "Вэйлѣтъ, день \(differenceDay - 245)"
+            } else if differenceDay >= 287 && differenceDay <= 327 {
+                monthLabel.text = "Хейлѣтъ, день \(differenceDay - 286)"
+            } else if differenceDay >= 328 && differenceDay <= 368 {
+                monthLabel.text = "Тайлѣтъ, день \(differenceDay - 327)"
+            }
+            
             let oldDayOfWeek = Int(Double(differenceDay).truncatingRemainder(dividingBy: 9))
-            let endMonth = Int(differenceDay / 41)
-            let endDay = Int(Double(differenceDay).truncatingRemainder(dividingBy: 41))
-            
-            //let oldHour = Int(Double(differenceHour).truncatingRemainder(dividingBy: 16))
-            let oldMonth = endMonth + 1
-            let oldDay = endDay + 1
-            
-            dayLabel.text = String(oldDay)
-            dayOfWeekLabel.text = (OldDaysOfWeek.init().dayOfWeek(day: oldDayOfWeek - 1))
-            
-            if oldMonth == 1 {
-                monthLabel.text = "Рамхатъ"
-            } else if oldMonth == 2 {
-                monthLabel.text = "Айлѣтъ"
-            } else if oldMonth == 3 {
-                monthLabel.text = "Бейлѣтъ"
-            } else if oldMonth == 4 {
-                monthLabel.text = "Гэйлѣтъ"
-            } else if oldMonth == 5 {
-                monthLabel.text = "Дайлѣтъ"
-            } else if oldMonth == 6 {
-                monthLabel.text = "Элѣтъ"
-            } else if oldMonth == 7 {
-                monthLabel.text = "Вэйлѣтъ"
-            } else if oldMonth == 8 {
-                monthLabel.text = "Хейлѣтъ"
-            } else if oldMonth == 9 {
-                monthLabel.text = "Тайлѣтъ"
+            if oldDayOfWeek != 0 {
+                dayOfWeekLabel.text = (OldDaysOfWeek.init().dayOfWeek(day: oldDayOfWeek - 1))
+            } else {
+                dayOfWeekLabel.text = (OldDaysOfWeek.init().dayOfWeek(day: 8))
+                dayOfWeekLabel.textColor = .red
             }
         }
     }
     
     func nameOfHour() {
         if hourLabel.text == "16" {
-            titleOfHour.text = "ПОѸДАНИ"
+            titleOfHour.text = "Вѣчеръ, ПОѸДАНИ"
             fullTitleOfHour.text = "Завершенный день"
-            periodOfDay.text = "Вѣчеръ"
         } else if hourLabel.text == "01" {
-            titleOfHour.text = "ПAOБѢДЪ"
+            titleOfHour.text = "Вѣчеръ, ПАOБѢДЪ"
             fullTitleOfHour.text = "Начало нового дня"
-            periodOfDay.text = "Вѣчеръ"
         } else if hourLabel.text == "02" {
-            titleOfHour.text = "ВѢЧИРЪ"
+            titleOfHour.text = "Вѣчеръ, ВѢЧИРЪ"
             fullTitleOfHour.text = "Появление звездной росы на Небесах"
-            periodOfDay.text = "Вѣчеръ"
         } else if hourLabel.text == "03" {
-            titleOfHour.text = "НИЧЬ"
+            titleOfHour.text = "Вѣчеръ, НИЧЬ"
             fullTitleOfHour.text = "Нечетное время трех Лун"
-            periodOfDay.text = "Вѣчеръ"
         } else if hourLabel.text == "04" {
-            titleOfHour.text = "ПОЛНИЧЬ"
+            titleOfHour.text = "Ночь, ПОЛНИЧЬ"
             fullTitleOfHour.text = "Полный путь Лун"
-            periodOfDay.text = "Ночь"
         } else if hourLabel.text == "05" {
-            titleOfHour.text = "ЗАѸТРА"
+            titleOfHour.text = "Ночь, ЗАѸТРА"
             fullTitleOfHour.text = "Звездное утешение росы"
-            periodOfDay.text = "Ночь"
         } else if hourLabel.text == "06" {
-            titleOfHour.text = "ЗАѸРА"
+            titleOfHour.text = "Ночь, ЗАѸРА"
             fullTitleOfHour.text = "Звездное сияние, заря"
-            periodOfDay.text = "Ночь"
         } else if hourLabel.text == "07" {
-            titleOfHour.text = "ЗАѸРНИЦЕ"
+            titleOfHour.text = "Ночь, ЗАѸРНИЦЕ"
             fullTitleOfHour.text = "Окончание звездного сияния"
-            periodOfDay.text = "Ночь"
         } else if hourLabel.text == "08" {
-            titleOfHour.text = "НАСТѦ"
+            titleOfHour.text = "Утро, НАСТѦ"
             fullTitleOfHour.text = "Утренная роса"
-            periodOfDay.text = "Утро"
         } else if hourLabel.text == "09" {
-            titleOfHour.text = "СВАОРЪ"
+            titleOfHour.text = "Утро, СВАОРЪ"
             fullTitleOfHour.text = "Восход Солнца"
-            periodOfDay.text = "Утро"
         } else if hourLabel.text == "10" {
-            titleOfHour.text = "УТРОСЬ"
+            titleOfHour.text = "Утро, УТРОСЬ"
             fullTitleOfHour.text = "Успокоение росы"
-            periodOfDay.text = "Утро"
         } else if hourLabel.text == "11" {
-            titleOfHour.text = "ПОѸТРОСЬ"
+            titleOfHour.text = "Утро, ПОѸТРОСЬ"
             fullTitleOfHour.text = "Путь собирания успокоенной росы"
-            periodOfDay.text = "Утро"
         } else if hourLabel.text == "12" {
-            titleOfHour.text = "ОБЕСТНА"
+            titleOfHour.text = "Дѣнь, ОБЕСТНА"
             fullTitleOfHour.text = "Обедня, совместное собрание"
-            periodOfDay.text = "Дѣнь"
         } else if hourLabel.text == "13" {
-            titleOfHour.text = "ОБЕДЪ (ОБЕСТЬ)"
+            titleOfHour.text = "Дѣнь, ОБЕДЪ (ОБЕСТЬ)"
             fullTitleOfHour.text = "Трапеза"
-            periodOfDay.text = "Дѣнь"
         } else if hourLabel.text == "14" {
-            titleOfHour.text = "ПОДАНИ"
+            titleOfHour.text = "Дѣнь, ПОДАНИ"
             fullTitleOfHour.text = "Отдых после трапезы"
-            periodOfDay.text = "Дѣнь"
         } else if hourLabel.text == "15" {
-            titleOfHour.text = "УТДАЙНИ"
+            titleOfHour.text = "Дѣнь, УТДАЙНИ"
             fullTitleOfHour.text = "Время окончания деяний"
-            periodOfDay.text = "Дѣнь"
         }
     }
     
@@ -617,18 +662,24 @@ class CurrentViewController: UIViewController {
         if month >= 1 && month <= 9 {
             var oldY = year + 5508
             var oldYearsNumber = Int(Double(oldY).truncatingRemainder(dividingBy: 16))
+            var oldYearsNumberInRoundOfLife = oldY - 7520
             if month == 9 {
                 if oldYearsNumber >= 0 && oldYearsNumber <= 3 {
                     if (day == 22 && hour >= 18) ||  day > 22 {
                         oldY += 1
                         oldYearsNumber += 1
-                        letoLabel.text = String(oldY)
-                        numberOfYear.text = String(oldYearsNumber)
+                        oldYearsNumberInRoundOfLife += 1
+                        letoLabel.text = "Лѣто \(oldY) от С.З.М.Х."
+                        numberOfYear.text = "Лѣто в Круге лѣт: \(oldYearsNumber)"
+                        numberOfYearInRoundOfLife.text = "Лѣто в Круге жизни: \(oldYearsNumberInRoundOfLife)"
+                        titleOfYear.text = "\(OldYear().arrayOfTitleOfYears[oldYearsNumberInRoundOfLife - 1])"
                         oldTime(hour: hour, minute: minute, second: second)
                         oldMonth(oldYearsNumber: oldYearsNumber, year: year, month: month, day: day, hour: hour)
                     } else if (day == 22 && hour <= 18) || day < 22 {
-                        letoLabel.text = String(oldY)
-                        numberOfYear.text = String(oldYearsNumber)
+                        letoLabel.text = "Лѣто \(oldY) от С.З.М.Х."
+                        numberOfYear.text = "Лѣто в круге лѣт: \(oldYearsNumber)"
+                        numberOfYearInRoundOfLife.text = "Лѣто в Круге жизни: \(oldYearsNumberInRoundOfLife)"
+                        titleOfYear.text = "\(OldYear().arrayOfTitleOfYears[oldYearsNumberInRoundOfLife - 1])"
                         oldTime(hour: hour, minute: minute, second: second)
                         oldMonth(oldYearsNumber: oldYearsNumber, year: year, month: month, day: day, hour: hour)
                     }
@@ -636,13 +687,18 @@ class CurrentViewController: UIViewController {
                     if (day == 21 && hour >= 18) ||  day > 21 {
                         oldY += 1
                         oldYearsNumber += 1
-                        letoLabel.text = String(oldY)
-                        numberOfYear.text = String(oldYearsNumber)
+                        oldYearsNumberInRoundOfLife += 1
+                        letoLabel.text = "Лѣто \(oldY) от С.З.М.Х."
+                        numberOfYear.text = "Лѣто в Круге лѣт: \(oldYearsNumber)"
+                        numberOfYearInRoundOfLife.text = "Лѣто в Круге жизни: \(oldYearsNumberInRoundOfLife)"
+                        titleOfYear.text = "\(OldYear().arrayOfTitleOfYears[oldYearsNumberInRoundOfLife - 1])"
                         oldTime(hour: hour, minute: minute, second: second)
                         oldMonth(oldYearsNumber: oldYearsNumber, year: year, month: month, day: day, hour: hour)
                     } else if (day == 21 && hour <= 18) || day < 21 {
-                        letoLabel.text = String(oldY)
-                        numberOfYear.text = String(oldYearsNumber)
+                        letoLabel.text = "Лѣто \(oldY) от С.З.М.Х."
+                        numberOfYear.text = "Лѣто в Круге лѣт: \(oldYearsNumber)"
+                        numberOfYearInRoundOfLife.text = "Лѣто в Круге жизни: \(oldYearsNumberInRoundOfLife)"
+                        titleOfYear.text = "\(OldYear().arrayOfTitleOfYears[oldYearsNumberInRoundOfLife - 1])"
                         oldTime(hour: hour, minute: minute, second: second)
                         oldMonth(oldYearsNumber: oldYearsNumber, year: year, month: month, day: day, hour: hour)
                     }
@@ -650,13 +706,18 @@ class CurrentViewController: UIViewController {
                     if (day == 20 && hour >= 18) ||  day > 20 {
                         oldY += 1
                         oldYearsNumber += 1
-                        letoLabel.text = String(oldY)
-                        numberOfYear.text = String(oldYearsNumber)
+                        oldYearsNumberInRoundOfLife += 1
+                        letoLabel.text = "Лѣто \(oldY) от С.З.М.Х."
+                        numberOfYear.text = "Лѣто в Круге лѣт: \(oldYearsNumber)"
+                        numberOfYearInRoundOfLife.text = "Лѣто в Круге жизни: \(oldYearsNumberInRoundOfLife)"
+                        titleOfYear.text = "\(OldYear().arrayOfTitleOfYears[oldYearsNumberInRoundOfLife - 1])"
                         oldTime(hour: hour, minute: minute, second: second)
                         oldMonth(oldYearsNumber: oldYearsNumber, year: year, month: month, day: day, hour: hour)
                     } else if (day == 20 && hour <= 18) || day < 20 {
-                        letoLabel.text = String(oldY)
-                        numberOfYear.text = String(oldYearsNumber)
+                        letoLabel.text = "Лѣто \(oldY) от С.З.М.Х."
+                        numberOfYear.text = "Лѣто в Круге лѣт: \(oldYearsNumber)"
+                        numberOfYearInRoundOfLife.text = "Лѣто в Круге жизни: \(oldYearsNumberInRoundOfLife)"
+                        titleOfYear.text = "\(OldYear().arrayOfTitleOfYears[oldYearsNumberInRoundOfLife - 1])"
                         oldTime(hour: hour, minute: minute, second: second)
                         oldMonth(oldYearsNumber: oldYearsNumber, year: year, month: month, day: day, hour: hour)
                     }
@@ -664,27 +725,37 @@ class CurrentViewController: UIViewController {
                     if (day == 19 && hour >= 18) ||  day > 19 {
                         oldY += 1
                         oldYearsNumber += 1
-                        letoLabel.text = String(oldY)
-                        numberOfYear.text = String(oldYearsNumber)
+                        oldYearsNumberInRoundOfLife += 1
+                        letoLabel.text = "Лѣто \(oldY) от С.З.М.Х."
+                        numberOfYear.text = "Лѣто в Круге лѣт: \(oldYearsNumber)"
+                        numberOfYearInRoundOfLife.text = "Лѣто в Круге жизни: \(oldYearsNumberInRoundOfLife)"
+                        titleOfYear.text = "\(OldYear().arrayOfTitleOfYears[oldYearsNumberInRoundOfLife - 1])"
                         oldTime(hour: hour, minute: minute, second: second)
                         oldMonth(oldYearsNumber: oldYearsNumber, year: year, month: month, day: day, hour: hour)
                     } else if (day == 19 && hour <= 18) || day < 19 {
-                        letoLabel.text = String(oldY)
-                        numberOfYear.text = String(oldYearsNumber)
+                        letoLabel.text = "Лѣто \(oldY) от С.З.М.Х."
+                        numberOfYear.text = "Лѣто в Круге лѣт: \(oldYearsNumber)"
+                        numberOfYearInRoundOfLife.text = "Лѣто в Круге жизни: \(oldYearsNumberInRoundOfLife)"
+                        titleOfYear.text = "\(OldYear().arrayOfTitleOfYears[oldYearsNumberInRoundOfLife - 1])"
                         oldTime(hour: hour, minute: minute, second: second)
                         oldMonth(oldYearsNumber: oldYearsNumber, year: year, month: month, day: day, hour: hour)
                     }
                 }
             }
-            letoLabel.text = String(oldY)
-            numberOfYear.text = String(oldYearsNumber)
+            letoLabel.text = "Лѣто \(oldY) от С.З.М.Х."
+            numberOfYear.text = "Лѣто в Круге лѣт: \(oldYearsNumber)"
+            numberOfYearInRoundOfLife.text = "Лѣто в Круге жизни: \(oldYearsNumberInRoundOfLife)"
+            titleOfYear.text = "\(OldYear().arrayOfTitleOfYears[oldYearsNumberInRoundOfLife - 1])"
             oldTime(hour: hour, minute: minute, second: second)
             oldMonth(oldYearsNumber: oldYearsNumber, year: year, month: month, day: day, hour: hour)
         } else if month >= 10 && month <= 12 {
             let oldY = year + 5509
             let oldYearsNumber = Int(Double(oldY).truncatingRemainder(dividingBy: 16))
-            letoLabel.text = String(oldY)
-            numberOfYear.text = String(oldYearsNumber)
+            let oldYearsNumberInRoundOfLife = oldY - 7520
+            letoLabel.text = "Лѣто \(oldY) от С.З.М.Х."
+            numberOfYear.text = "Лѣто в Круге лѣт: \(oldYearsNumber)"
+            numberOfYearInRoundOfLife.text = "Лѣто в Круге жизни: \(oldYearsNumberInRoundOfLife)"
+            titleOfYear.text = "\(OldYear().arrayOfTitleOfYears[oldYearsNumberInRoundOfLife - 1])"
             oldTime(hour: hour, minute: minute, second: second)
             oldMonth(oldYearsNumber: oldYearsNumber, year: year, month: month, day: day, hour: hour)
         }

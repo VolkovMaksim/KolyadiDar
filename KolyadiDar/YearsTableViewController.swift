@@ -9,38 +9,32 @@
 import UIKit
 
 class YearsTableViewController: UITableViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        tableView.showsVerticalScrollIndicator = false
     }
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return OldYear().arrayOfAdvtitleOfYears.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Year", for: indexPath)
+        // настройка изображения в ячейке
+        //cell.imageView?.image = UIImage(named: OldYear().arrayOfAdvtitleOfYears[indexPath.row] + "-128")
+        // настройка подписи в ячейке
+        cell.textLabel?.text = OldYear().arrayOfAdvtitleOfYears[indexPath.row]
+        // изменение шрифта на РОДНИКЪ и его размера
+        cell.textLabel?.font = UIFont(name: "-Normal", size: 17)
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
@@ -77,14 +71,22 @@ class YearsTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    // функция для передачи данных по сегвею "DetailPage"
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        // если идентификатор сигвея соответствует "DetailPage"
+        if segue.identifier == "Year_Segue" {
+            // если новая константа принимает значение выбранной ячейки
+            if let indexPath = self.tableView.indexPathForSelectedRow {
+                // новая константа VC, класса PageViewController, которая будет в конце перехода по сегвею
+                let pageVC = segue.destination as! YearsPageViewController
+                // установка значения выбранной ячейки для свойства bukvTitle
+                pageVC.yearTitle = OldYear().arrayOfAdvtitleOfYears[indexPath.row]
+                // установка числового значения выбранной ячейки для свойства value
+                //pageVC.value = arrayOfSymbols.firstIndex(of: arrayOfSymbols[indexPath.row])!
+            }
+        }
     }
-    */
-
 }
