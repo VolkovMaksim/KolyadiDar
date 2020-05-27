@@ -147,8 +147,8 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Событие" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eei-cI-3ho">
-                                        <rect key="frame" x="158" y="135.5" width="4" height="1.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Событие" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eei-cI-3ho">
+                                        <rect key="frame" x="8" y="135.5" width="304" height="1.5"/>
                                         <fontDescription key="fontDescription" name="-Normal" family="Родникъ" pointSize="1"/>
                                         <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -195,8 +195,20 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ПОСТЪ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UvR-jC-Qzj">
+                                        <rect key="frame" x="158.5" y="137" width="3.5" height="1.5"/>
+                                        <fontDescription key="fontDescription" name="-Normal" family="Родникъ" pointSize="1"/>
+                                        <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Лето в Круге жизни" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y2b-a1-z78">
+                                        <rect key="frame" x="71" y="307.5" width="178.5" height="29.5"/>
+                                        <fontDescription key="fontDescription" name="-Normal" family="Родникъ" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mPr-VT-m38">
-                                        <rect key="frame" x="244" y="66" width="31" height="31"/>
+                                        <rect key="frame" x="244" y="72" width="31" height="31"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="852-Yj-7JG">
                                                 <rect key="frame" x="1" y="1" width="29" height="29"/>
@@ -214,18 +226,6 @@
                                             <constraint firstItem="852-Yj-7JG" firstAttribute="centerX" secondItem="mPr-VT-m38" secondAttribute="centerX" id="t6k-n9-IU8"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ПОСТЪ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UvR-jC-Qzj">
-                                        <rect key="frame" x="158.5" y="137" width="3.5" height="1.5"/>
-                                        <fontDescription key="fontDescription" name="-Normal" family="Родникъ" pointSize="1"/>
-                                        <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Лето в Круге жизни" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y2b-a1-z78">
-                                        <rect key="frame" x="71" y="307.5" width="178.5" height="29.5"/>
-                                        <fontDescription key="fontDescription" name="-Normal" family="Родникъ" pointSize="20"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="GWn-TC-ixV" firstAttribute="centerX" secondItem="RXa-u1-JJ3" secondAttribute="centerX" id="0x8-tk-EEz"/>
@@ -238,19 +238,21 @@
                                     <constraint firstItem="y2b-a1-z78" firstAttribute="top" secondItem="Uax-A3-tse" secondAttribute="bottom" id="HCk-lO-suu"/>
                                     <constraint firstItem="GQ8-EN-WNh" firstAttribute="top" secondItem="4NK-Yr-Ikp" secondAttribute="bottom" id="HQN-9Q-ldV"/>
                                     <constraint firstAttribute="bottom" secondItem="y2b-a1-z78" secondAttribute="bottom" id="IHn-nN-XZI"/>
+                                    <constraint firstAttribute="trailing" secondItem="Eei-cI-3ho" secondAttribute="trailing" constant="8" id="K1N-6C-ssQ"/>
                                     <constraint firstItem="UpH-A5-4iy" firstAttribute="leading" secondItem="RXa-u1-JJ3" secondAttribute="leading" constant="8" id="PB2-JG-xM9"/>
                                     <constraint firstItem="iPD-vn-Yc7" firstAttribute="top" secondItem="GWn-TC-ixV" secondAttribute="bottom" constant="6" id="Qcg-MV-d8b"/>
                                     <constraint firstItem="Uax-A3-tse" firstAttribute="top" secondItem="TLO-MX-kzC" secondAttribute="bottom" id="ST5-ZV-XYc"/>
                                     <constraint firstItem="IgQ-mg-dEo" firstAttribute="top" secondItem="RXa-u1-JJ3" secondAttribute="top" constant="5" id="Sta-qN-rCR"/>
                                     <constraint firstItem="wNE-aZ-5ea" firstAttribute="centerX" secondItem="RXa-u1-JJ3" secondAttribute="centerX" id="UeZ-ms-Sr3"/>
                                     <constraint firstItem="GQ8-EN-WNh" firstAttribute="centerX" secondItem="RXa-u1-JJ3" secondAttribute="centerX" id="WaG-8l-gaI"/>
-                                    <constraint firstItem="GQ8-EN-WNh" firstAttribute="top" secondItem="852-Yj-7JG" secondAttribute="bottom" constant="9" id="Y3U-B3-WwK"/>
+                                    <constraint firstItem="GQ8-EN-WNh" firstAttribute="top" secondItem="852-Yj-7JG" secondAttribute="bottom" constant="3" id="Y3U-B3-WwK"/>
                                     <constraint firstItem="mPr-VT-m38" firstAttribute="leading" secondItem="4NK-Yr-Ikp" secondAttribute="trailing" constant="5" id="YIp-Kn-GXC"/>
                                     <constraint firstItem="4NK-Yr-Ikp" firstAttribute="centerX" secondItem="RXa-u1-JJ3" secondAttribute="centerX" id="Zfx-RW-f1o"/>
                                     <constraint firstItem="UvR-jC-Qzj" firstAttribute="centerX" secondItem="RXa-u1-JJ3" secondAttribute="centerX" id="aTM-Ka-pt2"/>
                                     <constraint firstItem="4NK-Yr-Ikp" firstAttribute="top" secondItem="UpH-A5-4iy" secondAttribute="bottom" constant="7" id="g8b-HH-tCq"/>
                                     <constraint firstItem="GWn-TC-ixV" firstAttribute="top" secondItem="wNE-aZ-5ea" secondAttribute="bottom" id="gCg-cX-2sa"/>
                                     <constraint firstItem="TLO-MX-kzC" firstAttribute="top" secondItem="iPD-vn-Yc7" secondAttribute="bottom" id="jGL-sr-4S8"/>
+                                    <constraint firstItem="Eei-cI-3ho" firstAttribute="leading" secondItem="RXa-u1-JJ3" secondAttribute="leading" constant="8" id="k03-IE-OiP"/>
                                     <constraint firstItem="UpH-A5-4iy" firstAttribute="centerX" secondItem="RXa-u1-JJ3" secondAttribute="centerX" id="lMM-EP-xVh"/>
                                     <constraint firstAttribute="trailing" secondItem="UpH-A5-4iy" secondAttribute="trailing" constant="8" id="rHa-9D-U6f"/>
                                     <constraint firstItem="UvR-jC-Qzj" firstAttribute="top" secondItem="Eei-cI-3ho" secondAttribute="bottom" id="t7l-Qb-Lat"/>

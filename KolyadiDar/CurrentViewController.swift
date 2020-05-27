@@ -158,6 +158,45 @@ class CurrentViewController: UIViewController {
             let differenceHour = differenceMinute / 90
             let differenceDay = differenceHour / 16
             
+            if HolidayAndDay().daysOfParrents.firstIndex(of: differenceDay + 1) != nil {
+                //rpDay.isHidden = false
+                rpDay.image = UIImage(named: "Parrents")
+            }
+            if HolidayAndDay().daysOfMemory.firstIndex(of: differenceDay + 1) != nil {
+                //rpDay.isHidden = false
+                rpDay.image = UIImage(named: "Predki")
+            }
+            
+            if HolidayAndDay().datesOfPosts1.firstIndex(of: differenceDay + 1) != nil {
+                postdayLabel.isHidden = false
+                postdayLabel.font = UIFont(name: "-Normal", size: 30)
+                postdayLabel.text = "Святый ПОСТЪ"
+            }
+            
+            if HolidayAndDay().datesOfPosts2.firstIndex(of: differenceDay + 1) != nil {
+                postdayLabel.isHidden = false
+                postdayLabel.font = UIFont(name: "-Normal", size: 30)
+                postdayLabel.text = "Даждьбожий ПОСТЪ"
+            }
+            
+            if HolidayAndDay().datesOfPosts3.firstIndex(of: differenceDay + 1) != nil {
+                postdayLabel.isHidden = false
+                postdayLabel.font = UIFont(name: "-Normal", size: 30)
+                postdayLabel.text = "Чистый ПОСТЪ"
+            }
+            
+            if HolidayAndDay().datesOfPosts4.firstIndex(of: differenceDay + 1) != nil {
+                postdayLabel.isHidden = false
+                postdayLabel.font = UIFont(name: "-Normal", size: 30)
+                postdayLabel.text = "Великий ПОСТЪ"
+            }
+            
+            if HolidayAndDay().datesOfPosts5.firstIndex(of: differenceDay + 1) != nil {
+                postdayLabel.isHidden = false
+                postdayLabel.font = UIFont(name: "-Normal", size: 30)
+                postdayLabel.text = "Светлый ПОСТЪ"
+            }
+            
             if differenceDay >= 0 && differenceDay <= 40 {
                 monthLabel.text = "Рамхатъ, день \(differenceDay + 1)"
                 fullTitleOfMonth.text = "Сороковник Божественного Начала"
@@ -215,6 +254,45 @@ class CurrentViewController: UIViewController {
             let differenceMinute = differenceSecond / 60
             let differenceHour = differenceMinute / 90
             let differenceDay = differenceHour / 16
+            
+            if HolidayAndDay().daysOfParrents.firstIndex(of: differenceDay + 1) != nil {
+                //rpDay.isHidden = false
+                rpDay.image = UIImage(named: "Parrents")
+            }
+            if HolidayAndDay().daysOfMemory.firstIndex(of: differenceDay + 1) != nil {
+                //rpDay.isHidden = false
+                rpDay.image = UIImage(named: "Predki")
+            }
+            
+            if HolidayAndDay().datesOfPosts1.firstIndex(of: differenceDay + 1) != nil {
+                postdayLabel.isHidden = false
+                postdayLabel.font = UIFont(name: "-Normal", size: 30)
+                postdayLabel.text = "Святый ПОСТЪ"
+            }
+            
+            if HolidayAndDay().datesOfPosts2.firstIndex(of: differenceDay + 1) != nil {
+                postdayLabel.isHidden = false
+                postdayLabel.font = UIFont(name: "-Normal", size: 30)
+                postdayLabel.text = "Даждьбожий ПОСТЪ"
+            }
+            
+            if HolidayAndDay().datesOfPosts3.firstIndex(of: differenceDay + 1) != nil {
+                postdayLabel.isHidden = false
+                postdayLabel.font = UIFont(name: "-Normal", size: 30)
+                postdayLabel.text = "Чистый ПОСТЪ"
+            }
+            
+            if HolidayAndDay().datesOfPosts4.firstIndex(of: differenceDay + 1) != nil {
+                postdayLabel.isHidden = false
+                postdayLabel.font = UIFont(name: "-Normal", size: 30)
+                postdayLabel.text = "Великий ПОСТЪ"
+            }
+            
+            if HolidayAndDay().datesOfPosts5.firstIndex(of: differenceDay + 1) != nil {
+                postdayLabel.isHidden = false
+                postdayLabel.font = UIFont(name: "-Normal", size: 30)
+                postdayLabel.text = "Светлый ПОСТЪ"
+            }
             
             if differenceDay >= 0 && differenceDay <= 40 {
                 monthLabel.text = "Рамхатъ, день \(differenceDay + 1)"
@@ -274,6 +352,45 @@ class CurrentViewController: UIViewController {
             let differenceHour = differenceMinute / 90
             let differenceDay = differenceHour / 16
             
+            if HolidayAndDay().daysOfParrents.firstIndex(of: differenceDay + 1) != nil {
+                //rpDay.isHidden = false
+                rpDay.image = UIImage(named: "Parrents")
+            }
+            if HolidayAndDay().daysOfMemory.firstIndex(of: differenceDay + 1) != nil {
+                //rpDay.isHidden = false
+                rpDay.image = UIImage(named: "Predki")
+            }
+            
+            if HolidayAndDay().datesOfPosts1.firstIndex(of: differenceDay + 1) != nil {
+                postdayLabel.isHidden = false
+                postdayLabel.font = UIFont(name: "-Normal", size: 30)
+                postdayLabel.text = "Святый ПОСТЪ"
+            }
+            
+            if HolidayAndDay().datesOfPosts2.firstIndex(of: differenceDay + 1) != nil {
+                postdayLabel.isHidden = false
+                postdayLabel.font = UIFont(name: "-Normal", size: 30)
+                postdayLabel.text = "Даждьбожий ПОСТЪ"
+            }
+            
+            if HolidayAndDay().datesOfPosts3.firstIndex(of: differenceDay + 1) != nil {
+                postdayLabel.isHidden = false
+                postdayLabel.font = UIFont(name: "-Normal", size: 30)
+                postdayLabel.text = "Чистый ПОСТЪ"
+            }
+            
+            if HolidayAndDay().datesOfPosts4.firstIndex(of: differenceDay + 1) != nil {
+                postdayLabel.isHidden = false
+                postdayLabel.font = UIFont(name: "-Normal", size: 30)
+                postdayLabel.text = "Великий ПОСТЪ"
+            }
+            
+            if HolidayAndDay().datesOfPosts5.firstIndex(of: differenceDay + 1) != nil {
+                postdayLabel.isHidden = false
+                postdayLabel.font = UIFont(name: "-Normal", size: 30)
+                postdayLabel.text = "Светлый ПОСТЪ"
+            }
+            
             if differenceDay >= 0 && differenceDay <= 40 {
                 monthLabel.text = "Рамхатъ, день \(differenceDay + 1)"
                 fullTitleOfMonth.text = "Сороковник Божественного Начала"
@@ -332,6 +449,51 @@ class CurrentViewController: UIViewController {
             let differenceMinute = differenceSecond / 60
             let differenceHour = differenceMinute / 90
             let differenceDay = differenceHour / 16
+            
+            if HolidayAndDay().holidays[differenceDay + 1] != nil {
+                holidayLabel.isHidden = false
+                holidayLabel.font = UIFont(name: "-Normal", size: 30)
+                holidayLabel.text = HolidayAndDay().holidays[differenceDay + 1]
+            }
+            
+            if HolidayAndDay().daysOfParrents.firstIndex(of: differenceDay + 1) != nil {
+                //rpDay.isHidden = false
+                rpDay.image = UIImage(named: "Parrents")
+            }
+            if HolidayAndDay().daysOfMemory.firstIndex(of: differenceDay + 1) != nil {
+                //rpDay.isHidden = false
+                rpDay.image = UIImage(named: "Predki")
+            }
+            
+            if HolidayAndDay().datesOfPosts1.firstIndex(of: differenceDay + 1) != nil {
+                postdayLabel.isHidden = false
+                postdayLabel.font = UIFont(name: "-Normal", size: 30)
+                postdayLabel.text = "Святый ПОСТЪ"
+            }
+            
+            if HolidayAndDay().datesOfPosts2.firstIndex(of: differenceDay + 1) != nil {
+                postdayLabel.isHidden = false
+                postdayLabel.font = UIFont(name: "-Normal", size: 30)
+                postdayLabel.text = "Даждьбожий ПОСТЪ"
+            }
+            
+            if HolidayAndDay().datesOfPosts3.firstIndex(of: differenceDay + 1) != nil {
+                postdayLabel.isHidden = false
+                postdayLabel.font = UIFont(name: "-Normal", size: 30)
+                postdayLabel.text = "Чистый ПОСТЪ"
+            }
+            
+            if HolidayAndDay().datesOfPosts4.firstIndex(of: differenceDay + 1) != nil {
+                postdayLabel.isHidden = false
+                postdayLabel.font = UIFont(name: "-Normal", size: 30)
+                postdayLabel.text = "Великий ПОСТЪ"
+            }
+            
+            if HolidayAndDay().datesOfPosts5.firstIndex(of: differenceDay + 1) != nil {
+                postdayLabel.isHidden = false
+                postdayLabel.font = UIFont(name: "-Normal", size: 30)
+                postdayLabel.text = "Светлый ПОСТЪ"
+            }
             
             if differenceDay >= 0 && differenceDay <= 40 {
                 monthLabel.text = "Рамхатъ, день \(differenceDay + 1)"
@@ -399,6 +561,45 @@ class CurrentViewController: UIViewController {
             let differenceHour = differenceMinute / 90
             let differenceDay = differenceHour / 16
             
+            if HolidayAndDay().daysOfParrents.firstIndex(of: differenceDay + 1) != nil {
+                //rpDay.isHidden = false
+                rpDay.image = UIImage(named: "Parrents")
+            }
+            if HolidayAndDay().daysOfMemory.firstIndex(of: differenceDay + 1) != nil {
+                //rpDay.isHidden = false
+                rpDay.image = UIImage(named: "Predki")
+            }
+            
+            if HolidayAndDay().datesOfPosts1.firstIndex(of: differenceDay + 1) != nil {
+                postdayLabel.isHidden = false
+                postdayLabel.font = UIFont(name: "-Normal", size: 30)
+                postdayLabel.text = "Святый ПОСТЪ"
+            }
+            
+            if HolidayAndDay().datesOfPosts2.firstIndex(of: differenceDay + 1) != nil {
+                postdayLabel.isHidden = false
+                postdayLabel.font = UIFont(name: "-Normal", size: 30)
+                postdayLabel.text = "Даждьбожий ПОСТЪ"
+            }
+            
+            if HolidayAndDay().datesOfPosts3.firstIndex(of: differenceDay + 1) != nil {
+                postdayLabel.isHidden = false
+                postdayLabel.font = UIFont(name: "-Normal", size: 30)
+                postdayLabel.text = "Чистый ПОСТЪ"
+            }
+            
+            if HolidayAndDay().datesOfPosts4.firstIndex(of: differenceDay + 1) != nil {
+                postdayLabel.isHidden = false
+                postdayLabel.font = UIFont(name: "-Normal", size: 30)
+                postdayLabel.text = "Великий ПОСТЪ"
+            }
+            
+            if HolidayAndDay().datesOfPosts5.firstIndex(of: differenceDay + 1) != nil {
+                postdayLabel.isHidden = false
+                postdayLabel.font = UIFont(name: "-Normal", size: 30)
+                postdayLabel.text = "Светлый ПОСТЪ"
+            }
+            
             if differenceDay >= 0 && differenceDay <= 40 {
                 monthLabel.text = "Рамхатъ, день \(differenceDay + 1)"
                 fullTitleOfMonth.text = "Сороковник Божественного Начала"
@@ -456,6 +657,45 @@ class CurrentViewController: UIViewController {
             let differenceMinute = differenceSecond / 60
             let differenceHour = differenceMinute / 90
             let differenceDay = differenceHour / 16
+            
+            if HolidayAndDay().daysOfParrents.firstIndex(of: differenceDay + 1) != nil {
+                //rpDay.isHidden = false
+                rpDay.image = UIImage(named: "Parrents")
+            }
+            if HolidayAndDay().daysOfMemory.firstIndex(of: differenceDay + 1) != nil {
+                //rpDay.isHidden = false
+                rpDay.image = UIImage(named: "Predki")
+            }
+            
+            if HolidayAndDay().datesOfPosts1.firstIndex(of: differenceDay + 1) != nil {
+                postdayLabel.isHidden = false
+                postdayLabel.font = UIFont(name: "-Normal", size: 30)
+                postdayLabel.text = "Святый ПОСТЪ"
+            }
+            
+            if HolidayAndDay().datesOfPosts2.firstIndex(of: differenceDay + 1) != nil {
+                postdayLabel.isHidden = false
+                postdayLabel.font = UIFont(name: "-Normal", size: 30)
+                postdayLabel.text = "Даждьбожий ПОСТЪ"
+            }
+            
+            if HolidayAndDay().datesOfPosts3.firstIndex(of: differenceDay + 1) != nil {
+                postdayLabel.isHidden = false
+                postdayLabel.font = UIFont(name: "-Normal", size: 30)
+                postdayLabel.text = "Чистый ПОСТЪ"
+            }
+            
+            if HolidayAndDay().datesOfPosts4.firstIndex(of: differenceDay + 1) != nil {
+                postdayLabel.isHidden = false
+                postdayLabel.font = UIFont(name: "-Normal", size: 30)
+                postdayLabel.text = "Великий ПОСТЪ"
+            }
+            
+            if HolidayAndDay().datesOfPosts5.firstIndex(of: differenceDay + 1) != nil {
+                postdayLabel.isHidden = false
+                postdayLabel.font = UIFont(name: "-Normal", size: 30)
+                postdayLabel.text = "Светлый ПОСТЪ"
+            }
             
             if differenceDay >= 0 && differenceDay <= 40 {
                 monthLabel.text = "Рамхатъ, день \(differenceDay + 1)"
@@ -515,6 +755,45 @@ class CurrentViewController: UIViewController {
             let differenceHour = differenceMinute / 90
             let differenceDay = differenceHour / 16
             
+            if HolidayAndDay().daysOfParrents.firstIndex(of: differenceDay + 1) != nil {
+                //rpDay.isHidden = false
+                rpDay.image = UIImage(named: "Parrents")
+            }
+            if HolidayAndDay().daysOfMemory.firstIndex(of: differenceDay + 1) != nil {
+                //rpDay.isHidden = false
+                rpDay.image = UIImage(named: "Predki")
+            }
+            
+            if HolidayAndDay().datesOfPosts1.firstIndex(of: differenceDay + 1) != nil {
+                postdayLabel.isHidden = false
+                postdayLabel.font = UIFont(name: "-Normal", size: 30)
+                postdayLabel.text = "Святый ПОСТЪ"
+            }
+            
+            if HolidayAndDay().datesOfPosts2.firstIndex(of: differenceDay + 1) != nil {
+                postdayLabel.isHidden = false
+                postdayLabel.font = UIFont(name: "-Normal", size: 30)
+                postdayLabel.text = "Даждьбожий ПОСТЪ"
+            }
+            
+            if HolidayAndDay().datesOfPosts3.firstIndex(of: differenceDay + 1) != nil {
+                postdayLabel.isHidden = false
+                postdayLabel.font = UIFont(name: "-Normal", size: 30)
+                postdayLabel.text = "Чистый ПОСТЪ"
+            }
+            
+            if HolidayAndDay().datesOfPosts4.firstIndex(of: differenceDay + 1) != nil {
+                postdayLabel.isHidden = false
+                postdayLabel.font = UIFont(name: "-Normal", size: 30)
+                postdayLabel.text = "Великий ПОСТЪ"
+            }
+            
+            if HolidayAndDay().datesOfPosts5.firstIndex(of: differenceDay + 1) != nil {
+                postdayLabel.isHidden = false
+                postdayLabel.font = UIFont(name: "-Normal", size: 30)
+                postdayLabel.text = "Светлый ПОСТЪ"
+            }
+            
             if differenceDay >= 0 && differenceDay <= 40 {
                 monthLabel.text = "Рамхатъ, день \(differenceDay + 1)"
                 fullTitleOfMonth.text = "Сороковник Божественного Начала"
@@ -572,6 +851,45 @@ class CurrentViewController: UIViewController {
             let differenceMinute = differenceSecond / 60
             let differenceHour = differenceMinute / 90
             let differenceDay = differenceHour / 16
+            
+            if HolidayAndDay().daysOfParrents_16.firstIndex(of: differenceDay + 1) != nil {
+                //rpDay.isHidden = false
+                rpDay.image = UIImage(named: "Parrents")
+            }
+            if HolidayAndDay().daysOfMemory_16.firstIndex(of: differenceDay + 1) != nil {
+                //rpDay.isHidden = false
+                rpDay.image = UIImage(named: "Predki")
+            }
+            
+            if HolidayAndDay().datesOfPosts1.firstIndex(of: differenceDay + 1) != nil {
+                postdayLabel.isHidden = false
+                postdayLabel.font = UIFont(name: "-Normal", size: 30)
+                postdayLabel.text = "Святый ПОСТЪ"
+            }
+            
+            if HolidayAndDay().datesOfPosts2_16.firstIndex(of: differenceDay + 1) != nil {
+                postdayLabel.isHidden = false
+                postdayLabel.font = UIFont(name: "-Normal", size: 30)
+                postdayLabel.text = "Даждьбожий ПОСТЪ"
+            }
+            
+            if HolidayAndDay().datesOfPosts3_16.firstIndex(of: differenceDay + 1) != nil {
+                postdayLabel.isHidden = false
+                postdayLabel.font = UIFont(name: "-Normal", size: 30)
+                postdayLabel.text = "Чистый ПОСТЪ"
+            }
+            
+            if HolidayAndDay().datesOfPosts4_16.firstIndex(of: differenceDay + 1) != nil {
+                postdayLabel.isHidden = false
+                postdayLabel.font = UIFont(name: "-Normal", size: 30)
+                postdayLabel.text = "Великий ПОСТЪ"
+            }
+            
+            if HolidayAndDay().datesOfPosts5_16.firstIndex(of: differenceDay + 1) != nil {
+                postdayLabel.isHidden = false
+                postdayLabel.font = UIFont(name: "-Normal", size: 30)
+                postdayLabel.text = "Светлый ПОСТЪ"
+            }
             
             if differenceDay >= 0 && differenceDay <= 40 {
                 monthLabel.text = "Рамхатъ, день \(differenceDay + 1)"
