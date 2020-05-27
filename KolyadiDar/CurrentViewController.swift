@@ -27,9 +27,11 @@ class CurrentViewController: UIViewController {
     @IBOutlet weak var titleOfConstellation: UILabel!
     
     @IBOutlet weak var holidayLabel: UILabel!
+    @IBOutlet weak var postdayLabel: UILabel!
     @IBOutlet weak var dayOfWeekLabel: UILabel!
     @IBOutlet weak var runesOfHour: UIImageView!
     @IBOutlet weak var scratchesOfHour: UIImageView!
+    @IBOutlet weak var rpDay: UIImageView!
     @IBOutlet weak var scrollView: UIScrollView!
     
     var currentDate = CurrentDate()
@@ -43,6 +45,11 @@ class CurrentViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         scrollView.showsVerticalScrollIndicator = false
+        holidayLabel.isHidden = true
+        postdayLabel.isHidden = true
+        //holidayLabel.font = UIFont(name: "-Normal", size: 30)
+        //postdayLabel.font = UIFont(name: "-Normal", size: 30)
+        //rpDay.image = UIImage(named: "Parrents")
     }
     
     /*

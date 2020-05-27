@@ -28,13 +28,11 @@ struct HolidayAndDay {
     
     
     
-    let daysOfParrents: [String] = ["", "", ""]
+    let daysOfParrents: [Int] = [14, 27, 38, 53, 66, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 144, 155, 159, 162, 179, 197, 198, 199, 200, 216, 222, 232, 240, 243, 252, 265, 270, 273, 282, 293, 301, 311, 318, 319, 327, 342, 351, 353, 357, 359]
     
-    let datesOfParrents: [String] = []
+    let daysOfParrents16: [Int] = []
     
+    let daysOfMemory: [Int] = [9, 16, 24, 36, 40, 45, 57, 70, 77, 88, 94, 99, 129, 134, 139, 167, 176, 181, 207, 214, 229, 236, 248, 257, 261, 268, 292, 297, 314, 322, 330, 336, 348, 355, 365]
     
-    
-    let daysOfMemory: [String] = []
-    
-    let datesOfMemory: [String] = []
+    let daysOfMemory16: [Int] = []
 }
