@@ -25,6 +25,7 @@ class CurrentViewController: UIViewController {
     @IBOutlet weak var titleOfHour: UILabel!
     @IBOutlet weak var fullTitleOfHour: UILabel!
     @IBOutlet weak var titleOfConstellation: UILabel!
+    @IBOutlet weak var nameOfGod: UILabel!
     
     @IBOutlet weak var holidayLabel: UILabel!
     @IBOutlet weak var postdayLabel: UILabel!
@@ -72,30 +73,39 @@ class CurrentViewController: UIViewController {
             
             if oldH < 10 {
                 hourLabel.text = "0\(oldH)"
+                UserDefaults.init(suiteName: "group.ru.superstarper.dev.KolyadiDar")?.setValue(hourLabel.text, forKey: "hours")
                 runesOfHour.image = UIImage(named: "runes_\(hourLabel.text!)")
                 scratchesOfHour.image = UIImage(named: "scr_\(hourLabel.text!)")
             } else if oldH >= 10 {
                 hourLabel.text = "\(oldH)"
+                UserDefaults.init(suiteName: "group.ru.superstarper.dev.KolyadiDar")?.setValue(hourLabel.text, forKey: "hours")
                 runesOfHour.image = UIImage(named: "runes_\(hourLabel.text!)")
                 scratchesOfHour.image = UIImage(named: "scr_\(hourLabel.text!)")
             }
             
             if oldM < 10 {
                 minuteLabel.text = "00\(oldM)"
+                UserDefaults.init(suiteName: "group.ru.superstarper.dev.KolyadiDar")?.setValue(minuteLabel.text, forKey: "minutes")
             } else if oldM >= 10 && oldM < 100 {
                 minuteLabel.text = "0\(oldM)"
+                UserDefaults.init(suiteName: "group.ru.superstarper.dev.KolyadiDar")?.setValue(minuteLabel.text, forKey: "minutes")
             } else if oldM >= 100 {
                 minuteLabel.text = "\(oldM)"
+                UserDefaults.init(suiteName: "group.ru.superstarper.dev.KolyadiDar")?.setValue(minuteLabel.text, forKey: "minutes")
             }
             
             if oldS < 10 {
                 secondLabel.text = "000\(oldS)"
+                UserDefaults.init(suiteName: "group.ru.superstarper.dev.KolyadiDar")?.setValue(secondLabel.text, forKey: "seconds")
             } else if oldS >= 10 && oldS < 100 {
                 secondLabel.text = "00\(oldS)"
+                UserDefaults.init(suiteName: "group.ru.superstarper.dev.KolyadiDar")?.setValue(secondLabel.text, forKey: "seconds")
             } else if oldS >= 100 && oldS < 1000 {
                 secondLabel.text = "0\(oldS)"
+                UserDefaults.init(suiteName: "group.ru.superstarper.dev.KolyadiDar")?.setValue(secondLabel.text, forKey: "seconds")
             } else if oldS >= 1000 {
                 secondLabel.text = "\(oldS)"
+                UserDefaults.init(suiteName: "group.ru.superstarper.dev.KolyadiDar")?.setValue(secondLabel.text, forKey: "seconds")
             }
         } else if hour > 18 {
             let time = (hour - 18) * 3600 + minute * 60 + second
@@ -526,10 +536,52 @@ class CurrentViewController: UIViewController {
             
             if differenceDay >= 0 && differenceDay <= 20 {
                 titleOfConstellation.text = "Чертог Вепря"
-            } else if differenceDay >= 21 && differenceDay >= 43 {
+                nameOfGod.text = "Бог-Покровитель Рамхатъ"
+            } else if differenceDay >= 21 && differenceDay <= 43 {
                 titleOfConstellation.text = "Чертог Щуки"
-            } else if differenceDay >= 21 && differenceDay >= 43 {
-                titleOfConstellation.text = "Чертог Щуки"
+                nameOfGod.text = "Богиня-Покровительница Рожана"
+            } else if differenceDay >= 44 && differenceDay <= 64 {
+                titleOfConstellation.text = "Чертог Лебедя"
+                nameOfGod.text = "Богиня-Покровительница Макошь"
+            } else if differenceDay >= 65 && differenceDay <= 86 {
+                titleOfConstellation.text = "Чертог Змея"
+                nameOfGod.text = "Бог-Покровитель Съмарглъ"
+            } else if differenceDay >= 87 && differenceDay <= 108 {
+                titleOfConstellation.text = "Чертог Ворона"
+                nameOfGod.text = "Бог-Покровитель Колѧда"
+            } else if differenceDay >= 109 && differenceDay <= 132 {
+                titleOfConstellation.text = "Чертог Медведя"
+                nameOfGod.text = "Бог-Покровитель Сварогъ"
+            } else if differenceDay >= 133 && differenceDay <= 157 {
+                titleOfConstellation.text = "Чертог Бусла"
+                nameOfGod.text = "Бог-Покровитель Родъ"
+            } else if differenceDay >= 158 && differenceDay <= 182 {
+                titleOfConstellation.text = "Чертог Волка"
+                nameOfGod.text = "Бог-Покровитель Вьлесе"
+            } else if differenceDay >= 183 && differenceDay <= 205 {
+                titleOfConstellation.text = "Чертог Лисы"
+                nameOfGod.text = "Богиня-Покровительница Мара"
+            } else if differenceDay >= 206 && differenceDay <= 227 {
+                titleOfConstellation.text = "Чертог Тура"
+                nameOfGod.text = "Бог-Покровитель Крышьнь"
+            } else if differenceDay >= 228 && differenceDay <= 250 {
+                titleOfConstellation.text = "Чертог Лося"
+                nameOfGod.text = "Богиня-Покровительница Лада"
+            } else if differenceDay >= 251 && differenceDay <= 272 {
+                titleOfConstellation.text = "Чертог Финиста"
+                nameOfGod.text = "Бог-Покровитель Вышьнь"
+            } else if differenceDay >= 273 && differenceDay <= 295 {
+                titleOfConstellation.text = "Чертог Коня"
+                nameOfGod.text = "Бог-Покровитель Кѫпала"
+            } else if differenceDay >= 296 && differenceDay <= 317 {
+                titleOfConstellation.text = "Чертог Орла"
+                nameOfGod.text = "Бог-Покровитель Перуне"
+            } else if differenceDay >= 318 && differenceDay <= 340 {
+                titleOfConstellation.text = "Чертог Раса"
+                nameOfGod.text = "Бог-Покровитель Тархъ"
+            } else if differenceDay >= 341 && differenceDay <= 364 {
+                titleOfConstellation.text = "Чертог Девы"
+                nameOfGod.text = "Бог-Покровитель Джива"
             }
             
             let oldDayOfWeek = Int(Double(differenceDay).truncatingRemainder(dividingBy: 9))
