@@ -19,6 +19,8 @@
 		3701F186247F6500009E4071 /* widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 3701F179247F6500009E4071 /* widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		375E90F6246C252F00C7D49C /* CurrentDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375E90F5246C252F00C7D49C /* CurrentDate.swift */; };
 		375E913C246E6A4000C7D49C /* rodnik.otf in Resources */ = {isa = PBXBuildFile; fileRef = 375E913B246E6A4000C7D49C /* rodnik.otf */; };
+		379F4B342481172900F975D5 /* MyDateTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379F4B332481172900F975D5 /* MyDateTextField.swift */; };
+		379F4B37248140F500F975D5 /* CustomDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379F4B36248140F500F975D5 /* CustomDate.swift */; };
 		37D8C2532462A3E000E9C5F4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D8C2522462A3E000E9C5F4 /* AppDelegate.swift */; };
 		37D8C2552462A3E000E9C5F4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D8C2542462A3E000E9C5F4 /* SceneDelegate.swift */; };
 		37D8C25A2462A3E000E9C5F4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37D8C2582462A3E000E9C5F4 /* Main.storyboard */; };
@@ -72,6 +74,8 @@
 		3701F18C247F69E3009E4071 /* widget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = widget.entitlements; sourceTree = "<group>"; };
 		375E90F5246C252F00C7D49C /* CurrentDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentDate.swift; sourceTree = "<group>"; };
 		375E913B246E6A4000C7D49C /* rodnik.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = rodnik.otf; path = "../../../../Шрифты/rodnik.otf"; sourceTree = "<group>"; };
+		379F4B332481172900F975D5 /* MyDateTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDateTextField.swift; sourceTree = "<group>"; };
+		379F4B36248140F500F975D5 /* CustomDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDate.swift; sourceTree = "<group>"; };
 		37D8C24F2462A3E000E9C5F4 /* Коляды Даръ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Коляды Даръ.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		37D8C2522462A3E000E9C5F4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		37D8C2542462A3E000E9C5F4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -146,6 +150,16 @@
 			path = Years;
 			sourceTree = "<group>";
 		};
+		379F4B352481238100F975D5 /* MyDate */ = {
+			isa = PBXGroup;
+			children = (
+				37D8C26C2462BAAE00E9C5F4 /* MyDateViewController.swift */,
+				379F4B36248140F500F975D5 /* CustomDate.swift */,
+				379F4B332481172900F975D5 /* MyDateTextField.swift */,
+			);
+			path = MyDate;
+			sourceTree = "<group>";
+		};
 		37D8C2462462A3E000E9C5F4 = {
 			isa = PBXGroup;
 			children = (
@@ -175,7 +189,7 @@
 				375E90F5246C252F00C7D49C /* CurrentDate.swift */,
 				37008E522475B43500F32CB2 /* HolidayAndDay.swift */,
 				37EA819624740657008FEC79 /* OldDaysOfWeek.swift */,
-				37D8C26C2462BAAE00E9C5F4 /* MyDateViewController.swift */,
+				379F4B352481238100F975D5 /* MyDate */,
 				3701F19E248038BE009E4071 /* Years */,
 				3701F19D248038A3009E4071 /* MainDays */,
 				37D8C26A2462BA6000E9C5F4 /* AboutViewController.swift */,
@@ -310,8 +324,10 @@
 				3701F16C247C380D009E4071 /* OldYear.swift in Sources */,
 				375E90F6246C252F00C7D49C /* CurrentDate.swift in Sources */,
 				37D8C26F2462BAD600E9C5F4 /* CurrentViewController.swift in Sources */,
+				379F4B37248140F500F975D5 /* CustomDate.swift in Sources */,
 				37008E532475B43500F32CB2 /* HolidayAndDay.swift in Sources */,
 				37EA819724740657008FEC79 /* OldDaysOfWeek.swift in Sources */,
+				379F4B342481172900F975D5 /* MyDateTextField.swift in Sources */,
 				3701F172247D1B8B009E4071 /* MainDatePageViewController.swift in Sources */,
 				37D8C26D2462BAAE00E9C5F4 /* MyDateViewController.swift in Sources */,
 			);

@@ -38,6 +38,8 @@ class CurrentViewController: UIViewController {
     var currentDate = CurrentDate()
     var timer = Timer()
     
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         setupTimer()
     }
@@ -48,6 +50,7 @@ class CurrentViewController: UIViewController {
         scrollView.showsVerticalScrollIndicator = false
         holidayLabel.isHidden = true
         postdayLabel.isHidden = true
+        rpDay.isHidden = true
         //holidayLabel.font = UIFont(name: "-Normal", size: 30)
         //postdayLabel.font = UIFont(name: "-Normal", size: 30)
         //rpDay.image = UIImage(named: "Parrents")
@@ -63,914 +66,12 @@ class CurrentViewController: UIViewController {
     }
     */
 
-    func oldTime(hour: Int, minute: Int, second: Int) {
-        // годины, части, доли
-        if hour <= 18 {
-            let time = (hour + 6) * 3600 + minute * 60 + second
-            let oldH = Int(time / 5400)
-            let oldM = Int(Double(time - (oldH * 5400))/37.5)
-            let oldS = Int((Double(time) - Double(oldH) * 5400 - Double(oldM) * 37.5) / 0.05787 * 2)
-            
-            if oldH < 10 {
-                hourLabel.text = "0\(oldH)"
-                UserDefaults.init(suiteName: "group.ru.superstarper.dev.KolyadiDar")?.setValue(hourLabel.text, forKey: "hours")
-                runesOfHour.image = UIImage(named: "runes_\(hourLabel.text!)")
-                scratchesOfHour.image = UIImage(named: "scr_\(hourLabel.text!)")
-            } else if oldH >= 10 {
-                hourLabel.text = "\(oldH)"
-                UserDefaults.init(suiteName: "group.ru.superstarper.dev.KolyadiDar")?.setValue(hourLabel.text, forKey: "hours")
-                runesOfHour.image = UIImage(named: "runes_\(hourLabel.text!)")
-                scratchesOfHour.image = UIImage(named: "scr_\(hourLabel.text!)")
-            }
-            
-            if oldM < 10 {
-                minuteLabel.text = "00\(oldM)"
-                UserDefaults.init(suiteName: "group.ru.superstarper.dev.KolyadiDar")?.setValue(minuteLabel.text, forKey: "minutes")
-            } else if oldM >= 10 && oldM < 100 {
-                minuteLabel.text = "0\(oldM)"
-                UserDefaults.init(suiteName: "group.ru.superstarper.dev.KolyadiDar")?.setValue(minuteLabel.text, forKey: "minutes")
-            } else if oldM >= 100 {
-                minuteLabel.text = "\(oldM)"
-                UserDefaults.init(suiteName: "group.ru.superstarper.dev.KolyadiDar")?.setValue(minuteLabel.text, forKey: "minutes")
-            }
-            
-            if oldS < 10 {
-                secondLabel.text = "000\(oldS)"
-                UserDefaults.init(suiteName: "group.ru.superstarper.dev.KolyadiDar")?.setValue(secondLabel.text, forKey: "seconds")
-            } else if oldS >= 10 && oldS < 100 {
-                secondLabel.text = "00\(oldS)"
-                UserDefaults.init(suiteName: "group.ru.superstarper.dev.KolyadiDar")?.setValue(secondLabel.text, forKey: "seconds")
-            } else if oldS >= 100 && oldS < 1000 {
-                secondLabel.text = "0\(oldS)"
-                UserDefaults.init(suiteName: "group.ru.superstarper.dev.KolyadiDar")?.setValue(secondLabel.text, forKey: "seconds")
-            } else if oldS >= 1000 {
-                secondLabel.text = "\(oldS)"
-                UserDefaults.init(suiteName: "group.ru.superstarper.dev.KolyadiDar")?.setValue(secondLabel.text, forKey: "seconds")
-            }
-        } else if hour > 18 {
-            let time = (hour - 18) * 3600 + minute * 60 + second
-            var oldH = Int(time / 5400)
-            let oldM = Int(Double(time - (oldH * 5400))/37.5)
-            let oldS = Int((Double(time) - Double(oldH) * 5400 - Double(oldM) * 37.5) / 0.05787 * 2)
-            if time < 5400 {
-                oldH = 16
-            }
-            
-            if oldH < 10 {
-                hourLabel.text = "0\(oldH)"
-                runesOfHour.image = UIImage(named: "runes_\(hourLabel.text!)")
-                scratchesOfHour.image = UIImage(named: "scr_\(hourLabel.text!)")
-            } else if oldH >= 10 {
-                hourLabel.text = "\(oldH)"
-                runesOfHour.image = UIImage(named: "runes_\(hourLabel.text!)")
-                scratchesOfHour.image = UIImage(named: "scr_\(hourLabel.text!)")
-            }
-            
-            if oldM < 10 {
-                minuteLabel.text = "00\(oldM)"
-            } else if oldM >= 10 && oldM < 100 {
-                minuteLabel.text = "0\(oldM)"
-            } else if oldM >= 100 {
-                minuteLabel.text = "\(oldM)"
-            }
-            
-            if oldS < 10 {
-                secondLabel.text = ".000\(oldS)"
-            } else if oldS >= 10 && oldS < 100 {
-                secondLabel.text = ".00\(oldS)"
-            } else if oldS >= 100 && oldS < 1000 {
-                secondLabel.text = ".0\(oldS)"
-            } else if oldS >= 1000 {
-                secondLabel.text = ".\(oldS)"
-            }
-        }
-    }
     
-    func oldMonth(oldYearsNumber: Int, year: Int, month: Int, day: Int, hour: Int) {
-        if oldYearsNumber >= 1 && oldYearsNumber <= 3 {
-            var startYear: Int = 0
-            if month >= 1 && month <= 9 {
-                if month == 9 {
-                    if (day == 22 && hour <= 18) || day < 22 {
-                        startYear = year - 1
-                    }
-                } else {
-                    startYear = year - 1
-                }
-            } else if month >= 10 && month <= 12 {
-                startYear = year
-            }
-            let startMonth = 9
-            let startDay = 22
-            let startHour = 18
-            let differenceSecond = currentDate.getDifferenceTime(year: startYear, month: startMonth, day: startDay, hour: startHour)
-            let differenceMinute = differenceSecond / 60
-            let differenceHour = differenceMinute / 90
-            let differenceDay = differenceHour / 16
-            
-            if HolidayAndDay().daysOfParrents.firstIndex(of: differenceDay + 1) != nil {
-                //rpDay.isHidden = false
-                rpDay.image = UIImage(named: "Parrents")
-            }
-            if HolidayAndDay().daysOfMemory.firstIndex(of: differenceDay + 1) != nil {
-                //rpDay.isHidden = false
-                rpDay.image = UIImage(named: "Predki")
-            }
-            
-            if HolidayAndDay().datesOfPosts1.firstIndex(of: differenceDay + 1) != nil {
-                postdayLabel.isHidden = false
-                postdayLabel.font = UIFont(name: "-Normal", size: 30)
-                postdayLabel.text = "Святый ПОСТЪ"
-            }
-            
-            if HolidayAndDay().datesOfPosts2.firstIndex(of: differenceDay + 1) != nil {
-                postdayLabel.isHidden = false
-                postdayLabel.font = UIFont(name: "-Normal", size: 30)
-                postdayLabel.text = "Даждьбожий ПОСТЪ"
-            }
-            
-            if HolidayAndDay().datesOfPosts3.firstIndex(of: differenceDay + 1) != nil {
-                postdayLabel.isHidden = false
-                postdayLabel.font = UIFont(name: "-Normal", size: 30)
-                postdayLabel.text = "Чистый ПОСТЪ"
-            }
-            
-            if HolidayAndDay().datesOfPosts4.firstIndex(of: differenceDay + 1) != nil {
-                postdayLabel.isHidden = false
-                postdayLabel.font = UIFont(name: "-Normal", size: 30)
-                postdayLabel.text = "Великий ПОСТЪ"
-            }
-            
-            if HolidayAndDay().datesOfPosts5.firstIndex(of: differenceDay + 1) != nil {
-                postdayLabel.isHidden = false
-                postdayLabel.font = UIFont(name: "-Normal", size: 30)
-                postdayLabel.text = "Светлый ПОСТЪ"
-            }
-            
-            if differenceDay >= 0 && differenceDay <= 40 {
-                monthLabel.text = "Рамхатъ, день \(differenceDay + 1)"
-                fullTitleOfMonth.text = "Сороковник Божественного Начала"
-            } else if differenceDay >= 41 && differenceDay <= 80 {
-                monthLabel.text = "Айлѣтъ, день \(differenceDay - 40)"
-                fullTitleOfMonth.text = "Сороковник Новых Даров"
-            } else if differenceDay >= 81 && differenceDay <= 121 {
-                monthLabel.text = "Бейлѣтъ, день \(differenceDay - 80)"
-                fullTitleOfMonth.text = "Сороковник Белого Сияния и Покоя Мира"
-            } else if differenceDay >= 122 && differenceDay <= 161 {
-                monthLabel.text = "Гэйлѣтъ, день \(differenceDay - 121)"
-                fullTitleOfMonth.text = "Сороковник Вьюг и Стужи"
-            } else if differenceDay >= 162 && differenceDay <= 202 {
-                monthLabel.text = "Дайлѣтъ, день \(differenceDay - 161)"
-                fullTitleOfMonth.text = "Сороковник Пробуждения Природы"
-            } else if differenceDay >= 203 && differenceDay <= 242 {
-                monthLabel.text = "Элѣтъ, день \(differenceDay - 202)"
-                fullTitleOfMonth.text = "Сороковник Посева и Наречения"
-            } else if differenceDay >= 243 && differenceDay <= 283 {
-                monthLabel.text = "Вэйлѣтъ, день \(differenceDay - 242)"
-                fullTitleOfMonth.text = "Сороковник Ветров"
-            } else if differenceDay >= 284 && differenceDay <= 323 {
-                monthLabel.text = "Хейлѣтъ, день \(differenceDay - 283)"
-                fullTitleOfMonth.text = "Сороковник Получения Даров Природы"
-            } else if differenceDay >= 324 && differenceDay <= 364 {
-                monthLabel.text = "Тайлѣтъ, день \(differenceDay - 323)"
-                fullTitleOfMonth.text = "Сороковник Завершения"
-            }
-            
-            let oldDayOfWeek = Int(Double(differenceDay).truncatingRemainder(dividingBy: 9))
-            if oldDayOfWeek != 0 {
-                dayOfWeekLabel.text = (OldDaysOfWeek.init().dayOfWeek(day: oldDayOfWeek - 1))
-            } else {
-                dayOfWeekLabel.text = (OldDaysOfWeek.init().dayOfWeek(day: 8))
-                dayOfWeekLabel.textColor = .red
-            }
-        }
-        else if oldYearsNumber == 4 {
-            var startYear: Int = 0
-            if month >= 1 && month <= 9 {
-                if month == 9 {
-                    if (day == 21 && hour <= 18) || day < 21 {
-                        startYear = year - 1
-                    }
-                } else {
-                    startYear = year - 1
-                }
-            } else if month >= 10 && month <= 12 {
-                startYear = year
-            }
-            let startMonth = 9
-            let startDay = 22
-            let startHour = 18
-            let differenceSecond = currentDate.getDifferenceTime(year: startYear, month: startMonth, day: startDay, hour: startHour)
-            let differenceMinute = differenceSecond / 60
-            let differenceHour = differenceMinute / 90
-            let differenceDay = differenceHour / 16
-            
-            if HolidayAndDay().daysOfParrents.firstIndex(of: differenceDay + 1) != nil {
-                //rpDay.isHidden = false
-                rpDay.image = UIImage(named: "Parrents")
-            }
-            if HolidayAndDay().daysOfMemory.firstIndex(of: differenceDay + 1) != nil {
-                //rpDay.isHidden = false
-                rpDay.image = UIImage(named: "Predki")
-            }
-            
-            if HolidayAndDay().datesOfPosts1.firstIndex(of: differenceDay + 1) != nil {
-                postdayLabel.isHidden = false
-                postdayLabel.font = UIFont(name: "-Normal", size: 30)
-                postdayLabel.text = "Святый ПОСТЪ"
-            }
-            
-            if HolidayAndDay().datesOfPosts2.firstIndex(of: differenceDay + 1) != nil {
-                postdayLabel.isHidden = false
-                postdayLabel.font = UIFont(name: "-Normal", size: 30)
-                postdayLabel.text = "Даждьбожий ПОСТЪ"
-            }
-            
-            if HolidayAndDay().datesOfPosts3.firstIndex(of: differenceDay + 1) != nil {
-                postdayLabel.isHidden = false
-                postdayLabel.font = UIFont(name: "-Normal", size: 30)
-                postdayLabel.text = "Чистый ПОСТЪ"
-            }
-            
-            if HolidayAndDay().datesOfPosts4.firstIndex(of: differenceDay + 1) != nil {
-                postdayLabel.isHidden = false
-                postdayLabel.font = UIFont(name: "-Normal", size: 30)
-                postdayLabel.text = "Великий ПОСТЪ"
-            }
-            
-            if HolidayAndDay().datesOfPosts5.firstIndex(of: differenceDay + 1) != nil {
-                postdayLabel.isHidden = false
-                postdayLabel.font = UIFont(name: "-Normal", size: 30)
-                postdayLabel.text = "Светлый ПОСТЪ"
-            }
-            
-            if differenceDay >= 0 && differenceDay <= 40 {
-                monthLabel.text = "Рамхатъ, день \(differenceDay + 1)"
-                fullTitleOfMonth.text = "Сороковник Божественного Начала"
-            } else if differenceDay >= 41 && differenceDay <= 80 {
-                monthLabel.text = "Айлѣтъ, день \(differenceDay - 40)"
-                fullTitleOfMonth.text = "Сороковник Новых Даров"
-            } else if differenceDay >= 81 && differenceDay <= 121 {
-                monthLabel.text = "Бейлѣтъ, день \(differenceDay - 80)"
-                fullTitleOfMonth.text = "Сороковник Белого Сияния и Покоя Мира"
-            } else if differenceDay >= 122 && differenceDay <= 161 {
-                monthLabel.text = "Гэйлѣтъ, день \(differenceDay - 121)"
-                fullTitleOfMonth.text = "Сороковник Вьюг и Стужи"
-            } else if differenceDay >= 162 && differenceDay <= 202 {
-                monthLabel.text = "Дайлѣтъ, день \(differenceDay - 161)"
-                fullTitleOfMonth.text = "Сороковник Пробуждения Природы"
-            } else if differenceDay >= 203 && differenceDay <= 242 {
-                monthLabel.text = "Элѣтъ, день \(differenceDay - 202)"
-                fullTitleOfMonth.text = "Сороковник Посева и Наречения"
-            } else if differenceDay >= 243 && differenceDay <= 283 {
-                monthLabel.text = "Вэйлѣтъ, день \(differenceDay - 242)"
-                fullTitleOfMonth.text = "Сороковник Ветров"
-            } else if differenceDay >= 284 && differenceDay <= 323 {
-                monthLabel.text = "Хейлѣтъ, день \(differenceDay - 283)"
-                fullTitleOfMonth.text = "Сороковник Получения Даров Природы"
-            } else if differenceDay >= 324 && differenceDay <= 364 {
-                monthLabel.text = "Тайлѣтъ, день \(differenceDay - 323)"
-                fullTitleOfMonth.text = "Сороковник Завершения"
-            }
-            
-            let oldDayOfWeek = Int(Double(differenceDay).truncatingRemainder(dividingBy: 9))
-            if oldDayOfWeek != 0 {
-                dayOfWeekLabel.text = (OldDaysOfWeek.init().dayOfWeek(day: oldDayOfWeek - 1))
-            } else {
-                dayOfWeekLabel.text = (OldDaysOfWeek.init().dayOfWeek(day: 8))
-                dayOfWeekLabel.textColor = .red
-            }
-        }
-        else if oldYearsNumber >= 5 && oldYearsNumber <= 7 {
-            var startYear: Int = 0
-            if month >= 1 && month <= 9 {
-                if month == 9 {
-                    if (day == 21 && hour <= 18) || day < 21 {
-                        startYear = year - 1
-                    }
-                } else {
-                    startYear = year - 1
-                }
-            } else if month >= 10 && month <= 12 {
-                startYear = year
-            }
-            let startMonth = 9
-            let startDay = 21
-            let startHour = 18
-            let differenceSecond = currentDate.getDifferenceTime(year: startYear, month: startMonth, day: startDay, hour: startHour)
-            let differenceMinute = differenceSecond / 60
-            let differenceHour = differenceMinute / 90
-            let differenceDay = differenceHour / 16
-            
-            if HolidayAndDay().daysOfParrents.firstIndex(of: differenceDay + 1) != nil {
-                //rpDay.isHidden = false
-                rpDay.image = UIImage(named: "Parrents")
-            }
-            if HolidayAndDay().daysOfMemory.firstIndex(of: differenceDay + 1) != nil {
-                //rpDay.isHidden = false
-                rpDay.image = UIImage(named: "Predki")
-            }
-            
-            if HolidayAndDay().datesOfPosts1.firstIndex(of: differenceDay + 1) != nil {
-                postdayLabel.isHidden = false
-                postdayLabel.font = UIFont(name: "-Normal", size: 30)
-                postdayLabel.text = "Святый ПОСТЪ"
-            }
-            
-            if HolidayAndDay().datesOfPosts2.firstIndex(of: differenceDay + 1) != nil {
-                postdayLabel.isHidden = false
-                postdayLabel.font = UIFont(name: "-Normal", size: 30)
-                postdayLabel.text = "Даждьбожий ПОСТЪ"
-            }
-            
-            if HolidayAndDay().datesOfPosts3.firstIndex(of: differenceDay + 1) != nil {
-                postdayLabel.isHidden = false
-                postdayLabel.font = UIFont(name: "-Normal", size: 30)
-                postdayLabel.text = "Чистый ПОСТЪ"
-            }
-            
-            if HolidayAndDay().datesOfPosts4.firstIndex(of: differenceDay + 1) != nil {
-                postdayLabel.isHidden = false
-                postdayLabel.font = UIFont(name: "-Normal", size: 30)
-                postdayLabel.text = "Великий ПОСТЪ"
-            }
-            
-            if HolidayAndDay().datesOfPosts5.firstIndex(of: differenceDay + 1) != nil {
-                postdayLabel.isHidden = false
-                postdayLabel.font = UIFont(name: "-Normal", size: 30)
-                postdayLabel.text = "Светлый ПОСТЪ"
-            }
-            
-            if differenceDay >= 0 && differenceDay <= 40 {
-                monthLabel.text = "Рамхатъ, день \(differenceDay + 1)"
-                fullTitleOfMonth.text = "Сороковник Божественного Начала"
-            } else if differenceDay >= 41 && differenceDay <= 80 {
-                monthLabel.text = "Айлѣтъ, день \(differenceDay - 40)"
-                fullTitleOfMonth.text = "Сороковник Новых Даров"
-            } else if differenceDay >= 81 && differenceDay <= 121 {
-                monthLabel.text = "Бейлѣтъ, день \(differenceDay - 80)"
-                fullTitleOfMonth.text = "Сороковник Белого Сияния и Покоя Мира"
-            } else if differenceDay >= 122 && differenceDay <= 161 {
-                monthLabel.text = "Гэйлѣтъ, день \(differenceDay - 121)"
-                fullTitleOfMonth.text = "Сороковник Вьюг и Стужи"
-            } else if differenceDay >= 162 && differenceDay <= 202 {
-                monthLabel.text = "Дайлѣтъ, день \(differenceDay - 161)"
-                fullTitleOfMonth.text = "Сороковник Пробуждения Природы"
-            } else if differenceDay >= 203 && differenceDay <= 242 {
-                monthLabel.text = "Элѣтъ, день \(differenceDay - 202)"
-                fullTitleOfMonth.text = "Сороковник Посева и Наречения"
-            } else if differenceDay >= 243 && differenceDay <= 283 {
-                monthLabel.text = "Вэйлѣтъ, день \(differenceDay - 242)"
-                fullTitleOfMonth.text = "Сороковник Ветров"
-            } else if differenceDay >= 284 && differenceDay <= 323 {
-                monthLabel.text = "Хейлѣтъ, день \(differenceDay - 283)"
-                fullTitleOfMonth.text = "Сороковник Получения Даров Природы"
-            } else if differenceDay >= 324 && differenceDay <= 364 {
-                monthLabel.text = "Тайлѣтъ, день \(differenceDay - 323)"
-                fullTitleOfMonth.text = "Сороковник Завершения"
-            }
-            
-            let oldDayOfWeek = Int(Double(differenceDay).truncatingRemainder(dividingBy: 9))
-            if oldDayOfWeek != 0 {
-                dayOfWeekLabel.text = (OldDaysOfWeek.init().dayOfWeek(day: oldDayOfWeek - 1))
-            } else {
-                dayOfWeekLabel.text = (OldDaysOfWeek.init().dayOfWeek(day: 8))
-                dayOfWeekLabel.textColor = .red
-            }
-        }
-        else if oldYearsNumber == 8 {
-            var startYear: Int = 0
-            if month >= 1 && month <= 9 {
-                if month == 9 {
-                    if (day == 20 && hour <= 18) || day < 20 {
-                        startYear = year - 1
-                    }
-                } else {
-                    startYear = year - 1
-                }
-            } else if month >= 10 && month <= 12 {
-                startYear = year
-            }
-            let startMonth = 9
-            let startDay = 21
-            let startHour = 18
-            
-            let differenceSecond = currentDate.getDifferenceTime(year: startYear, month: startMonth, day: startDay, hour: startHour)
-            let differenceMinute = differenceSecond / 60
-            let differenceHour = differenceMinute / 90
-            let differenceDay = differenceHour / 16
-            
-            if HolidayAndDay().holidays[differenceDay + 1] != nil {
-                holidayLabel.isHidden = false
-                holidayLabel.font = UIFont(name: "-Normal", size: 30)
-                holidayLabel.text = HolidayAndDay().holidays[differenceDay + 1]
-            }
-            
-            if HolidayAndDay().daysOfParrents.firstIndex(of: differenceDay + 1) != nil {
-                //rpDay.isHidden = false
-                rpDay.image = UIImage(named: "Parrents")
-            }
-            if HolidayAndDay().daysOfMemory.firstIndex(of: differenceDay + 1) != nil {
-                //rpDay.isHidden = false
-                rpDay.image = UIImage(named: "Predki")
-            }
-            
-            if HolidayAndDay().datesOfPosts1.firstIndex(of: differenceDay + 1) != nil {
-                postdayLabel.isHidden = false
-                postdayLabel.font = UIFont(name: "-Normal", size: 30)
-                postdayLabel.text = "Святый ПОСТЪ"
-            }
-            
-            if HolidayAndDay().datesOfPosts2.firstIndex(of: differenceDay + 1) != nil {
-                postdayLabel.isHidden = false
-                postdayLabel.font = UIFont(name: "-Normal", size: 30)
-                postdayLabel.text = "Даждьбожий ПОСТЪ"
-            }
-            
-            if HolidayAndDay().datesOfPosts3.firstIndex(of: differenceDay + 1) != nil {
-                postdayLabel.isHidden = false
-                postdayLabel.font = UIFont(name: "-Normal", size: 30)
-                postdayLabel.text = "Чистый ПОСТЪ"
-            }
-            
-            if HolidayAndDay().datesOfPosts4.firstIndex(of: differenceDay + 1) != nil {
-                postdayLabel.isHidden = false
-                postdayLabel.font = UIFont(name: "-Normal", size: 30)
-                postdayLabel.text = "Великий ПОСТЪ"
-            }
-            
-            if HolidayAndDay().datesOfPosts5.firstIndex(of: differenceDay + 1) != nil {
-                postdayLabel.isHidden = false
-                postdayLabel.font = UIFont(name: "-Normal", size: 30)
-                postdayLabel.text = "Светлый ПОСТЪ"
-            }
-            
-            if differenceDay >= 0 && differenceDay <= 40 {
-                monthLabel.text = "Рамхатъ, день \(differenceDay + 1)"
-                fullTitleOfMonth.text = "Сороковник Божественного Начала"
-            } else if differenceDay >= 41 && differenceDay <= 80 {
-                monthLabel.text = "Айлѣтъ, день \(differenceDay - 40)"
-                fullTitleOfMonth.text = "Сороковник Новых Даров"
-            } else if differenceDay >= 81 && differenceDay <= 121 {
-                monthLabel.text = "Бейлѣтъ, день \(differenceDay - 80)"
-                fullTitleOfMonth.text = "Сороковник Белого Сияния и Покоя Мира"
-            } else if differenceDay >= 122 && differenceDay <= 161 {
-                monthLabel.text = "Гэйлѣтъ, день \(differenceDay - 121)"
-                fullTitleOfMonth.text = "Сороковник Вьюг и Стужи"
-            } else if differenceDay >= 162 && differenceDay <= 202 {
-                monthLabel.text = "Дайлѣтъ, день \(differenceDay - 161)"
-                fullTitleOfMonth.text = "Сороковник Пробуждения Природы"
-            } else if differenceDay >= 203 && differenceDay <= 242 {
-                monthLabel.text = "Элѣтъ, день \(differenceDay - 202)"
-                fullTitleOfMonth.text = "Сороковник Посева и Наречения"
-            } else if differenceDay >= 243 && differenceDay <= 283 {
-                monthLabel.text = "Вэйлѣтъ, день \(differenceDay - 242)"
-                fullTitleOfMonth.text = "Сороковник Ветров"
-            } else if differenceDay >= 284 && differenceDay <= 323 {
-                monthLabel.text = "Хейлѣтъ, день \(differenceDay - 283)"
-                fullTitleOfMonth.text = "Сороковник Получения Даров Природы"
-            } else if differenceDay >= 324 && differenceDay <= 364 {
-                monthLabel.text = "Тайлѣтъ, день \(differenceDay - 323)"
-                fullTitleOfMonth.text = "Сороковник Завершения"
-            }
-            
-            if differenceDay >= 0 && differenceDay <= 20 {
-                titleOfConstellation.text = "Чертог Вепря"
-                nameOfGod.text = "Бог-Покровитель Рамхатъ"
-            } else if differenceDay >= 21 && differenceDay <= 43 {
-                titleOfConstellation.text = "Чертог Щуки"
-                nameOfGod.text = "Богиня-Покровительница Рожана"
-            } else if differenceDay >= 44 && differenceDay <= 64 {
-                titleOfConstellation.text = "Чертог Лебедя"
-                nameOfGod.text = "Богиня-Покровительница Макошь"
-            } else if differenceDay >= 65 && differenceDay <= 86 {
-                titleOfConstellation.text = "Чертог Змея"
-                nameOfGod.text = "Бог-Покровитель Съмарглъ"
-            } else if differenceDay >= 87 && differenceDay <= 108 {
-                titleOfConstellation.text = "Чертог Ворона"
-                nameOfGod.text = "Бог-Покровитель Колѧда"
-            } else if differenceDay >= 109 && differenceDay <= 132 {
-                titleOfConstellation.text = "Чертог Медведя"
-                nameOfGod.text = "Бог-Покровитель Сварогъ"
-            } else if differenceDay >= 133 && differenceDay <= 157 {
-                titleOfConstellation.text = "Чертог Бусла"
-                nameOfGod.text = "Бог-Покровитель Родъ"
-            } else if differenceDay >= 158 && differenceDay <= 182 {
-                titleOfConstellation.text = "Чертог Волка"
-                nameOfGod.text = "Бог-Покровитель Вьлесе"
-            } else if differenceDay >= 183 && differenceDay <= 205 {
-                titleOfConstellation.text = "Чертог Лисы"
-                nameOfGod.text = "Богиня-Покровительница Мара"
-            } else if differenceDay >= 206 && differenceDay <= 227 {
-                titleOfConstellation.text = "Чертог Тура"
-                nameOfGod.text = "Бог-Покровитель Крышьнь"
-            } else if differenceDay >= 228 && differenceDay <= 250 {
-                titleOfConstellation.text = "Чертог Лося"
-                nameOfGod.text = "Богиня-Покровительница Лада"
-            } else if differenceDay >= 251 && differenceDay <= 272 {
-                titleOfConstellation.text = "Чертог Финиста"
-                nameOfGod.text = "Бог-Покровитель Вышьнь"
-            } else if differenceDay >= 273 && differenceDay <= 295 {
-                titleOfConstellation.text = "Чертог Коня"
-                nameOfGod.text = "Бог-Покровитель Кѫпала"
-            } else if differenceDay >= 296 && differenceDay <= 317 {
-                titleOfConstellation.text = "Чертог Орла"
-                nameOfGod.text = "Бог-Покровитель Перуне"
-            } else if differenceDay >= 318 && differenceDay <= 340 {
-                titleOfConstellation.text = "Чертог Раса"
-                nameOfGod.text = "Бог-Покровитель Тархъ"
-            } else if differenceDay >= 341 && differenceDay <= 364 {
-                titleOfConstellation.text = "Чертог Девы"
-                nameOfGod.text = "Бог-Покровитель Джива"
-            }
-            
-            let oldDayOfWeek = Int(Double(differenceDay).truncatingRemainder(dividingBy: 9))
-            if oldDayOfWeek != 0 {
-                dayOfWeekLabel.text = (OldDaysOfWeek.init().dayOfWeek(day: oldDayOfWeek - 1))
-            } else {
-                dayOfWeekLabel.text = (OldDaysOfWeek.init().dayOfWeek(day: 8))
-                dayOfWeekLabel.textColor = .red
-            }
-        }
-        else if oldYearsNumber >= 9 && oldYearsNumber <= 11 {
-            var startYear: Int = 0
-            if month >= 1 && month <= 9 {
-                if month == 9 {
-                    if (day == 20 && hour <= 18) || day < 20 {
-                        startYear = year - 1
-                    }
-                } else {
-                    startYear = year - 1
-                }
-            } else if month >= 10 && month <= 12 {
-                startYear = year
-            }
-            let startMonth = 9
-            let startDay = 20
-            let startHour = 18
-            let differenceSecond = currentDate.getDifferenceTime(year: startYear, month: startMonth, day: startDay, hour: startHour)
-            let differenceMinute = differenceSecond / 60
-            let differenceHour = differenceMinute / 90
-            let differenceDay = differenceHour / 16
-            
-            if HolidayAndDay().daysOfParrents.firstIndex(of: differenceDay + 1) != nil {
-                //rpDay.isHidden = false
-                rpDay.image = UIImage(named: "Parrents")
-            }
-            if HolidayAndDay().daysOfMemory.firstIndex(of: differenceDay + 1) != nil {
-                //rpDay.isHidden = false
-                rpDay.image = UIImage(named: "Predki")
-            }
-            
-            if HolidayAndDay().datesOfPosts1.firstIndex(of: differenceDay + 1) != nil {
-                postdayLabel.isHidden = false
-                postdayLabel.font = UIFont(name: "-Normal", size: 30)
-                postdayLabel.text = "Святый ПОСТЪ"
-            }
-            
-            if HolidayAndDay().datesOfPosts2.firstIndex(of: differenceDay + 1) != nil {
-                postdayLabel.isHidden = false
-                postdayLabel.font = UIFont(name: "-Normal", size: 30)
-                postdayLabel.text = "Даждьбожий ПОСТЪ"
-            }
-            
-            if HolidayAndDay().datesOfPosts3.firstIndex(of: differenceDay + 1) != nil {
-                postdayLabel.isHidden = false
-                postdayLabel.font = UIFont(name: "-Normal", size: 30)
-                postdayLabel.text = "Чистый ПОСТЪ"
-            }
-            
-            if HolidayAndDay().datesOfPosts4.firstIndex(of: differenceDay + 1) != nil {
-                postdayLabel.isHidden = false
-                postdayLabel.font = UIFont(name: "-Normal", size: 30)
-                postdayLabel.text = "Великий ПОСТЪ"
-            }
-            
-            if HolidayAndDay().datesOfPosts5.firstIndex(of: differenceDay + 1) != nil {
-                postdayLabel.isHidden = false
-                postdayLabel.font = UIFont(name: "-Normal", size: 30)
-                postdayLabel.text = "Светлый ПОСТЪ"
-            }
-            
-            if differenceDay >= 0 && differenceDay <= 40 {
-                monthLabel.text = "Рамхатъ, день \(differenceDay + 1)"
-                fullTitleOfMonth.text = "Сороковник Божественного Начала"
-            } else if differenceDay >= 41 && differenceDay <= 80 {
-                monthLabel.text = "Айлѣтъ, день \(differenceDay - 40)"
-                fullTitleOfMonth.text = "Сороковник Новых Даров"
-            } else if differenceDay >= 81 && differenceDay <= 121 {
-                monthLabel.text = "Бейлѣтъ, день \(differenceDay - 80)"
-                fullTitleOfMonth.text = "Сороковник Белого Сияния и Покоя Мира"
-            } else if differenceDay >= 122 && differenceDay <= 161 {
-                monthLabel.text = "Гэйлѣтъ, день \(differenceDay - 121)"
-                fullTitleOfMonth.text = "Сороковник Вьюг и Стужи"
-            } else if differenceDay >= 162 && differenceDay <= 202 {
-                monthLabel.text = "Дайлѣтъ, день \(differenceDay - 161)"
-                fullTitleOfMonth.text = "Сороковник Пробуждения Природы"
-            } else if differenceDay >= 203 && differenceDay <= 242 {
-                monthLabel.text = "Элѣтъ, день \(differenceDay - 202)"
-                fullTitleOfMonth.text = "Сороковник Посева и Наречения"
-            } else if differenceDay >= 243 && differenceDay <= 283 {
-                monthLabel.text = "Вэйлѣтъ, день \(differenceDay - 242)"
-                fullTitleOfMonth.text = "Сороковник Ветров"
-            } else if differenceDay >= 284 && differenceDay <= 323 {
-                monthLabel.text = "Хейлѣтъ, день \(differenceDay - 283)"
-                fullTitleOfMonth.text = "Сороковник Получения Даров Природы"
-            } else if differenceDay >= 324 && differenceDay <= 364 {
-                monthLabel.text = "Тайлѣтъ, день \(differenceDay - 323)"
-                fullTitleOfMonth.text = "Сороковник Завершения"
-            }
-            
-            let oldDayOfWeek = Int(Double(differenceDay).truncatingRemainder(dividingBy: 9))
-            if oldDayOfWeek != 0 {
-                dayOfWeekLabel.text = (OldDaysOfWeek.init().dayOfWeek(day: oldDayOfWeek - 1))
-            } else {
-                dayOfWeekLabel.text = (OldDaysOfWeek.init().dayOfWeek(day: 8))
-                dayOfWeekLabel.textColor = .red
-            }
-        }
-        else if oldYearsNumber == 12 {
-            var startYear: Int = 0
-            if month >= 1 && month <= 9 {
-                if month == 9 {
-                    if (day == 19 && hour <= 18) || day < 19 {
-                        startYear = year - 1
-                    }
-                } else {
-                    startYear = year - 1
-                }
-            } else if month >= 10 && month <= 12 {
-                startYear = year
-            }
-            let startMonth = 9
-            let startDay = 20
-            let startHour = 18
-            let differenceSecond = currentDate.getDifferenceTime(year: startYear, month: startMonth, day: startDay, hour: startHour)
-            let differenceMinute = differenceSecond / 60
-            let differenceHour = differenceMinute / 90
-            let differenceDay = differenceHour / 16
-            
-            if HolidayAndDay().daysOfParrents.firstIndex(of: differenceDay + 1) != nil {
-                //rpDay.isHidden = false
-                rpDay.image = UIImage(named: "Parrents")
-            }
-            if HolidayAndDay().daysOfMemory.firstIndex(of: differenceDay + 1) != nil {
-                //rpDay.isHidden = false
-                rpDay.image = UIImage(named: "Predki")
-            }
-            
-            if HolidayAndDay().datesOfPosts1.firstIndex(of: differenceDay + 1) != nil {
-                postdayLabel.isHidden = false
-                postdayLabel.font = UIFont(name: "-Normal", size: 30)
-                postdayLabel.text = "Святый ПОСТЪ"
-            }
-            
-            if HolidayAndDay().datesOfPosts2.firstIndex(of: differenceDay + 1) != nil {
-                postdayLabel.isHidden = false
-                postdayLabel.font = UIFont(name: "-Normal", size: 30)
-                postdayLabel.text = "Даждьбожий ПОСТЪ"
-            }
-            
-            if HolidayAndDay().datesOfPosts3.firstIndex(of: differenceDay + 1) != nil {
-                postdayLabel.isHidden = false
-                postdayLabel.font = UIFont(name: "-Normal", size: 30)
-                postdayLabel.text = "Чистый ПОСТЪ"
-            }
-            
-            if HolidayAndDay().datesOfPosts4.firstIndex(of: differenceDay + 1) != nil {
-                postdayLabel.isHidden = false
-                postdayLabel.font = UIFont(name: "-Normal", size: 30)
-                postdayLabel.text = "Великий ПОСТЪ"
-            }
-            
-            if HolidayAndDay().datesOfPosts5.firstIndex(of: differenceDay + 1) != nil {
-                postdayLabel.isHidden = false
-                postdayLabel.font = UIFont(name: "-Normal", size: 30)
-                postdayLabel.text = "Светлый ПОСТЪ"
-            }
-            
-            if differenceDay >= 0 && differenceDay <= 40 {
-                monthLabel.text = "Рамхатъ, день \(differenceDay + 1)"
-                fullTitleOfMonth.text = "Сороковник Божественного Начала"
-            } else if differenceDay >= 41 && differenceDay <= 80 {
-                monthLabel.text = "Айлѣтъ, день \(differenceDay - 40)"
-                fullTitleOfMonth.text = "Сороковник Новых Даров"
-            } else if differenceDay >= 81 && differenceDay <= 121 {
-                monthLabel.text = "Бейлѣтъ, день \(differenceDay - 80)"
-                fullTitleOfMonth.text = "Сороковник Белого Сияния и Покоя Мира"
-            } else if differenceDay >= 122 && differenceDay <= 161 {
-                monthLabel.text = "Гэйлѣтъ, день \(differenceDay - 121)"
-                fullTitleOfMonth.text = "Сороковник Вьюг и Стужи"
-            } else if differenceDay >= 162 && differenceDay <= 202 {
-                monthLabel.text = "Дайлѣтъ, день \(differenceDay - 161)"
-                fullTitleOfMonth.text = "Сороковник Пробуждения Природы"
-            } else if differenceDay >= 203 && differenceDay <= 242 {
-                monthLabel.text = "Элѣтъ, день \(differenceDay - 202)"
-                fullTitleOfMonth.text = "Сороковник Посева и Наречения"
-            } else if differenceDay >= 243 && differenceDay <= 283 {
-                monthLabel.text = "Вэйлѣтъ, день \(differenceDay - 242)"
-                fullTitleOfMonth.text = "Сороковник Ветров"
-            } else if differenceDay >= 284 && differenceDay <= 323 {
-                monthLabel.text = "Хейлѣтъ, день \(differenceDay - 283)"
-                fullTitleOfMonth.text = "Сороковник Получения Даров Природы"
-            } else if differenceDay >= 324 && differenceDay <= 364 {
-                monthLabel.text = "Тайлѣтъ, день \(differenceDay - 323)"
-                fullTitleOfMonth.text = "Сороковник Завершения"
-            }
-            
-            let oldDayOfWeek = Int(Double(differenceDay).truncatingRemainder(dividingBy: 9))
-            if oldDayOfWeek != 0 {
-                dayOfWeekLabel.text = (OldDaysOfWeek.init().dayOfWeek(day: oldDayOfWeek - 1))
-            } else {
-                dayOfWeekLabel.text = (OldDaysOfWeek.init().dayOfWeek(day: 8))
-                dayOfWeekLabel.textColor = .red
-            }
-        }
-        else if oldYearsNumber >= 13 && oldYearsNumber <= 15 {
-            var startYear: Int = 0
-            if month >= 1 && month <= 9 {
-                if month == 9 {
-                    if (day == 19 && hour <= 18) || day < 19 {
-                        startYear = year - 1
-                    }
-                } else {
-                    startYear = year - 1
-                }
-            } else if month >= 10 && month <= 12 {
-                startYear = year
-            }
-            let startMonth = 9
-            let startDay = 19
-            let startHour = 18
-            let differenceSecond = currentDate.getDifferenceTime(year: startYear, month: startMonth, day: startDay, hour: startHour)
-            let differenceMinute = differenceSecond / 60
-            let differenceHour = differenceMinute / 90
-            let differenceDay = differenceHour / 16
-            
-            if HolidayAndDay().daysOfParrents.firstIndex(of: differenceDay + 1) != nil {
-                //rpDay.isHidden = false
-                rpDay.image = UIImage(named: "Parrents")
-            }
-            if HolidayAndDay().daysOfMemory.firstIndex(of: differenceDay + 1) != nil {
-                //rpDay.isHidden = false
-                rpDay.image = UIImage(named: "Predki")
-            }
-            
-            if HolidayAndDay().datesOfPosts1.firstIndex(of: differenceDay + 1) != nil {
-                postdayLabel.isHidden = false
-                postdayLabel.font = UIFont(name: "-Normal", size: 30)
-                postdayLabel.text = "Святый ПОСТЪ"
-            }
-            
-            if HolidayAndDay().datesOfPosts2.firstIndex(of: differenceDay + 1) != nil {
-                postdayLabel.isHidden = false
-                postdayLabel.font = UIFont(name: "-Normal", size: 30)
-                postdayLabel.text = "Даждьбожий ПОСТЪ"
-            }
-            
-            if HolidayAndDay().datesOfPosts3.firstIndex(of: differenceDay + 1) != nil {
-                postdayLabel.isHidden = false
-                postdayLabel.font = UIFont(name: "-Normal", size: 30)
-                postdayLabel.text = "Чистый ПОСТЪ"
-            }
-            
-            if HolidayAndDay().datesOfPosts4.firstIndex(of: differenceDay + 1) != nil {
-                postdayLabel.isHidden = false
-                postdayLabel.font = UIFont(name: "-Normal", size: 30)
-                postdayLabel.text = "Великий ПОСТЪ"
-            }
-            
-            if HolidayAndDay().datesOfPosts5.firstIndex(of: differenceDay + 1) != nil {
-                postdayLabel.isHidden = false
-                postdayLabel.font = UIFont(name: "-Normal", size: 30)
-                postdayLabel.text = "Светлый ПОСТЪ"
-            }
-            
-            if differenceDay >= 0 && differenceDay <= 40 {
-                monthLabel.text = "Рамхатъ, день \(differenceDay + 1)"
-                fullTitleOfMonth.text = "Сороковник Божественного Начала"
-            } else if differenceDay >= 41 && differenceDay <= 80 {
-                monthLabel.text = "Айлѣтъ, день \(differenceDay - 40)"
-                fullTitleOfMonth.text = "Сороковник Новых Даров"
-            } else if differenceDay >= 81 && differenceDay <= 121 {
-                monthLabel.text = "Бейлѣтъ, день \(differenceDay - 80)"
-                fullTitleOfMonth.text = "Сороковник Белого Сияния и Покоя Мира"
-            } else if differenceDay >= 122 && differenceDay <= 161 {
-                monthLabel.text = "Гэйлѣтъ, день \(differenceDay - 121)"
-                fullTitleOfMonth.text = "Сороковник Вьюг и Стужи"
-            } else if differenceDay >= 162 && differenceDay <= 202 {
-                monthLabel.text = "Дайлѣтъ, день \(differenceDay - 161)"
-                fullTitleOfMonth.text = "Сороковник Пробуждения Природы"
-            } else if differenceDay >= 203 && differenceDay <= 242 {
-                monthLabel.text = "Элѣтъ, день \(differenceDay - 202)"
-                fullTitleOfMonth.text = "Сороковник Посева и Наречения"
-            } else if differenceDay >= 243 && differenceDay <= 283 {
-                monthLabel.text = "Вэйлѣтъ, день \(differenceDay - 242)"
-                fullTitleOfMonth.text = "Сороковник Ветров"
-            } else if differenceDay >= 284 && differenceDay <= 323 {
-                monthLabel.text = "Хейлѣтъ, день \(differenceDay - 283)"
-                fullTitleOfMonth.text = "Сороковник Получения Даров Природы"
-            } else if differenceDay >= 324 && differenceDay <= 364 {
-                monthLabel.text = "Тайлѣтъ, день \(differenceDay - 323)"
-                fullTitleOfMonth.text = "Сороковник Завершения"
-            }
-            
-            let oldDayOfWeek = Int(Double(differenceDay).truncatingRemainder(dividingBy: 9))
-            if oldDayOfWeek != 0 {
-                dayOfWeekLabel.text = (OldDaysOfWeek.init().dayOfWeek(day: oldDayOfWeek - 1))
-            } else {
-                dayOfWeekLabel.text = (OldDaysOfWeek.init().dayOfWeek(day: 8))
-                dayOfWeekLabel.textColor = .red
-            }
-        }
-        else if oldYearsNumber == 0 || oldYearsNumber == 16 {
-            var startYear: Int = 0
-            if month >= 1 && month <= 9 {
-                if month == 9 {
-                    if (day == 19 && hour <= 18) || day < 19 {
-                        startYear = year - 1
-                    }
-                } else {
-                    startYear = year - 1
-                }
-            } else if month >= 10 && month <= 12 {
-                startYear = year
-            }
-            let startMonth = 9
-            let startDay = 19
-            let startHour = 18
-            let differenceSecond = currentDate.getDifferenceTime(year: startYear, month: startMonth, day: startDay, hour: startHour)
-            let differenceMinute = differenceSecond / 60
-            let differenceHour = differenceMinute / 90
-            let differenceDay = differenceHour / 16
-            
-            if HolidayAndDay().daysOfParrents_16.firstIndex(of: differenceDay + 1) != nil {
-                //rpDay.isHidden = false
-                rpDay.image = UIImage(named: "Parrents")
-            }
-            if HolidayAndDay().daysOfMemory_16.firstIndex(of: differenceDay + 1) != nil {
-                //rpDay.isHidden = false
-                rpDay.image = UIImage(named: "Predki")
-            }
-            
-            if HolidayAndDay().datesOfPosts1.firstIndex(of: differenceDay + 1) != nil {
-                postdayLabel.isHidden = false
-                postdayLabel.font = UIFont(name: "-Normal", size: 30)
-                postdayLabel.text = "Святый ПОСТЪ"
-            }
-            
-            if HolidayAndDay().datesOfPosts2_16.firstIndex(of: differenceDay + 1) != nil {
-                postdayLabel.isHidden = false
-                postdayLabel.font = UIFont(name: "-Normal", size: 30)
-                postdayLabel.text = "Даждьбожий ПОСТЪ"
-            }
-            
-            if HolidayAndDay().datesOfPosts3_16.firstIndex(of: differenceDay + 1) != nil {
-                postdayLabel.isHidden = false
-                postdayLabel.font = UIFont(name: "-Normal", size: 30)
-                postdayLabel.text = "Чистый ПОСТЪ"
-            }
-            
-            if HolidayAndDay().datesOfPosts4_16.firstIndex(of: differenceDay + 1) != nil {
-                postdayLabel.isHidden = false
-                postdayLabel.font = UIFont(name: "-Normal", size: 30)
-                postdayLabel.text = "Великий ПОСТЪ"
-            }
-            
-            if HolidayAndDay().datesOfPosts5_16.firstIndex(of: differenceDay + 1) != nil {
-                postdayLabel.isHidden = false
-                postdayLabel.font = UIFont(name: "-Normal", size: 30)
-                postdayLabel.text = "Светлый ПОСТЪ"
-            }
-            
-            if differenceDay >= 0 && differenceDay <= 40 {
-                monthLabel.text = "Рамхатъ, день \(differenceDay + 1)"
-            } else if differenceDay >= 41 && differenceDay <= 81 {
-                monthLabel.text = "Айлѣтъ, день \(differenceDay - 40)"
-            } else if differenceDay >= 82 && differenceDay <= 122 {
-                monthLabel.text = "Бейлѣтъ, день \(differenceDay - 81)"
-            } else if differenceDay >= 123 && differenceDay <= 163 {
-                monthLabel.text = "Гэйлѣтъ, день \(differenceDay - 122)"
-            } else if differenceDay >= 164 && differenceDay <= 204 {
-                monthLabel.text = "Дайлѣтъ, день \(differenceDay - 163)"
-            } else if differenceDay >= 205 && differenceDay <= 245 {
-                monthLabel.text = "Элѣтъ, день \(differenceDay - 204)"
-            } else if differenceDay >= 246 && differenceDay <= 286 {
-                monthLabel.text = "Вэйлѣтъ, день \(differenceDay - 245)"
-            } else if differenceDay >= 287 && differenceDay <= 327 {
-                monthLabel.text = "Хейлѣтъ, день \(differenceDay - 286)"
-            } else if differenceDay >= 328 && differenceDay <= 368 {
-                monthLabel.text = "Тайлѣтъ, день \(differenceDay - 327)"
-            }
-            
-            let oldDayOfWeek = Int(Double(differenceDay).truncatingRemainder(dividingBy: 9))
-            if oldDayOfWeek != 0 {
-                dayOfWeekLabel.text = (OldDaysOfWeek.init().dayOfWeek(day: oldDayOfWeek - 1))
-            } else {
-                dayOfWeekLabel.text = (OldDaysOfWeek.init().dayOfWeek(day: 8))
-                dayOfWeekLabel.textColor = .red
-            }
-        }
+    // MARK: - Funcs of Time
+    
+    func runesOfHours(name: String) {
+        runesOfHour.image = UIImage(named: "runes_\(name)")
+        scratchesOfHour.image = UIImage(named: "scr_\(name)")
     }
     
     func nameOfHour() {
@@ -1025,7 +126,625 @@ class CurrentViewController: UIViewController {
         }
     }
     
+    func oldTime(hour: Int, minute: Int, second: Int) {
+        // годины, части, доли
+        if hour < 18 {
+            let time = (hour + 6) * 3600 + minute * 60 + second
+            let oldH = Int(time / 5400)
+            let oldM = Int(Double(time - (oldH * 5400))/37.5)
+            let oldS = Int((Double(time) - Double(oldH) * 5400 - Double(oldM) * 37.5) / 0.05787 * 2)
+            
+            if oldH < 10 {
+                hourLabel.text = "0\(oldH)"
+                UserDefaults.init(suiteName: "group.ru.superstarper.dev.KolyadiDar")?.setValue(hourLabel.text, forKey: "hours")
+                runesOfHours(name: hourLabel.text!)
+            } else if oldH >= 10 {
+                hourLabel.text = "\(oldH)"
+                UserDefaults.init(suiteName: "group.ru.superstarper.dev.KolyadiDar")?.setValue(hourLabel.text, forKey: "hours")
+                runesOfHours(name: hourLabel.text!)
+            }
+            
+            if oldM < 10 {
+                minuteLabel.text = "00\(oldM)"
+                UserDefaults.init(suiteName: "group.ru.superstarper.dev.KolyadiDar")?.setValue(minuteLabel.text, forKey: "minutes")
+            } else if oldM >= 10 && oldM < 100 {
+                minuteLabel.text = "0\(oldM)"
+                UserDefaults.init(suiteName: "group.ru.superstarper.dev.KolyadiDar")?.setValue(minuteLabel.text, forKey: "minutes")
+            } else if oldM >= 100 {
+                minuteLabel.text = "\(oldM)"
+                UserDefaults.init(suiteName: "group.ru.superstarper.dev.KolyadiDar")?.setValue(minuteLabel.text, forKey: "minutes")
+            }
+            
+            if oldS < 10 {
+                secondLabel.text = "000\(oldS)"
+                UserDefaults.init(suiteName: "group.ru.superstarper.dev.KolyadiDar")?.setValue(secondLabel.text, forKey: "seconds")
+            } else if oldS >= 10 && oldS < 100 {
+                secondLabel.text = "00\(oldS)"
+                UserDefaults.init(suiteName: "group.ru.superstarper.dev.KolyadiDar")?.setValue(secondLabel.text, forKey: "seconds")
+            } else if oldS >= 100 && oldS < 1000 {
+                secondLabel.text = "0\(oldS)"
+                UserDefaults.init(suiteName: "group.ru.superstarper.dev.KolyadiDar")?.setValue(secondLabel.text, forKey: "seconds")
+            } else if oldS >= 1000 {
+                secondLabel.text = "\(oldS)"
+                UserDefaults.init(suiteName: "group.ru.superstarper.dev.KolyadiDar")?.setValue(secondLabel.text, forKey: "seconds")
+            }
+        }
+        else if hour >= 18 {
+            let time = (hour - 18) * 3600 + minute * 60 + second
+            var oldH = Int(time / 5400)
+            let oldM = Int(Double(time - (oldH * 5400))/37.5)
+            let oldS = Int((Double(time) - Double(oldH) * 5400 - Double(oldM) * 37.5) / 0.05787 * 2)
+            if time < 5400 {
+                oldH = 16
+            }
+            
+            if oldH < 10 {
+                hourLabel.text = "0\(oldH)"
+                runesOfHours(name: hourLabel.text!)
+            } else if oldH >= 10 {
+                hourLabel.text = "\(oldH)"
+                runesOfHours(name: hourLabel.text!)
+            }
+            
+            if oldM < 10 {
+                minuteLabel.text = "00\(oldM)"
+            } else if oldM >= 10 && oldM < 100 {
+                minuteLabel.text = "0\(oldM)"
+            } else if oldM >= 100 {
+                minuteLabel.text = "\(oldM)"
+            }
+            
+            if oldS < 10 {
+                secondLabel.text = "000\(oldS)"
+            } else if oldS >= 10 && oldS < 100 {
+                secondLabel.text = "00\(oldS)"
+            } else if oldS >= 100 && oldS < 1000 {
+                secondLabel.text = "0\(oldS)"
+            } else if oldS >= 1000 {
+                secondLabel.text = "\(oldS)"
+            }
+        }
+    }
+    
+    
+    // MARK: - Funcs of Month and Holidays
+    
+    func parrentsDays(differenceDay: Int) {
+        if HolidayAndDay().daysOfParrents.firstIndex(of: differenceDay + 1) != nil {
+            rpDay.isHidden = false
+            rpDay.image = UIImage(named: "Parrents")
+        } else {
+            rpDay.isHidden = true
+        }
+        if HolidayAndDay().daysOfMemory.firstIndex(of: differenceDay + 1) != nil {
+            rpDay.isHidden = false
+            rpDay.image = UIImage(named: "Predki")
+        } else {
+            rpDay.isHidden = true
+        }
+    }
+    
+    func parrentsDays_16(differenceDay: Int) {
+        if HolidayAndDay().daysOfParrents_16.firstIndex(of: differenceDay + 1) != nil {
+            rpDay.isHidden = false
+            rpDay.image = UIImage(named: "Parrents")
+        } else {
+            rpDay.isHidden = true
+        }
+        if HolidayAndDay().daysOfMemory_16.firstIndex(of: differenceDay + 1) != nil {
+            rpDay.isHidden = false
+            rpDay.image = UIImage(named: "Predki")
+        } else {
+            rpDay.isHidden = true
+        }
+    }
+    
+    func allPosts(differenceDay: Int) {
+        if HolidayAndDay().datesOfPosts1.firstIndex(of: differenceDay + 1) != nil {
+            postdayLabel.isHidden = false
+            postdayLabel.font = UIFont(name: "-Normal", size: 30)
+            postdayLabel.text = "Святый ПОСТЪ"
+        }
+        
+        if HolidayAndDay().datesOfPosts2.firstIndex(of: differenceDay + 1) != nil {
+            postdayLabel.isHidden = false
+            postdayLabel.font = UIFont(name: "-Normal", size: 30)
+            postdayLabel.text = "Даждьбожий ПОСТЪ"
+        }
+        
+        if HolidayAndDay().datesOfPosts3.firstIndex(of: differenceDay + 1) != nil {
+            postdayLabel.isHidden = false
+            postdayLabel.font = UIFont(name: "-Normal", size: 30)
+            postdayLabel.text = "Чистый ПОСТЪ"
+        }
+        
+        if HolidayAndDay().datesOfPosts4.firstIndex(of: differenceDay + 1) != nil {
+            postdayLabel.isHidden = false
+            postdayLabel.font = UIFont(name: "-Normal", size: 30)
+            postdayLabel.text = "Великий ПОСТЪ"
+        }
+        
+        if HolidayAndDay().datesOfPosts5.firstIndex(of: differenceDay + 1) != nil {
+            postdayLabel.isHidden = false
+            postdayLabel.font = UIFont(name: "-Normal", size: 30)
+            postdayLabel.text = "Светлый ПОСТЪ"
+        }
+    }
+    
+    func allPosts_16(differenceDay: Int) {
+        if HolidayAndDay().datesOfPosts1.firstIndex(of: differenceDay + 1) != nil {
+            postdayLabel.isHidden = false
+            postdayLabel.font = UIFont(name: "-Normal", size: 30)
+            postdayLabel.text = "Святый ПОСТЪ"
+        }
+        
+        if HolidayAndDay().datesOfPosts2_16.firstIndex(of: differenceDay + 1) != nil {
+            postdayLabel.isHidden = false
+            postdayLabel.font = UIFont(name: "-Normal", size: 30)
+            postdayLabel.text = "Даждьбожий ПОСТЪ"
+        }
+        
+        if HolidayAndDay().datesOfPosts3_16.firstIndex(of: differenceDay + 1) != nil {
+            postdayLabel.isHidden = false
+            postdayLabel.font = UIFont(name: "-Normal", size: 30)
+            postdayLabel.text = "Чистый ПОСТЪ"
+        }
+        
+        if HolidayAndDay().datesOfPosts4_16.firstIndex(of: differenceDay + 1) != nil {
+            postdayLabel.isHidden = false
+            postdayLabel.font = UIFont(name: "-Normal", size: 30)
+            postdayLabel.text = "Великий ПОСТЪ"
+        }
+        
+        if HolidayAndDay().datesOfPosts5_16.firstIndex(of: differenceDay + 1) != nil {
+            postdayLabel.isHidden = false
+            postdayLabel.font = UIFont(name: "-Normal", size: 30)
+            postdayLabel.text = "Светлый ПОСТЪ"
+        }
+    }
+    
+    func monthAndDay(differenceDay: Int) {
+        if differenceDay >= 0 && differenceDay <= 40 {
+            monthLabel.text = "Рамхатъ, день \(differenceDay + 1)"
+            fullTitleOfMonth.text = "Сороковник Божественного Начала"
+            UserDefaults.init(suiteName: "group.ru.superstarper.dev.KolyadiDar")?.setValue(monthLabel.text, forKey: "month")
+        } else if differenceDay >= 41 && differenceDay <= 80 {
+            monthLabel.text = "Айлѣтъ, день \(differenceDay - 40)"
+            fullTitleOfMonth.text = "Сороковник Новых Даров"
+            UserDefaults.init(suiteName: "group.ru.superstarper.dev.KolyadiDar")?.setValue(monthLabel.text, forKey: "month")
+        } else if differenceDay >= 81 && differenceDay <= 121 {
+            monthLabel.text = "Бейлѣтъ, день \(differenceDay - 80)"
+            fullTitleOfMonth.text = "Сороковник Белого Сияния и Покоя Мира"
+            UserDefaults.init(suiteName: "group.ru.superstarper.dev.KolyadiDar")?.setValue(monthLabel.text, forKey: "month")
+        } else if differenceDay >= 122 && differenceDay <= 161 {
+            monthLabel.text = "Гэйлѣтъ, день \(differenceDay - 121)"
+            fullTitleOfMonth.text = "Сороковник Вьюг и Стужи"
+            UserDefaults.init(suiteName: "group.ru.superstarper.dev.KolyadiDar")?.setValue(monthLabel.text, forKey: "month")
+        } else if differenceDay >= 162 && differenceDay <= 202 {
+            monthLabel.text = "Дайлѣтъ, день \(differenceDay - 161)"
+            fullTitleOfMonth.text = "Сороковник Пробуждения Природы"
+            UserDefaults.init(suiteName: "group.ru.superstarper.dev.KolyadiDar")?.setValue(monthLabel.text, forKey: "month")
+        } else if differenceDay >= 203 && differenceDay <= 242 {
+            monthLabel.text = "Элѣтъ, день \(differenceDay - 202)"
+            fullTitleOfMonth.text = "Сороковник Посева и Наречения"
+            UserDefaults.init(suiteName: "group.ru.superstarper.dev.KolyadiDar")?.setValue(monthLabel.text, forKey: "month")
+        } else if differenceDay >= 243 && differenceDay <= 283 {
+            monthLabel.text = "Вэйлѣтъ, день \(differenceDay - 242)"
+            fullTitleOfMonth.text = "Сороковник Ветров"
+            UserDefaults.init(suiteName: "group.ru.superstarper.dev.KolyadiDar")?.setValue(monthLabel.text, forKey: "month")
+        } else if differenceDay >= 284 && differenceDay <= 323 {
+            monthLabel.text = "Хейлѣтъ, день \(differenceDay - 283)"
+            fullTitleOfMonth.text = "Сороковник Получения Даров Природы"
+            UserDefaults.init(suiteName: "group.ru.superstarper.dev.KolyadiDar")?.setValue(monthLabel.text, forKey: "month")
+        } else if differenceDay >= 324 && differenceDay <= 364 {
+            monthLabel.text = "Тайлѣтъ, день \(differenceDay - 323)"
+            fullTitleOfMonth.text = "Сороковник Завершения"
+            UserDefaults.init(suiteName: "group.ru.superstarper.dev.KolyadiDar")?.setValue(monthLabel.text, forKey: "month")
+        }
+    }
+    
+    func monthAndDay_16(differenceDay: Int) {
+        if differenceDay >= 0 && differenceDay <= 40 {
+            monthLabel.text = "Рамхатъ, день \(differenceDay + 1)"
+            fullTitleOfMonth.text = "Сороковник Божественного Начала"
+            UserDefaults.init(suiteName: "group.ru.superstarper.dev.KolyadiDar")?.setValue(monthLabel.text, forKey: "month")
+        } else if differenceDay >= 41 && differenceDay <= 81 {
+            monthLabel.text = "Айлѣтъ, день \(differenceDay - 40)"
+            fullTitleOfMonth.text = "Сороковник Новых Даров"
+            UserDefaults.init(suiteName: "group.ru.superstarper.dev.KolyadiDar")?.setValue(monthLabel.text, forKey: "month")
+        } else if differenceDay >= 82 && differenceDay <= 122 {
+            monthLabel.text = "Бейлѣтъ, день \(differenceDay - 81)"
+            fullTitleOfMonth.text = "Сороковник Белого Сияния и Покоя Мира"
+            UserDefaults.init(suiteName: "group.ru.superstarper.dev.KolyadiDar")?.setValue(monthLabel.text, forKey: "month")
+        } else if differenceDay >= 123 && differenceDay <= 163 {
+            monthLabel.text = "Гэйлѣтъ, день \(differenceDay - 122)"
+            fullTitleOfMonth.text = "Сороковник Вьюг и Стужи"
+            UserDefaults.init(suiteName: "group.ru.superstarper.dev.KolyadiDar")?.setValue(monthLabel.text, forKey: "month")
+        } else if differenceDay >= 164 && differenceDay <= 204 {
+            monthLabel.text = "Дайлѣтъ, день \(differenceDay - 163)"
+            fullTitleOfMonth.text = "Сороковник Пробуждения Природы"
+            UserDefaults.init(suiteName: "group.ru.superstarper.dev.KolyadiDar")?.setValue(monthLabel.text, forKey: "month")
+        } else if differenceDay >= 205 && differenceDay <= 245 {
+            monthLabel.text = "Элѣтъ, день \(differenceDay - 204)"
+            fullTitleOfMonth.text = "Сороковник Посева и Наречения"
+            UserDefaults.init(suiteName: "group.ru.superstarper.dev.KolyadiDar")?.setValue(monthLabel.text, forKey: "month")
+        } else if differenceDay >= 246 && differenceDay <= 286 {
+            monthLabel.text = "Вэйлѣтъ, день \(differenceDay - 245)"
+            fullTitleOfMonth.text = "Сороковник Ветров"
+            UserDefaults.init(suiteName: "group.ru.superstarper.dev.KolyadiDar")?.setValue(monthLabel.text, forKey: "month")
+        } else if differenceDay >= 287 && differenceDay <= 327 {
+            monthLabel.text = "Хейлѣтъ, день \(differenceDay - 286)"
+            fullTitleOfMonth.text = "Сороковник Получения Даров Природы"
+            UserDefaults.init(suiteName: "group.ru.superstarper.dev.KolyadiDar")?.setValue(monthLabel.text, forKey: "month")
+        } else if differenceDay >= 328 && differenceDay <= 368 {
+            monthLabel.text = "Тайлѣтъ, день \(differenceDay - 327)"
+            fullTitleOfMonth.text = "Сороковник Завершения"
+            UserDefaults.init(suiteName: "group.ru.superstarper.dev.KolyadiDar")?.setValue(monthLabel.text, forKey: "month")
+        }
+    }
+    
+    func oldDaysOfWeek(differenceDay: Int) {
+        let oldDayOfWeek = Int(Double(differenceDay).truncatingRemainder(dividingBy: 9))
+        if oldDayOfWeek != 0 {
+            dayOfWeekLabel.text = (OldDaysOfWeek.init().dayOfWeek(day: oldDayOfWeek - 1))
+        } else {
+            dayOfWeekLabel.text = (OldDaysOfWeek.init().dayOfWeek(day: 8))
+            dayOfWeekLabel.textColor = .red
+        }
+    }
+    
+    func daysOfConstellations(differenceDay: Int) {
+        if differenceDay >= 0 && differenceDay <= 20 {
+            titleOfConstellation.text = "Чертог Вепря"
+            nameOfGod.text = "Бог-Покровитель Рамхатъ"
+        } else if differenceDay >= 21 && differenceDay <= 43 {
+            titleOfConstellation.text = "Чертог Щуки"
+            nameOfGod.text = "Богиня-Покровительница Рожана"
+        } else if differenceDay >= 44 && differenceDay <= 64 {
+            titleOfConstellation.text = "Чертог Лебедя"
+            nameOfGod.text = "Богиня-Покровительница Макошь"
+        } else if differenceDay >= 65 && differenceDay <= 86 {
+            titleOfConstellation.text = "Чертог Змея"
+            nameOfGod.text = "Бог-Покровитель Съмарглъ"
+        } else if differenceDay >= 87 && differenceDay <= 108 {
+            titleOfConstellation.text = "Чертог Ворона"
+            nameOfGod.text = "Бог-Покровитель Колѧда"
+        } else if differenceDay >= 109 && differenceDay <= 132 {
+            titleOfConstellation.text = "Чертог Медведя"
+            nameOfGod.text = "Бог-Покровитель Сварогъ"
+        } else if differenceDay >= 133 && differenceDay <= 157 {
+            titleOfConstellation.text = "Чертог Бусла"
+            nameOfGod.text = "Бог-Покровитель Родъ"
+        } else if differenceDay >= 158 && differenceDay <= 182 {
+            titleOfConstellation.text = "Чертог Волка"
+            nameOfGod.text = "Бог-Покровитель Вьлесе"
+        } else if differenceDay >= 183 && differenceDay <= 205 {
+            titleOfConstellation.text = "Чертог Лисы"
+            nameOfGod.text = "Богиня-Покровительница Мара"
+        } else if differenceDay >= 206 && differenceDay <= 227 {
+            titleOfConstellation.text = "Чертог Тура"
+            nameOfGod.text = "Бог-Покровитель Крышьнь"
+        } else if differenceDay >= 228 && differenceDay <= 250 {
+            titleOfConstellation.text = "Чертог Лося"
+            nameOfGod.text = "Богиня-Покровительница Лада"
+        } else if differenceDay >= 251 && differenceDay <= 272 {
+            titleOfConstellation.text = "Чертог Финиста"
+            nameOfGod.text = "Бог-Покровитель Вышьнь"
+        } else if differenceDay >= 273 && differenceDay <= 295 {
+            titleOfConstellation.text = "Чертог Коня"
+            nameOfGod.text = "Бог-Покровитель Кѫпала"
+        } else if differenceDay >= 296 && differenceDay <= 317 {
+            titleOfConstellation.text = "Чертог Орла"
+            nameOfGod.text = "Бог-Покровитель Перуне"
+        } else if differenceDay >= 318 && differenceDay <= 340 {
+            titleOfConstellation.text = "Чертог Раса"
+            nameOfGod.text = "Бог-Покровитель Тархъ"
+        } else if differenceDay >= 341 && differenceDay <= 364 {
+            titleOfConstellation.text = "Чертог Девы"
+            nameOfGod.text = "Бог-Покровитель Джива"
+        }
+    }
+    
+    func viewOfHolidays(differenceDay: Int) {
+        if HolidayAndDay().holidays[differenceDay + 1] != nil {
+            holidayLabel.isHidden = false
+            holidayLabel.font = UIFont(name: "-Normal", size: 30)
+            holidayLabel.text = HolidayAndDay().holidays[differenceDay + 1]
+        }
+    }
+    
+    func differenceTime(startYear: Int, startMonth: Int, startDay: Int, startHour: Int) -> Int {
+        let differenceSecond = currentDate.getDifferenceTime(year: startYear, month: startMonth, day: startDay, hour: startHour)
+        let differenceDay = differenceSecond / (16 * 90 * 60)
+        return differenceDay
+    }
+    
+    func oldMonth(oldYearsNumber: Int, year: Int, month: Int, day: Int, timeAfterSixPM: Bool) {
+        if oldYearsNumber >= 1 && oldYearsNumber <= 3 {
+            var startYear: Int = 0
+            if month >= 1 && month <= 9 {
+                if month == 9 {
+                    if (day == 22 && timeAfterSixPM == false) || day < 22 {
+                        startYear = year - 1
+                    }
+                } else {
+                    startYear = year - 1
+                }
+            } else if month >= 10 && month <= 12 {
+                startYear = year
+            }
+            let startMonth = 9
+            let startDay = 22
+            let startHour = 18
+            let differenceDay = differenceTime(startYear: startYear, startMonth: startMonth, startDay: startDay, startHour: startHour)
+            
+            parrentsDays(differenceDay: differenceDay)
+            
+            viewOfHolidays(differenceDay: differenceDay)
+            
+            allPosts(differenceDay: differenceDay)
+            
+            monthAndDay(differenceDay: differenceDay)
+            
+            oldDaysOfWeek(differenceDay: differenceDay)
+            
+            daysOfConstellations(differenceDay: differenceDay)
+        }
+        else if oldYearsNumber == 4 {
+            var startYear: Int = 0
+            if month >= 1 && month <= 9 {
+                if month == 9 {
+                    if (day == 21 && timeAfterSixPM == false) || day < 21 {
+                        startYear = year - 1
+                    }
+                } else {
+                    startYear = year - 1
+                }
+            } else if month >= 10 && month <= 12 {
+                startYear = year
+            }
+            let startMonth = 9
+            let startDay = 22
+            let startHour = 18
+            let differenceDay = differenceTime(startYear: startYear, startMonth: startMonth, startDay: startDay, startHour: startHour)
+            
+            parrentsDays(differenceDay: differenceDay)
+            
+            viewOfHolidays(differenceDay: differenceDay)
+            
+            allPosts(differenceDay: differenceDay)
+            
+            monthAndDay(differenceDay: differenceDay)
+            
+            oldDaysOfWeek(differenceDay: differenceDay)
+            
+            daysOfConstellations(differenceDay: differenceDay)
+        }
+        else if oldYearsNumber >= 5 && oldYearsNumber <= 7 {
+            var startYear: Int = 0
+            if month >= 1 && month <= 9 {
+                if month == 9 {
+                    if (day == 21 && timeAfterSixPM == false) || day < 21 {
+                        startYear = year - 1
+                    }
+                } else {
+                    startYear = year - 1
+                }
+            } else if month >= 10 && month <= 12 {
+                startYear = year
+            }
+            let startMonth = 9
+            let startDay = 21
+            let startHour = 18
+            let differenceDay = differenceTime(startYear: startYear, startMonth: startMonth, startDay: startDay, startHour: startHour)
+            
+            parrentsDays(differenceDay: differenceDay)
+            
+            viewOfHolidays(differenceDay: differenceDay)
+            
+            allPosts(differenceDay: differenceDay)
+            
+            monthAndDay(differenceDay: differenceDay)
+            
+            oldDaysOfWeek(differenceDay: differenceDay)
+            
+            daysOfConstellations(differenceDay: differenceDay)
+        }
+        else if oldYearsNumber == 8 {
+            var startYear: Int = 0
+            if month >= 1 && month <= 9 {
+                if month == 9 {
+                    if (day == 20 && timeAfterSixPM == false) || day < 20 {
+                        startYear = year - 1
+                    }
+                } else {
+                    startYear = year - 1
+                }
+            } else if month >= 10 && month <= 12 {
+                startYear = year
+            }
+            let startMonth = 9
+            let startDay = 21
+            let startHour = 18
+            
+            let differenceDay = differenceTime(startYear: startYear, startMonth: startMonth, startDay: startDay, startHour: startHour)
+            
+            parrentsDays(differenceDay: differenceDay)
+            
+            viewOfHolidays(differenceDay: differenceDay)
+            
+            allPosts(differenceDay: differenceDay)
+            
+            monthAndDay(differenceDay: differenceDay)
+            
+            oldDaysOfWeek(differenceDay: differenceDay)
+            
+            daysOfConstellations(differenceDay: differenceDay)
+        }
+        else if oldYearsNumber >= 9 && oldYearsNumber <= 11 {
+            var startYear: Int = 0
+            if month >= 1 && month <= 9 {
+                if month == 9 {
+                    if (day == 20 && timeAfterSixPM == false) || day < 20 {
+                        startYear = year - 1
+                    }
+                } else {
+                    startYear = year - 1
+                }
+            } else if month >= 10 && month <= 12 {
+                startYear = year
+            }
+            let startMonth = 9
+            let startDay = 20
+            let startHour = 18
+            let differenceDay = differenceTime(startYear: startYear, startMonth: startMonth, startDay: startDay, startHour: startHour)
+            
+            parrentsDays(differenceDay: differenceDay)
+            
+            viewOfHolidays(differenceDay: differenceDay)
+            
+            allPosts(differenceDay: differenceDay)
+            
+            monthAndDay(differenceDay: differenceDay)
+            
+            oldDaysOfWeek(differenceDay: differenceDay)
+            
+            daysOfConstellations(differenceDay: differenceDay)
+        }
+        else if oldYearsNumber == 12 {
+            var startYear: Int = 0
+            if month >= 1 && month <= 9 {
+                if month == 9 {
+                    if (day == 19 && timeAfterSixPM == false) || day < 19 {
+                        startYear = year - 1
+                    }
+                } else {
+                    startYear = year - 1
+                }
+            } else if month >= 10 && month <= 12 {
+                startYear = year
+            }
+            let startMonth = 9
+            let startDay = 20
+            let startHour = 18
+            let differenceDay = differenceTime(startYear: startYear, startMonth: startMonth, startDay: startDay, startHour: startHour)
+            
+            parrentsDays(differenceDay: differenceDay)
+            
+            viewOfHolidays(differenceDay: differenceDay)
+            
+            allPosts(differenceDay: differenceDay)
+            
+            monthAndDay(differenceDay: differenceDay)
+            
+            oldDaysOfWeek(differenceDay: differenceDay)
+            
+            daysOfConstellations(differenceDay: differenceDay)
+        }
+        else if oldYearsNumber >= 13 && oldYearsNumber <= 15 {
+            var startYear: Int = 0
+            if month >= 1 && month <= 9 {
+                if month == 9 {
+                    if (day == 19 && timeAfterSixPM == false) || day < 19 {
+                        startYear = year - 1
+                    }
+                } else {
+                    startYear = year - 1
+                }
+            } else if month >= 10 && month <= 12 {
+                startYear = year
+            }
+            let startMonth = 9
+            let startDay = 19
+            let startHour = 18
+            let differenceDay = differenceTime(startYear: startYear, startMonth: startMonth, startDay: startDay, startHour: startHour)
+            
+            parrentsDays(differenceDay: differenceDay)
+            
+            viewOfHolidays(differenceDay: differenceDay)
+            
+            allPosts(differenceDay: differenceDay)
+            
+            monthAndDay(differenceDay: differenceDay)
+            
+            oldDaysOfWeek(differenceDay: differenceDay)
+            
+            daysOfConstellations(differenceDay: differenceDay)
+        }
+        else if oldYearsNumber == 0 || oldYearsNumber == 16 {
+            var startYear: Int = 0
+            if month >= 1 && month <= 9 {
+                if month == 9 {
+                    if (day == 19 && timeAfterSixPM == false) || day < 19 {
+                        startYear = year - 1
+                    }
+                } else {
+                    startYear = year - 1
+                }
+            } else if month >= 10 && month <= 12 {
+                startYear = year
+            }
+            let startMonth = 9
+            let startDay = 19
+            let startHour = 18
+            let differenceDay = differenceTime(startYear: startYear, startMonth: startMonth, startDay: startDay, startHour: startHour)
+            
+            parrentsDays_16(differenceDay: differenceDay)
+            
+            
+            
+            
+            allPosts_16(differenceDay: differenceDay)
+            
+            monthAndDay_16(differenceDay: differenceDay)
+            
+            oldDaysOfWeek(differenceDay: differenceDay)
+            
+            
+            
+            
+            
+            
+        }
+    }
+    
+    
+    // MARK: - Funcs of Years
+    
+    func addYear(oldY: Int, oldYearsNumber: Int, oldYearsNumberInRoundOfLife: Int) {
+        var oldyearsNumber = 0
+        if oldYearsNumber == 0 {
+             oldyearsNumber += 16
+        } else {
+            oldyearsNumber = oldYearsNumber
+        }
+        
+        var oldyearsNumberInRoundOfLife = 0
+        if oldYearsNumberInRoundOfLife == 0 {
+             oldyearsNumberInRoundOfLife += 144
+        } else {
+            oldyearsNumberInRoundOfLife = oldYearsNumberInRoundOfLife
+        }
+        letoLabel.text = "Лѣто \(oldY) от С.З.М.Х."
+        titleOfYear.text = "\(OldYear().arrayOfTitleOfYears[oldyearsNumberInRoundOfLife - 1])"
+        numberOfYear.text = "\(oldyearsNumber) лѣто в Круге лѣт"
+        numberOfYearInRoundOfLife.text = "\(oldyearsNumberInRoundOfLife) лѣто в Круге жизни"
+        UserDefaults.init(suiteName: "group.ru.superstarper.dev.KolyadiDar")?.setValue(letoLabel.text, forKey: "year")
+    }
+    
+    func addYearPlusOne(oldY: Int, oldYearsNumber: Int, oldYearsNumberInRoundOfLife: Int) {
+        let oldy = oldY + 1
+        let oldyearsNumber = oldYearsNumber + 1
+        let oldyearsNumberInRoundOfLife = oldYearsNumberInRoundOfLife + 1
+        letoLabel.text = "Лѣто \(oldy) от С.З.М.Х."
+        titleOfYear.text = "\(OldYear().arrayOfTitleOfYears[oldyearsNumberInRoundOfLife - 1])"
+        numberOfYear.text = "\(oldyearsNumber) лѣто в Круге лѣт"
+        numberOfYearInRoundOfLife.text = "\(oldyearsNumberInRoundOfLife) лѣто в Круге жизни"
+        UserDefaults.init(suiteName: "group.ru.superstarper.dev.KolyadiDar")?.setValue(letoLabel.text, forKey: "year")
+    }
+    
     func oldYearAndTime() {
+        let timeAfterSixPM = currentDate.timeAfterSixPM()
         let hour = currentDate.getCurrentHours()
         //let hour = 18
         let minute = currentDate.getCurrentMinutes()
@@ -1037,104 +756,56 @@ class CurrentViewController: UIViewController {
         //let day = 20
         
         if month >= 1 && month <= 9 {
-            var oldY = year + 5508
-            var oldYearsNumber = Int(Double(oldY).truncatingRemainder(dividingBy: 16))
-            var oldYearsNumberInRoundOfLife = oldY - 7520
+            let oldY = year + 5508
+            let oldYearsNumber = Int(Double(oldY).truncatingRemainder(dividingBy: 16))
+            let oldYearsNumberInRoundOfLife = oldY - 7520
             if month == 9 {
                 if oldYearsNumber >= 0 && oldYearsNumber <= 3 {
-                    if (day == 22 && hour >= 18) ||  day > 22 {
-                        oldY += 1
-                        oldYearsNumber += 1
-                        oldYearsNumberInRoundOfLife += 1
-                        letoLabel.text = "Лѣто \(oldY) от С.З.М.Х."
-                        numberOfYear.text = "Лѣто в Круге лѣт: \(oldYearsNumber)"
-                        numberOfYearInRoundOfLife.text = "Лѣто в Круге жизни: \(oldYearsNumberInRoundOfLife)"
-                        titleOfYear.text = "\(OldYear().arrayOfTitleOfYears[oldYearsNumberInRoundOfLife - 1])"
-                        oldTime(hour: hour, minute: minute, second: second)
-                        oldMonth(oldYearsNumber: oldYearsNumber, year: year, month: month, day: day, hour: hour)
-                    } else if (day == 22 && hour <= 18) || day < 22 {
-                        letoLabel.text = "Лѣто \(oldY) от С.З.М.Х."
-                        numberOfYear.text = "Лѣто в круге лѣт: \(oldYearsNumber)"
-                        numberOfYearInRoundOfLife.text = "Лѣто в Круге жизни: \(oldYearsNumberInRoundOfLife)"
-                        titleOfYear.text = "\(OldYear().arrayOfTitleOfYears[oldYearsNumberInRoundOfLife - 1])"
-                        oldTime(hour: hour, minute: minute, second: second)
-                        oldMonth(oldYearsNumber: oldYearsNumber, year: year, month: month, day: day, hour: hour)
+                    if (day == 22 && timeAfterSixPM == true) ||  day > 22 {
+                        addYearPlusOne(oldY: oldY, oldYearsNumber: oldYearsNumber, oldYearsNumberInRoundOfLife: oldYearsNumberInRoundOfLife)
                     }
-                } else if oldYearsNumber >= 4 && oldYearsNumber <= 7 {
-                    if (day == 21 && hour >= 18) ||  day > 21 {
-                        oldY += 1
-                        oldYearsNumber += 1
-                        oldYearsNumberInRoundOfLife += 1
-                        letoLabel.text = "Лѣто \(oldY) от С.З.М.Х."
-                        numberOfYear.text = "Лѣто в Круге лѣт: \(oldYearsNumber)"
-                        numberOfYearInRoundOfLife.text = "Лѣто в Круге жизни: \(oldYearsNumberInRoundOfLife)"
-                        titleOfYear.text = "\(OldYear().arrayOfTitleOfYears[oldYearsNumberInRoundOfLife - 1])"
-                        oldTime(hour: hour, minute: minute, second: second)
-                        oldMonth(oldYearsNumber: oldYearsNumber, year: year, month: month, day: day, hour: hour)
-                    } else if (day == 21 && hour <= 18) || day < 21 {
-                        letoLabel.text = "Лѣто \(oldY) от С.З.М.Х."
-                        numberOfYear.text = "Лѣто в Круге лѣт: \(oldYearsNumber)"
-                        numberOfYearInRoundOfLife.text = "Лѣто в Круге жизни: \(oldYearsNumberInRoundOfLife)"
-                        titleOfYear.text = "\(OldYear().arrayOfTitleOfYears[oldYearsNumberInRoundOfLife - 1])"
-                        oldTime(hour: hour, minute: minute, second: second)
-                        oldMonth(oldYearsNumber: oldYearsNumber, year: year, month: month, day: day, hour: hour)
+                    else if (day == 22 && timeAfterSixPM == false) || day < 22 {
+                        addYear(oldY: oldY, oldYearsNumber: oldYearsNumber, oldYearsNumberInRoundOfLife: oldYearsNumberInRoundOfLife)
                     }
-                } else if oldYearsNumber >= 8 && oldYearsNumber <= 11 {
-                    if (day == 20 && hour >= 18) ||  day > 20 {
-                        oldY += 1
-                        oldYearsNumber += 1
-                        oldYearsNumberInRoundOfLife += 1
-                        letoLabel.text = "Лѣто \(oldY) от С.З.М.Х."
-                        numberOfYear.text = "Лѣто в Круге лѣт: \(oldYearsNumber)"
-                        numberOfYearInRoundOfLife.text = "Лѣто в Круге жизни: \(oldYearsNumberInRoundOfLife)"
-                        titleOfYear.text = "\(OldYear().arrayOfTitleOfYears[oldYearsNumberInRoundOfLife - 1])"
-                        oldTime(hour: hour, minute: minute, second: second)
-                        oldMonth(oldYearsNumber: oldYearsNumber, year: year, month: month, day: day, hour: hour)
-                    } else if (day == 20 && hour <= 18) || day < 20 {
-                        letoLabel.text = "Лѣто \(oldY) от С.З.М.Х."
-                        numberOfYear.text = "Лѣто в Круге лѣт: \(oldYearsNumber)"
-                        numberOfYearInRoundOfLife.text = "Лѣто в Круге жизни: \(oldYearsNumberInRoundOfLife)"
-                        titleOfYear.text = "\(OldYear().arrayOfTitleOfYears[oldYearsNumberInRoundOfLife - 1])"
-                        oldTime(hour: hour, minute: minute, second: second)
-                        oldMonth(oldYearsNumber: oldYearsNumber, year: year, month: month, day: day, hour: hour)
+                }
+                else if oldYearsNumber >= 4 && oldYearsNumber <= 7 {
+                    if (day == 21 && timeAfterSixPM == true) ||  day > 21 {
+                        addYearPlusOne(oldY: oldY, oldYearsNumber: oldYearsNumber, oldYearsNumberInRoundOfLife: oldYearsNumberInRoundOfLife)
                     }
-                } else if oldYearsNumber >= 12 && oldYearsNumber == 15 {
-                    if (day == 19 && hour >= 18) ||  day > 19 {
-                        oldY += 1
-                        oldYearsNumber += 1
-                        oldYearsNumberInRoundOfLife += 1
-                        letoLabel.text = "Лѣто \(oldY) от С.З.М.Х."
-                        numberOfYear.text = "Лѣто в Круге лѣт: \(oldYearsNumber)"
-                        numberOfYearInRoundOfLife.text = "Лѣто в Круге жизни: \(oldYearsNumberInRoundOfLife)"
-                        titleOfYear.text = "\(OldYear().arrayOfTitleOfYears[oldYearsNumberInRoundOfLife - 1])"
-                        oldTime(hour: hour, minute: minute, second: second)
-                        oldMonth(oldYearsNumber: oldYearsNumber, year: year, month: month, day: day, hour: hour)
-                    } else if (day == 19 && hour <= 18) || day < 19 {
-                        letoLabel.text = "Лѣто \(oldY) от С.З.М.Х."
-                        numberOfYear.text = "Лѣто в Круге лѣт: \(oldYearsNumber)"
-                        numberOfYearInRoundOfLife.text = "Лѣто в Круге жизни: \(oldYearsNumberInRoundOfLife)"
-                        titleOfYear.text = "\(OldYear().arrayOfTitleOfYears[oldYearsNumberInRoundOfLife - 1])"
-                        oldTime(hour: hour, minute: minute, second: second)
-                        oldMonth(oldYearsNumber: oldYearsNumber, year: year, month: month, day: day, hour: hour)
+                    else if (day == 21 && timeAfterSixPM == false) || day < 21 {
+                        addYear(oldY: oldY, oldYearsNumber: oldYearsNumber, oldYearsNumberInRoundOfLife: oldYearsNumberInRoundOfLife)
+                    }
+                }
+                else if oldYearsNumber >= 8 && oldYearsNumber <= 11 {
+                    if (day == 20 && timeAfterSixPM == true) ||  day > 20 {
+                        addYearPlusOne(oldY: oldY, oldYearsNumber: oldYearsNumber, oldYearsNumberInRoundOfLife: oldYearsNumberInRoundOfLife)
+                    }
+                    else if (day == 20 && timeAfterSixPM == false) || day < 20 {
+                        addYear(oldY: oldY, oldYearsNumber: oldYearsNumber, oldYearsNumberInRoundOfLife: oldYearsNumberInRoundOfLife)
+                    }
+                }
+                else if oldYearsNumber >= 12 && oldYearsNumber == 15 {
+                    if (day == 19 && timeAfterSixPM == true) ||  day > 19 {
+                        addYearPlusOne(oldY: oldY, oldYearsNumber: oldYearsNumber, oldYearsNumberInRoundOfLife: oldYearsNumberInRoundOfLife)
+                    }
+                    else if (day == 19 && timeAfterSixPM == false) || day < 19 {
+                        addYear(oldY: oldY, oldYearsNumber: oldYearsNumber, oldYearsNumberInRoundOfLife: oldYearsNumberInRoundOfLife)
                     }
                 }
             }
-            letoLabel.text = "Лѣто \(oldY) от С.З.М.Х."
-            numberOfYear.text = "Лѣто в Круге лѣт: \(oldYearsNumber)"
-            numberOfYearInRoundOfLife.text = "Лѣто в Круге жизни: \(oldYearsNumberInRoundOfLife)"
-            titleOfYear.text = "\(OldYear().arrayOfTitleOfYears[oldYearsNumberInRoundOfLife - 1])"
+            else {
+                addYear(oldY: oldY, oldYearsNumber: oldYearsNumber, oldYearsNumberInRoundOfLife: oldYearsNumberInRoundOfLife)
+            }
             oldTime(hour: hour, minute: minute, second: second)
-            oldMonth(oldYearsNumber: oldYearsNumber, year: year, month: month, day: day, hour: hour)
-        } else if month >= 10 && month <= 12 {
+            oldMonth(oldYearsNumber: oldYearsNumber, year: year, month: month, day: day, timeAfterSixPM: timeAfterSixPM)
+        }
+        else if month >= 10 && month <= 12 {
             let oldY = year + 5509
             let oldYearsNumber = Int(Double(oldY).truncatingRemainder(dividingBy: 16))
             let oldYearsNumberInRoundOfLife = oldY - 7520
-            letoLabel.text = "Лѣто \(oldY) от С.З.М.Х."
-            numberOfYear.text = "Лѣто в Круге лѣт: \(oldYearsNumber)"
-            numberOfYearInRoundOfLife.text = "Лѣто в Круге жизни: \(oldYearsNumberInRoundOfLife)"
-            titleOfYear.text = "\(OldYear().arrayOfTitleOfYears[oldYearsNumberInRoundOfLife - 1])"
+            addYear(oldY: oldY, oldYearsNumber: oldYearsNumber, oldYearsNumberInRoundOfLife: oldYearsNumberInRoundOfLife)
             oldTime(hour: hour, minute: minute, second: second)
-            oldMonth(oldYearsNumber: oldYearsNumber, year: year, month: month, day: day, hour: hour)
+            oldMonth(oldYearsNumber: oldYearsNumber, year: year, month: month, day: day, timeAfterSixPM: timeAfterSixPM)
         }
     }
     

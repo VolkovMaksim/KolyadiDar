@@ -45,6 +45,13 @@ class CurrentDate {
         return hour
     }
     
+    func timeAfterSixPM () -> Bool {
+        let currentDate = Date()
+        let calendar = Calendar.current
+        let hour = calendar.component(.hour, from: currentDate)
+        return hour >= 18 ? true : false
+    }
+    
     func getCurrentMinutes() -> Int {
         let currentDate = Date()
         let calendar = Calendar.current
@@ -84,6 +91,7 @@ class CurrentDate {
         dateComponents.hour = hour
         let dateFromDC = calendar.date(from: dateComponents as DateComponents)
         let difference = Int(-((dateFromDC?.timeIntervalSinceNow)!))
+        // вывод в секундах
         return difference
     }
 }

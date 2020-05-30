@@ -14,6 +14,9 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     @IBOutlet weak var hourLabel: UILabel!
     @IBOutlet weak var minuteLabel: UILabel!
     @IBOutlet weak var secondLabel: UILabel!
+    @IBOutlet weak var monthLabel: UILabel!
+    @IBOutlet weak var yearLabel: UILabel!
+    @IBOutlet weak var rpDay: UIImageView!
     
     override func viewDidAppear(_ animated: Bool) {
         
@@ -26,6 +29,15 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         if let seconds = UserDefaults.init(suiteName: "group.ru.superstarper.dev.KolyadiDar")?.value(forKey: "seconds") {
             secondLabel.text = seconds as? String
         }
+        if let month = UserDefaults.init(suiteName: "group.ru.superstarper.dev.KolyadiDar")?.value(forKey: "month") {
+            monthLabel.text = month as? String
+            //monthLabel.font = UIFont(name: "-Normal", size: 25)
+        }
+        if let year = UserDefaults.init(suiteName: "group.ru.superstarper.dev.KolyadiDar")?.value(forKey: "year") {
+            yearLabel.text = year as? String
+            //monthLabel.font = UIFont(name: "-Normal", size: 25)
+        }
+        
     }
     override func viewDidLoad() {
         super.viewDidLoad()

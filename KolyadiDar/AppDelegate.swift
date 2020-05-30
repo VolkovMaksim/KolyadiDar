@@ -11,14 +11,18 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    var currentTime: CurrentViewController?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        currentTime?.setupTimer()
         return true
     }
 
     // MARK: UISceneSession Lifecycle
+    
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        currentTime?.setupTimer()
+    }
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
         // Called when a new scene session is being created.

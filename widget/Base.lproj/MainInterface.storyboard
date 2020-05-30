@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="M4Y-Lb-cyx">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -12,59 +12,102 @@
             <objects>
                 <viewController id="M4Y-Lb-cyx" customClass="TodayViewController" customModule="widget" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" simulatedAppContext="notificationCenter" id="S3S-Oj-5AN">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="75"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="140"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VLm-UL-cZE">
-                                <rect key="frame" x="0.0" y="44" width="68" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ey0-2j-fSZ">
+                                <rect key="frame" x="68" y="0.0" width="58" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="68" id="HC3-tp-3Dt"/>
+                                    <constraint firstAttribute="height" constant="30" id="nsW-FJ-rPq"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="25"/>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="30"/>
                                 <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ey0-2j-fSZ">
-                                <rect key="frame" x="76" y="44" width="84" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=":" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fwJ-CZ-0OD">
+                                <rect key="frame" x="54" y="0.0" width="14" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="84" id="NMW-nW-8w9"/>
+                                    <constraint firstAttribute="height" constant="30" id="DjM-Wb-69u"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="25"/>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="30"/>
                                 <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VWT-CU-PNL">
-                                <rect key="frame" x="168" y="44" width="100" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HwP-8t-Zak">
+                                <rect key="frame" x="126" y="0.0" width="11" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="jMC-ao-0C2"/>
+                                    <constraint firstAttribute="height" constant="30" id="Bzf-xV-pZx"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="25"/>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="30"/>
+                                <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VLm-UL-cZE">
+                                <rect key="frame" x="15" y="0.0" width="39" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="0Fm-i4-htB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="30"/>
+                                <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Сороковник, день" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yj4-lc-awW">
+                                <rect key="frame" x="15" y="35" width="159" height="21"/>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="17"/>
+                                <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VWT-CU-PNL">
+                                <rect key="frame" x="137" y="3" width="64" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="ysr-Kh-QgF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="25"/>
+                                <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Лето 0000 от С.З.М.Х." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xDj-R4-2oA">
+                                <rect key="frame" x="15" y="61" width="194.5" height="21"/>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="17"/>
                                 <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="VWT-CU-PNL" firstAttribute="leading" secondItem="Ey0-2j-fSZ" secondAttribute="trailing" constant="8" id="BjW-7a-RLB"/>
-                            <constraint firstItem="Ey0-2j-fSZ" firstAttribute="leading" secondItem="VLm-UL-cZE" secondAttribute="trailing" constant="8" id="G0Q-LS-aLq"/>
+                            <constraint firstItem="VLm-UL-cZE" firstAttribute="leading" secondItem="ssy-KU-ocm" secondAttribute="leading" constant="15" id="4tL-Ky-4bD"/>
+                            <constraint firstItem="ssy-KU-ocm" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="xDj-R4-2oA" secondAttribute="trailing" constant="20" id="6je-6c-fEG"/>
+                            <constraint firstItem="HwP-8t-Zak" firstAttribute="leading" secondItem="Ey0-2j-fSZ" secondAttribute="trailing" id="BP8-xt-jcA"/>
+                            <constraint firstItem="ssy-KU-ocm" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="VWT-CU-PNL" secondAttribute="trailing" constant="20" id="E3i-ja-6mf"/>
+                            <constraint firstItem="yj4-lc-awW" firstAttribute="leading" secondItem="ssy-KU-ocm" secondAttribute="leading" constant="15" id="IMX-lq-YNu"/>
+                            <constraint firstItem="HwP-8t-Zak" firstAttribute="top" secondItem="ssy-KU-ocm" secondAttribute="top" id="O4m-LZ-5Le"/>
+                            <constraint firstItem="yj4-lc-awW" firstAttribute="top" secondItem="VLm-UL-cZE" secondAttribute="bottom" constant="5" id="PWM-GB-PD4"/>
                             <constraint firstItem="ssy-KU-ocm" firstAttribute="top" secondItem="VLm-UL-cZE" secondAttribute="top" id="Ql2-xR-aLs"/>
-                            <constraint firstItem="ssy-KU-ocm" firstAttribute="top" secondItem="VWT-CU-PNL" secondAttribute="top" id="ZVt-uk-Naj"/>
+                            <constraint firstItem="ssy-KU-ocm" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="yj4-lc-awW" secondAttribute="trailing" constant="20" id="RCO-85-OQW"/>
+                            <constraint firstItem="Ey0-2j-fSZ" firstAttribute="leading" secondItem="fwJ-CZ-0OD" secondAttribute="trailing" id="REE-cy-RXr"/>
+                            <constraint firstItem="VWT-CU-PNL" firstAttribute="leading" secondItem="HwP-8t-Zak" secondAttribute="trailing" id="ewe-FH-hKC"/>
+                            <constraint firstItem="fwJ-CZ-0OD" firstAttribute="top" secondItem="ssy-KU-ocm" secondAttribute="top" id="iVK-v1-rGL"/>
+                            <constraint firstItem="fwJ-CZ-0OD" firstAttribute="leading" secondItem="VLm-UL-cZE" secondAttribute="trailing" id="jzU-pg-isy"/>
                             <constraint firstItem="ssy-KU-ocm" firstAttribute="top" secondItem="Ey0-2j-fSZ" secondAttribute="top" id="kYT-nq-6PI"/>
-                            <constraint firstItem="VLm-UL-cZE" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leading" id="zQT-Sc-pfh"/>
+                            <constraint firstItem="xDj-R4-2oA" firstAttribute="leading" secondItem="ssy-KU-ocm" secondAttribute="leading" constant="15" id="mc2-jS-vLq"/>
+                            <constraint firstItem="xDj-R4-2oA" firstAttribute="top" secondItem="yj4-lc-awW" secondAttribute="bottom" constant="5" id="wsE-eS-is1"/>
+                            <constraint firstItem="VWT-CU-PNL" firstAttribute="top" secondItem="ssy-KU-ocm" secondAttribute="top" constant="3" id="zoL-sL-mmw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ssy-KU-ocm"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="320" height="75"/>
+                    <size key="freeformSize" width="320" height="140"/>
                     <connections>
                         <outlet property="hourLabel" destination="VLm-UL-cZE" id="qVp-Bf-L9J"/>
                         <outlet property="minuteLabel" destination="Ey0-2j-fSZ" id="YEn-R9-VJS"/>
+                        <outlet property="monthLabel" destination="yj4-lc-awW" id="ShE-l3-q5T"/>
                         <outlet property="secondLabel" destination="VWT-CU-PNL" id="id7-uo-SJ0"/>
+                        <outlet property="yearLabel" destination="xDj-R4-2oA" id="Bbk-yI-eHw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vXp-U4-Rya" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="131.8840579710145" y="138.95089285714286"/>
+            <point key="canvasLocation" x="131.8840579710145" y="138.61607142857142"/>
         </scene>
     </scenes>
 </document>
