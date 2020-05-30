@@ -20,7 +20,7 @@ class CurrentViewController: UIViewController {
     @IBOutlet weak var letoLabel: UILabel!
     @IBOutlet weak var numberOfYear: UILabel!
     @IBOutlet weak var numberOfYearInRoundOfLife: UILabel!
-    @IBOutlet weak var titleOfYear: UILabel!
+    @IBOutlet weak var titleOfYearLabel: UILabel!
     
     @IBOutlet weak var titleOfHour: UILabel!
     @IBOutlet weak var fullTitleOfHour: UILabel!
@@ -36,6 +36,8 @@ class CurrentViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     
     var currentDate = CurrentDate()
+    var oldYear = OldYear()
+    var titleOfYear = ""
     var timer = Timer()
     
     
@@ -56,16 +58,6 @@ class CurrentViewController: UIViewController {
         //rpDay.image = UIImage(named: "Parrents")
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
     
     // MARK: - Funcs of Time
     
@@ -726,10 +718,11 @@ class CurrentViewController: UIViewController {
             oldyearsNumberInRoundOfLife = oldYearsNumberInRoundOfLife
         }
         letoLabel.text = "Лѣто \(oldY) от С.З.М.Х."
-        titleOfYear.text = "\(OldYear().arrayOfTitleOfYears[oldyearsNumberInRoundOfLife - 1])"
+        titleOfYearLabel.text = "\(OldYear().arrayOfTitleOfYears[oldyearsNumberInRoundOfLife - 1])"
         numberOfYear.text = "\(oldyearsNumber) лѣто в Круге лѣт"
         numberOfYearInRoundOfLife.text = "\(oldyearsNumberInRoundOfLife) лѣто в Круге жизни"
         UserDefaults.init(suiteName: "group.ru.superstarper.dev.KolyadiDar")?.setValue(letoLabel.text, forKey: "year")
+        titleOfYear = titleOfYearLabel.text!
     }
     
     func addYearPlusOne(oldY: Int, oldYearsNumber: Int, oldYearsNumberInRoundOfLife: Int) {
@@ -737,10 +730,11 @@ class CurrentViewController: UIViewController {
         let oldyearsNumber = oldYearsNumber + 1
         let oldyearsNumberInRoundOfLife = oldYearsNumberInRoundOfLife + 1
         letoLabel.text = "Лѣто \(oldy) от С.З.М.Х."
-        titleOfYear.text = "\(OldYear().arrayOfTitleOfYears[oldyearsNumberInRoundOfLife - 1])"
+        titleOfYearLabel.text = "\(OldYear().arrayOfTitleOfYears[oldyearsNumberInRoundOfLife - 1])"
         numberOfYear.text = "\(oldyearsNumber) лѣто в Круге лѣт"
         numberOfYearInRoundOfLife.text = "\(oldyearsNumberInRoundOfLife) лѣто в Круге жизни"
         UserDefaults.init(suiteName: "group.ru.superstarper.dev.KolyadiDar")?.setValue(letoLabel.text, forKey: "year")
+        titleOfYear = titleOfYearLabel.text!
     }
     
     func oldYearAndTime() {
@@ -817,5 +811,21 @@ class CurrentViewController: UIViewController {
         //sepLabel.isHidden = !sepLabel.isHidden
         oldYearAndTime()
         nameOfHour()
+    }
+    
+    // MARK: - Navigation
+
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // если идентификатор сигвея соответствует "DetailPage"
+        if segue.identifier == "YearsInfo" {
+            let pageVC = segue.destination as! YearsPageViewController
+            for year in oldYear.arrayOfAdvtitleOfYears {
+                if year.contains(titleOfYear) {
+                    pageVC.yearTitle = year
+                    
+                }
+            }
+        }
     }
 }

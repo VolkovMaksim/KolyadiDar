@@ -21,17 +21,24 @@ class MyDateViewController: UIViewController {
     @IBOutlet weak var yearInRoundOfYearsLabel: UILabel!
     @IBOutlet weak var yearInRoundOfLifeLabel: UILabel!
     
+    @IBOutlet weak var yearInfoLabel: UIButton!
     @IBOutlet weak var checkDateLabel: UIButton!
     
     let calendar = Calendar.current
     let dateFormatter = DateFormatter()
     let dPickerView: UIDatePicker = UIDatePicker()
     let myDate = CustomDate()
+    var oldYear = OldYear()
+    var titleOfYear = ""
     
     // переменная для участия расчета даты "после" или "до" 18 часов
     var timeAfter18: Bool = false
     
     override func viewDidAppear(_ animated: Bool) {
+        
+    }
+    
+    override func viewDidLoad() {
         monthAndDayLabel.isHidden = true
         dayOfWeekLabel.isHidden = true
         titleOfConstellationLabel.isHidden = true
@@ -41,10 +48,8 @@ class MyDateViewController: UIViewController {
         yearInRoundOfYearsLabel.isHidden = true
         yearInRoundOfLifeLabel.isHidden = true
         checkDateLabel.isHidden = true
+        yearInfoLabel.isHidden = true
         dateTF.text = ""
-    }
-    
-    override func viewDidLoad() {
         super.viewDidLoad()
         setTime()
     }
@@ -93,6 +98,7 @@ class MyDateViewController: UIViewController {
         titleOfYearLabel.isHidden = false
         yearInRoundOfYearsLabel.isHidden = false
         yearInRoundOfLifeLabel.isHidden = false
+        yearInfoLabel.isHidden = false
         // скрываем DatePicker при тапе на кнопку chackDate
         self.view.endEditing(true)
         
@@ -110,6 +116,8 @@ class MyDateViewController: UIViewController {
         titleOfYearLabel.text = arrayOfOldDate[5]
         yearInRoundOfYearsLabel.text = arrayOfOldDate[6]
         yearInRoundOfLifeLabel.text = arrayOfOldDate[7]
+        titleOfYear = arrayOfOldDate[5]
+        //print(titleOfYear)
     }
     
     // скрываем DatePicker при тапе на view
@@ -117,14 +125,20 @@ class MyDateViewController: UIViewController {
         self.view.endEditing(true)
     }
     
-    /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        // если идентификатор сигвея соответствует "DetailPage"
+        if segue.identifier == "CustomYearInfo" {
+            let pageVC = segue.destination as! YearsPageViewController
+            for year in oldYear.arrayOfAdvtitleOfYears {
+                if year.contains(titleOfYear) {
+                    pageVC.yearTitle = year
+                    
+                }
+            }
+        }
     }
-    */
 
 }

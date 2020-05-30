@@ -185,6 +185,16 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mH5-p3-HOL">
+                                        <rect key="frame" x="78.5" y="269" width="163" height="36.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="36.5" id="h56-od-TjO"/>
+                                            <constraint firstAttribute="width" constant="163" id="vbA-6u-Nty"/>
+                                        </constraints>
+                                        <connections>
+                                            <segue destination="U1I-WN-0mh" kind="show" identifier="YearsInfo" id="5zn-CK-iU5"/>
+                                        </connections>
+                                    </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Описание сороковника" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wNE-aZ-5ea">
                                         <rect key="frame" x="59" y="142.5" width="202.5" height="29.5"/>
                                         <fontDescription key="fontDescription" name="-Normal" family="Родникъ" pointSize="20"/>
@@ -254,12 +264,14 @@
                                     <constraint firstItem="4NK-Yr-Ikp" firstAttribute="centerX" secondItem="RXa-u1-JJ3" secondAttribute="centerX" id="Zfx-RW-f1o"/>
                                     <constraint firstItem="UvR-jC-Qzj" firstAttribute="centerX" secondItem="RXa-u1-JJ3" secondAttribute="centerX" id="aTM-Ka-pt2"/>
                                     <constraint firstItem="UpH-A5-4iy" firstAttribute="width" secondItem="RXa-u1-JJ3" secondAttribute="width" multiplier="0.95" id="eAh-4c-IcE"/>
+                                    <constraint firstItem="mH5-p3-HOL" firstAttribute="centerY" secondItem="TLO-MX-kzC" secondAttribute="centerY" id="f6d-Yv-nIx"/>
                                     <constraint firstItem="4NK-Yr-Ikp" firstAttribute="top" secondItem="UpH-A5-4iy" secondAttribute="bottom" constant="7" id="g8b-HH-tCq"/>
                                     <constraint firstItem="GWn-TC-ixV" firstAttribute="top" secondItem="wNE-aZ-5ea" secondAttribute="bottom" id="gCg-cX-2sa"/>
                                     <constraint firstItem="iPD-vn-Yc7" firstAttribute="top" secondItem="zZv-6H-XQo" secondAttribute="bottom" id="heI-0S-reE"/>
                                     <constraint firstItem="TLO-MX-kzC" firstAttribute="top" secondItem="iPD-vn-Yc7" secondAttribute="bottom" id="jGL-sr-4S8"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="320" id="k0b-bA-rXh"/>
                                     <constraint firstItem="UpH-A5-4iy" firstAttribute="centerX" secondItem="RXa-u1-JJ3" secondAttribute="centerX" id="lMM-EP-xVh"/>
+                                    <constraint firstItem="mH5-p3-HOL" firstAttribute="centerX" secondItem="TLO-MX-kzC" secondAttribute="centerX" id="nZ1-gv-SGc"/>
                                     <constraint firstItem="UvR-jC-Qzj" firstAttribute="top" secondItem="Eei-cI-3ho" secondAttribute="bottom" id="t7l-Qb-Lat"/>
                                     <constraint firstItem="TLO-MX-kzC" firstAttribute="centerX" secondItem="RXa-u1-JJ3" secondAttribute="centerX" id="tti-bP-EAC"/>
                                     <constraint firstItem="UpH-A5-4iy" firstAttribute="top" secondItem="IgQ-mg-dEo" secondAttribute="bottom" id="zg5-XK-T2B"/>
@@ -303,7 +315,7 @@
                         <outlet property="sepLabel" destination="hf4-IL-0H6" id="Hha-Z0-nxM"/>
                         <outlet property="titleOfConstellation" destination="GWn-TC-ixV" id="fcL-y3-aYU"/>
                         <outlet property="titleOfHour" destination="IgQ-mg-dEo" id="Qfa-ss-PU9"/>
-                        <outlet property="titleOfYear" destination="TLO-MX-kzC" id="T0k-b4-CFc"/>
+                        <outlet property="titleOfYearLabel" destination="TLO-MX-kzC" id="Bau-o1-B3g"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -388,6 +400,16 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XZD-Hy-gGX">
+                                <rect key="frame" x="60" y="391.5" width="200" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="rgh-8P-WEA"/>
+                                    <constraint firstAttribute="width" constant="200" id="tEi-ID-8x7"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="U1I-WN-0mh" kind="show" identifier="CustomYearInfo" id="njb-sq-yxq"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Лѣто в круге лѣт" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q0O-JH-eC2">
                                 <rect key="frame" x="82.5" y="429" width="155" height="29.5"/>
                                 <fontDescription key="fontDescription" name="-Normal" family="Родникъ" pointSize="20"/>
@@ -423,6 +445,7 @@
                         <constraints>
                             <constraint firstItem="Ist-jN-W1u" firstAttribute="top" secondItem="Sy6-Gv-ohE" secondAttribute="bottom" constant="8" id="42W-Vl-1zD"/>
                             <constraint firstItem="kfc-0p-ZSa" firstAttribute="centerX" secondItem="gqO-0y-Dc6" secondAttribute="centerX" id="4We-Op-gUZ"/>
+                            <constraint firstItem="XZD-Hy-gGX" firstAttribute="centerX" secondItem="Nqr-R5-3CA" secondAttribute="centerX" id="4e9-0d-wwM"/>
                             <constraint firstItem="Ftg-mo-TWF" firstAttribute="centerX" secondItem="gqO-0y-Dc6" secondAttribute="centerX" id="CO4-sK-E2F"/>
                             <constraint firstItem="q0O-JH-eC2" firstAttribute="centerX" secondItem="gqO-0y-Dc6" secondAttribute="centerX" id="FbA-Qo-uw1"/>
                             <constraint firstItem="q0O-JH-eC2" firstAttribute="top" secondItem="Nqr-R5-3CA" secondAttribute="bottom" constant="8" id="Fhw-CQ-40K"/>
@@ -431,6 +454,7 @@
                             <constraint firstItem="Nqr-R5-3CA" firstAttribute="centerX" secondItem="gqO-0y-Dc6" secondAttribute="centerX" id="Llc-CK-uFm"/>
                             <constraint firstItem="W8g-Op-ROb" firstAttribute="centerX" secondItem="gqO-0y-Dc6" secondAttribute="centerX" id="RfA-Yq-rOc"/>
                             <constraint firstItem="6tD-el-FGb" firstAttribute="top" secondItem="Ist-jN-W1u" secondAttribute="bottom" constant="19" id="SXG-Kc-4M1"/>
+                            <constraint firstItem="XZD-Hy-gGX" firstAttribute="centerY" secondItem="Nqr-R5-3CA" secondAttribute="centerY" id="UCY-DS-sMH"/>
                             <constraint firstItem="moj-Nq-aVb" firstAttribute="top" secondItem="Ftg-mo-TWF" secondAttribute="bottom" constant="8" id="UeF-q1-Yh9"/>
                             <constraint firstItem="9lW-dv-yES" firstAttribute="top" secondItem="W8g-Op-ROb" secondAttribute="bottom" constant="8" id="UqS-vh-kLC"/>
                             <constraint firstItem="Sy6-Gv-ohE" firstAttribute="centerX" secondItem="gqO-0y-Dc6" secondAttribute="centerX" id="WPT-yp-TvV"/>
@@ -458,6 +482,7 @@
                         <outlet property="titleOfYearLabel" destination="Nqr-R5-3CA" id="lD3-PN-mDQ"/>
                         <outlet property="yearInRoundOfLifeLabel" destination="4ej-cK-jnj" id="Fch-LE-X6X"/>
                         <outlet property="yearInRoundOfYearsLabel" destination="q0O-JH-eC2" id="dKN-um-47K"/>
+                        <outlet property="yearInfoLabel" destination="XZD-Hy-gGX" id="Jfp-hR-UAb"/>
                         <outlet property="yearLabel" destination="moj-Nq-aVb" id="MSh-Dj-j4x"/>
                     </connections>
                 </viewController>
@@ -849,6 +874,9 @@
             <point key="canvasLocation" x="4788" y="918.89055472263874"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="njb-sq-yxq"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.right" catalog="system" width="128" height="98"/>
         <image name="book" catalog="system" width="128" height="101"/>
