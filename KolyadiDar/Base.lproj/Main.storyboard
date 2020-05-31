@@ -134,21 +134,6 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Сороковник" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4NK-Yr-Ikp">
-                                        <rect key="frame" x="81" y="102.5" width="158" height="38"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="38" id="5IW-eB-swU"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="-Normal" family="Родникъ" pointSize="30"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Событие" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eei-cI-3ho">
-                                        <rect key="frame" x="8" y="175" width="304" height="1.5"/>
-                                        <fontDescription key="fontDescription" name="-Normal" family="Родникъ" pointSize="1"/>
-                                        <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="День нѣдели" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GQ8-EN-WNh">
                                         <rect key="frame" x="88" y="72" width="144" height="30.5"/>
                                         <constraints>
@@ -158,57 +143,51 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Название чертога" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GWn-TC-ixV">
-                                        <rect key="frame" x="81" y="183" width="158.5" height="29.5"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kPH-UK-RFL">
+                                        <rect key="frame" x="244" y="72" width="31" height="31"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pHA-Su-CqS">
+                                                <rect key="frame" x="1" y="1" width="29" height="29"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="29" id="MH6-1z-lR9"/>
+                                                    <constraint firstAttribute="height" constant="29" id="uPM-7y-GCG"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="31" id="DqH-54-FXf"/>
+                                            <constraint firstItem="pHA-Su-CqS" firstAttribute="centerX" secondItem="kPH-UK-RFL" secondAttribute="centerX" id="X7z-bk-vyl"/>
+                                            <constraint firstAttribute="height" constant="31" id="d5b-Uk-IPH"/>
+                                            <constraint firstItem="pHA-Su-CqS" firstAttribute="centerY" secondItem="kPH-UK-RFL" secondAttribute="centerY" id="fyN-mv-B97"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Покровитель суток" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tiw-tg-uZ3">
+                                        <rect key="frame" x="35" y="102.5" width="250" height="29.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="250" id="HzH-4t-zVW"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="-Normal" family="Родникъ" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Лѣто" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iPD-vn-Yc7">
-                                        <rect key="frame" x="126.5" y="250" width="67" height="38"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Земля" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bJd-lv-Mmt">
+                                        <rect key="frame" x="158.5" y="132" width="3" height="1.5"/>
+                                        <fontDescription key="fontDescription" name="-Normal" family="Родникъ" pointSize="1"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Сороковник" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4NK-Yr-Ikp">
+                                        <rect key="frame" x="81" y="139.5" width="158" height="38"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="38" id="hem-Vb-VpB"/>
+                                            <constraint firstAttribute="height" constant="38" id="5IW-eB-swU"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="-Normal" family="Родникъ" pointSize="30"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Лѣто в Круге Лѣт" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uax-A3-tse">
-                                        <rect key="frame" x="80" y="324.5" width="160.5" height="29.5"/>
-                                        <fontDescription key="fontDescription" name="-Normal" family="Родникъ" pointSize="20"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Название лѣта" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TLO-MX-kzC">
-                                        <rect key="frame" x="78.5" y="288" width="163" height="36.5"/>
-                                        <fontDescription key="fontDescription" name="-Normal" family="Родникъ" pointSize="25"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mH5-p3-HOL">
-                                        <rect key="frame" x="78.5" y="288" width="163" height="36.5"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="36.5" id="h56-od-TjO"/>
-                                            <constraint firstAttribute="width" constant="163" id="vbA-6u-Nty"/>
-                                        </constraints>
-                                        <connections>
-                                            <segue destination="U1I-WN-0mh" kind="show" identifier="YearsInfo" id="5zn-CK-iU5"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ПОСТЪ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UvR-jC-Qzj">
-                                        <rect key="frame" x="158.5" y="176.5" width="3.5" height="1.5"/>
-                                        <fontDescription key="fontDescription" name="-Normal" family="Родникъ" pointSize="1"/>
-                                        <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Лѣто в Круге жизни" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y2b-a1-z78">
-                                        <rect key="frame" x="70" y="354" width="180.5" height="29.5"/>
-                                        <fontDescription key="fontDescription" name="-Normal" family="Родникъ" pointSize="20"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mPr-VT-m38">
-                                        <rect key="frame" x="244" y="106" width="31" height="31"/>
+                                        <rect key="frame" x="244" y="142.5" width="31" height="31"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="852-Yj-7JG">
                                                 <rect key="frame" x="1" y="1" width="29" height="29"/>
@@ -226,14 +205,102 @@
                                             <constraint firstItem="852-Yj-7JG" firstAttribute="centerX" secondItem="mPr-VT-m38" secondAttribute="centerX" id="t6k-n9-IU8"/>
                                         </constraints>
                                     </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Событие" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eei-cI-3ho">
+                                        <rect key="frame" x="8" y="207" width="304" height="1.5"/>
+                                        <fontDescription key="fontDescription" name="-Normal" family="Родникъ" pointSize="1"/>
+                                        <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ПОСТЪ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UvR-jC-Qzj">
+                                        <rect key="frame" x="158.5" y="208.5" width="3.5" height="1.5"/>
+                                        <fontDescription key="fontDescription" name="-Normal" family="Родникъ" pointSize="1"/>
+                                        <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Название чертога" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GWn-TC-ixV">
+                                        <rect key="frame" x="61" y="212" width="198" height="31.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="31.5" id="hFp-R2-vYp"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="-Normal" family="Родникъ" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Бог-Покровитель" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zZv-6H-XQo">
-                                        <rect key="frame" x="83" y="212.5" width="154.5" height="29.5"/>
+                                        <rect key="frame" x="83" y="243.5" width="154.5" height="29.5"/>
+                                        <fontDescription key="fontDescription" name="-Normal" family="Родникъ" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Дерево" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CNg-G3-ekF">
+                                        <rect key="frame" x="128" y="273" width="64.5" height="23.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="23.5" id="TNH-l4-H9I"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="-Normal" family="Родникъ" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Лѣто" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iPD-vn-Yc7">
+                                        <rect key="frame" x="126.5" y="301.5" width="67" height="38"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="38" id="hem-Vb-VpB"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="-Normal" family="Родникъ" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Название лѣта" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TLO-MX-kzC">
+                                        <rect key="frame" x="78.5" y="339.5" width="163" height="36.5"/>
+                                        <fontDescription key="fontDescription" name="-Normal" family="Родникъ" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mH5-p3-HOL">
+                                        <rect key="frame" x="78.5" y="339.5" width="163" height="36.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="36.5" id="h56-od-TjO"/>
+                                            <constraint firstAttribute="width" constant="163" id="vbA-6u-Nty"/>
+                                        </constraints>
+                                        <connections>
+                                            <segue destination="U1I-WN-0mh" kind="show" identifier="YearsInfo" id="5zn-CK-iU5"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Лѣто в Круге Лѣт" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uax-A3-tse">
+                                        <rect key="frame" x="80" y="376" width="160.5" height="29.5"/>
+                                        <fontDescription key="fontDescription" name="-Normal" family="Родникъ" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Лѣто в Круге жизни" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y2b-a1-z78">
+                                        <rect key="frame" x="70" y="405.5" width="180.5" height="29.5"/>
+                                        <fontDescription key="fontDescription" name="-Normal" family="Родникъ" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Эпоха" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nWA-ML-cIs">
+                                        <rect key="frame" x="31" y="435" width="258" height="29.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="258" id="7B6-yJ-veC"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="-Normal" family="Родникъ" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Покровитель эпохи" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Ib-6m-7nZ">
+                                        <rect key="frame" x="31" y="464.5" width="258" height="29.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="258" id="nII-PB-0at"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="-Normal" family="Родникъ" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Описание сороковника" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wNE-aZ-5ea">
-                                        <rect key="frame" x="59" y="140.5" width="202.5" height="29.5"/>
+                                        <rect key="frame" x="59" y="177.5" width="202.5" height="24.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="24.5" id="N6C-tg-H6d"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="-Normal" family="Родникъ" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -241,38 +308,50 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="UpH-A5-4iy" firstAttribute="top" secondItem="RXa-u1-JJ3" secondAttribute="top" constant="34.5" id="03s-oB-x3M"/>
+                                    <constraint firstItem="wNE-aZ-5ea" firstAttribute="centerX" secondItem="RXa-u1-JJ3" secondAttribute="centerX" id="0cc-pQ-mCm"/>
                                     <constraint firstItem="GWn-TC-ixV" firstAttribute="centerX" secondItem="RXa-u1-JJ3" secondAttribute="centerX" id="0x8-tk-EEz"/>
-                                    <constraint firstItem="GWn-TC-ixV" firstAttribute="top" secondItem="UvR-jC-Qzj" secondAttribute="bottom" constant="5" id="2nh-FB-j1n"/>
+                                    <constraint firstItem="GWn-TC-ixV" firstAttribute="top" secondItem="UvR-jC-Qzj" secondAttribute="bottom" constant="2" id="2nh-FB-j1n"/>
                                     <constraint firstItem="zZv-6H-XQo" firstAttribute="top" secondItem="GWn-TC-ixV" secondAttribute="bottom" id="3TQ-6p-hLT"/>
+                                    <constraint firstItem="Tiw-tg-uZ3" firstAttribute="centerX" secondItem="RXa-u1-JJ3" secondAttribute="centerX" id="5yA-Z3-WHn"/>
                                     <constraint firstItem="y2b-a1-z78" firstAttribute="centerX" secondItem="RXa-u1-JJ3" secondAttribute="centerX" id="73f-PC-ebV"/>
                                     <constraint firstItem="Eei-cI-3ho" firstAttribute="centerX" secondItem="RXa-u1-JJ3" secondAttribute="centerX" id="7Fe-yp-416"/>
+                                    <constraint firstItem="wNE-aZ-5ea" firstAttribute="top" secondItem="4NK-Yr-Ikp" secondAttribute="bottom" id="7yA-hW-hXp"/>
                                     <constraint firstItem="iPD-vn-Yc7" firstAttribute="centerX" secondItem="RXa-u1-JJ3" secondAttribute="centerX" id="9Oz-T8-aua"/>
                                     <constraint firstItem="zZv-6H-XQo" firstAttribute="centerX" secondItem="RXa-u1-JJ3" secondAttribute="centerX" id="AR7-uP-UfK"/>
                                     <constraint firstItem="IgQ-mg-dEo" firstAttribute="centerX" secondItem="RXa-u1-JJ3" secondAttribute="centerX" id="Bkh-I6-3LR"/>
+                                    <constraint firstItem="kPH-UK-RFL" firstAttribute="leading" secondItem="GQ8-EN-WNh" secondAttribute="trailing" constant="12" id="CWx-DY-rp2"/>
                                     <constraint firstItem="Uax-A3-tse" firstAttribute="centerX" secondItem="RXa-u1-JJ3" secondAttribute="centerX" id="ESQ-i3-kxN"/>
                                     <constraint firstItem="y2b-a1-z78" firstAttribute="top" secondItem="Uax-A3-tse" secondAttribute="bottom" id="HCk-lO-suu"/>
-                                    <constraint firstAttribute="bottom" secondItem="y2b-a1-z78" secondAttribute="bottom" id="IHn-nN-XZI"/>
+                                    <constraint firstItem="nWA-ML-cIs" firstAttribute="centerX" secondItem="RXa-u1-JJ3" secondAttribute="centerX" id="Iht-62-HPf"/>
                                     <constraint firstAttribute="trailing" secondItem="Eei-cI-3ho" secondAttribute="trailing" constant="8" id="K1N-6C-ssQ"/>
+                                    <constraint firstItem="nWA-ML-cIs" firstAttribute="top" secondItem="y2b-a1-z78" secondAttribute="bottom" id="RNp-HL-fGk"/>
+                                    <constraint firstItem="3Ib-6m-7nZ" firstAttribute="top" secondItem="nWA-ML-cIs" secondAttribute="bottom" id="Rz8-f1-soA"/>
+                                    <constraint firstAttribute="bottom" secondItem="3Ib-6m-7nZ" secondAttribute="bottom" id="SLN-CH-HDI"/>
                                     <constraint firstItem="Uax-A3-tse" firstAttribute="top" secondItem="TLO-MX-kzC" secondAttribute="bottom" id="ST5-ZV-XYc"/>
                                     <constraint firstItem="IgQ-mg-dEo" firstAttribute="top" secondItem="RXa-u1-JJ3" secondAttribute="top" constant="5" id="Sta-qN-rCR"/>
                                     <constraint firstItem="GQ8-EN-WNh" firstAttribute="top" secondItem="UpH-A5-4iy" secondAttribute="bottom" constant="8" id="TsY-vj-3C5"/>
-                                    <constraint firstItem="wNE-aZ-5ea" firstAttribute="top" secondItem="4NK-Yr-Ikp" secondAttribute="bottom" id="UKU-Wf-KXq"/>
-                                    <constraint firstItem="wNE-aZ-5ea" firstAttribute="centerX" secondItem="RXa-u1-JJ3" secondAttribute="centerX" id="UeZ-ms-Sr3"/>
                                     <constraint firstItem="GQ8-EN-WNh" firstAttribute="centerX" secondItem="RXa-u1-JJ3" secondAttribute="centerX" id="WaG-8l-gaI"/>
                                     <constraint firstItem="Eei-cI-3ho" firstAttribute="width" secondItem="RXa-u1-JJ3" secondAttribute="width" multiplier="0.95" id="WjT-ad-FEg"/>
                                     <constraint firstItem="mPr-VT-m38" firstAttribute="leading" secondItem="4NK-Yr-Ikp" secondAttribute="trailing" constant="5" id="YIp-Kn-GXC"/>
+                                    <constraint firstItem="3Ib-6m-7nZ" firstAttribute="centerX" secondItem="RXa-u1-JJ3" secondAttribute="centerX" id="ZZP-wW-4BQ"/>
                                     <constraint firstItem="4NK-Yr-Ikp" firstAttribute="centerX" secondItem="RXa-u1-JJ3" secondAttribute="centerX" id="Zfx-RW-f1o"/>
                                     <constraint firstItem="UvR-jC-Qzj" firstAttribute="centerX" secondItem="RXa-u1-JJ3" secondAttribute="centerX" id="aTM-Ka-pt2"/>
+                                    <constraint firstItem="Tiw-tg-uZ3" firstAttribute="top" secondItem="kPH-UK-RFL" secondAttribute="bottom" constant="-0.5" id="bgw-rU-h0t"/>
+                                    <constraint firstItem="CNg-G3-ekF" firstAttribute="top" secondItem="zZv-6H-XQo" secondAttribute="bottom" id="dmW-d8-ToM"/>
                                     <constraint firstItem="UpH-A5-4iy" firstAttribute="width" secondItem="RXa-u1-JJ3" secondAttribute="width" multiplier="0.95" id="eAh-4c-IcE"/>
                                     <constraint firstItem="mH5-p3-HOL" firstAttribute="centerY" secondItem="TLO-MX-kzC" secondAttribute="centerY" id="f6d-Yv-nIx"/>
-                                    <constraint firstItem="mPr-VT-m38" firstAttribute="top" secondItem="GQ8-EN-WNh" secondAttribute="bottom" constant="3.5" id="fWN-BQ-W4C"/>
-                                    <constraint firstItem="Eei-cI-3ho" firstAttribute="top" secondItem="wNE-aZ-5ea" secondAttribute="bottom" constant="5" id="fwh-8G-u9s"/>
-                                    <constraint firstItem="iPD-vn-Yc7" firstAttribute="top" secondItem="zZv-6H-XQo" secondAttribute="bottom" constant="8" id="heI-0S-reE"/>
+                                    <constraint firstItem="mPr-VT-m38" firstAttribute="top" secondItem="bJd-lv-Mmt" secondAttribute="bottom" constant="9" id="fWN-BQ-W4C"/>
+                                    <constraint firstItem="bJd-lv-Mmt" firstAttribute="top" secondItem="Tiw-tg-uZ3" secondAttribute="bottom" id="ghO-02-swP"/>
+                                    <constraint firstItem="Eei-cI-3ho" firstAttribute="top" secondItem="wNE-aZ-5ea" secondAttribute="bottom" constant="5" id="hEb-h4-73w"/>
+                                    <constraint firstItem="iPD-vn-Yc7" firstAttribute="top" secondItem="CNg-G3-ekF" secondAttribute="bottom" constant="5" id="heI-0S-reE"/>
                                     <constraint firstItem="TLO-MX-kzC" firstAttribute="top" secondItem="iPD-vn-Yc7" secondAttribute="bottom" id="jGL-sr-4S8"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="320" id="k0b-bA-rXh"/>
                                     <constraint firstItem="UpH-A5-4iy" firstAttribute="centerX" secondItem="RXa-u1-JJ3" secondAttribute="centerX" id="lMM-EP-xVh"/>
+                                    <constraint firstItem="CNg-G3-ekF" firstAttribute="centerX" secondItem="RXa-u1-JJ3" secondAttribute="centerX" id="mbf-o5-N8I"/>
                                     <constraint firstItem="mH5-p3-HOL" firstAttribute="centerX" secondItem="TLO-MX-kzC" secondAttribute="centerX" id="nZ1-gv-SGc"/>
-                                    <constraint firstItem="4NK-Yr-Ikp" firstAttribute="top" secondItem="GQ8-EN-WNh" secondAttribute="bottom" id="sY3-2D-UFN"/>
+                                    <constraint firstItem="bJd-lv-Mmt" firstAttribute="centerX" secondItem="RXa-u1-JJ3" secondAttribute="centerX" id="qJd-tU-qBj"/>
+                                    <constraint firstItem="Tiw-tg-uZ3" firstAttribute="top" secondItem="GQ8-EN-WNh" secondAttribute="bottom" id="sLC-k1-ZtT"/>
+                                    <constraint firstItem="4NK-Yr-Ikp" firstAttribute="top" secondItem="bJd-lv-Mmt" secondAttribute="bottom" constant="6" id="sY3-2D-UFN"/>
                                     <constraint firstItem="UvR-jC-Qzj" firstAttribute="top" secondItem="Eei-cI-3ho" secondAttribute="bottom" id="t7l-Qb-Lat"/>
                                     <constraint firstItem="TLO-MX-kzC" firstAttribute="centerX" secondItem="RXa-u1-JJ3" secondAttribute="centerX" id="tti-bP-EAC"/>
                                     <constraint firstItem="UpH-A5-4iy" firstAttribute="top" secondItem="IgQ-mg-dEo" secondAttribute="bottom" id="zg5-XK-T2B"/>
@@ -295,7 +374,10 @@
                     </view>
                     <navigationItem key="navigationItem" title="Текущие дата и время" id="W0O-qt-q7K"/>
                     <connections>
+                        <outlet property="dayOfWeekImage" destination="pHA-Su-CqS" id="2B7-yR-daF"/>
                         <outlet property="dayOfWeekLabel" destination="GQ8-EN-WNh" id="xDO-4H-1hk"/>
+                        <outlet property="epohaGodLabel" destination="3Ib-6m-7nZ" id="m5x-fQ-M6h"/>
+                        <outlet property="epohaLabel" destination="nWA-ML-cIs" id="C5W-yb-rz3"/>
                         <outlet property="fullTitleOfHour" destination="UpH-A5-4iy" id="hkw-Jg-Poe"/>
                         <outlet property="fullTitleOfMonth" destination="wNE-aZ-5ea" id="lVc-95-yUY"/>
                         <outlet property="holidayLabel" destination="Eei-cI-3ho" id="8qi-lr-CyS"/>
@@ -306,6 +388,8 @@
                         <outlet property="nameOfGod" destination="zZv-6H-XQo" id="LfX-V0-tUc"/>
                         <outlet property="numberOfYear" destination="Uax-A3-tse" id="pac-bR-Dba"/>
                         <outlet property="numberOfYearInRoundOfLife" destination="y2b-a1-z78" id="eBN-ut-jfs"/>
+                        <outlet property="planetOfDayOfWeekLabel" destination="Tiw-tg-uZ3" id="Ydm-U6-rTJ"/>
+                        <outlet property="planetOfGodLabel" destination="bJd-lv-Mmt" id="lMI-6Y-Ki4"/>
                         <outlet property="postdayLabel" destination="UvR-jC-Qzj" id="NGc-fr-RVb"/>
                         <outlet property="rpDay" destination="852-Yj-7JG" id="yZH-Wo-3OH"/>
                         <outlet property="runesOfHour" destination="tip-Cz-Gak" id="M7S-IK-CEC"/>
@@ -316,6 +400,7 @@
                         <outlet property="titleOfConstellation" destination="GWn-TC-ixV" id="fcL-y3-aYU"/>
                         <outlet property="titleOfHour" destination="IgQ-mg-dEo" id="Qfa-ss-PU9"/>
                         <outlet property="titleOfYearLabel" destination="TLO-MX-kzC" id="Bau-o1-B3g"/>
+                        <outlet property="treeLabel" destination="CNg-G3-ekF" id="ryx-ME-XPg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -383,25 +468,25 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Сороковник, день" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6tD-el-FGb">
-                                <rect key="frame" x="81" y="204" width="158" height="29.5"/>
+                                <rect key="frame" x="81" y="195" width="158" height="29.5"/>
                                 <fontDescription key="fontDescription" name="-Normal" family="Родникъ" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Лѣто" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="moj-Nq-aVb">
-                                <rect key="frame" x="138" y="354" width="44.5" height="29.5"/>
+                                <rect key="frame" x="138" y="325" width="44.5" height="29.5"/>
                                 <fontDescription key="fontDescription" name="-Normal" family="Родникъ" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Название лѣта" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nqr-R5-3CA">
-                                <rect key="frame" x="95" y="391.5" width="130.5" height="29.5"/>
+                                <rect key="frame" x="95" y="357.5" width="130.5" height="29.5"/>
                                 <fontDescription key="fontDescription" name="-Normal" family="Родникъ" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XZD-Hy-gGX">
-                                <rect key="frame" x="60" y="391.5" width="200" height="30"/>
+                                <rect key="frame" x="60" y="357.5" width="200" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="rgh-8P-WEA"/>
                                     <constraint firstAttribute="width" constant="200" id="tEi-ID-8x7"/>
@@ -411,31 +496,43 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Лѣто в круге лѣт" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q0O-JH-eC2">
-                                <rect key="frame" x="82.5" y="429" width="155" height="29.5"/>
+                                <rect key="frame" x="82.5" y="390" width="155" height="29.5"/>
                                 <fontDescription key="fontDescription" name="-Normal" family="Родникъ" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Чертог" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9lW-dv-yES">
-                                <rect key="frame" x="129.5" y="279" width="61.5" height="29.5"/>
+                                <rect key="frame" x="129.5" y="260" width="61.5" height="29.5"/>
                                 <fontDescription key="fontDescription" name="-Normal" family="Родникъ" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Лѣто в круге жизни" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ej-cK-jnj">
-                                <rect key="frame" x="71" y="466.5" width="178.5" height="29.5"/>
+                                <rect key="frame" x="71" y="422.5" width="178.5" height="29.5"/>
                                 <fontDescription key="fontDescription" name="-Normal" family="Родникъ" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Бог-Покровитель" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ftg-mo-TWF">
-                                <rect key="frame" x="83" y="316.5" width="154.5" height="29.5"/>
+                                <rect key="frame" x="83" y="292.5" width="154.5" height="29.5"/>
                                 <fontDescription key="fontDescription" name="-Normal" family="Родникъ" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="День недели" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W8g-Op-ROb">
-                                <rect key="frame" x="104" y="241.5" width="112" height="29.5"/>
+                                <rect key="frame" x="104" y="227.5" width="112" height="29.5"/>
+                                <fontDescription key="fontDescription" name="-Normal" family="Родникъ" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Эпоха" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vel-oD-ZRI">
+                                <rect key="frame" x="133" y="455" width="54.5" height="29.5"/>
+                                <fontDescription key="fontDescription" name="-Normal" family="Родникъ" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Покровитель эпохи" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U11-xF-VP4">
+                                <rect key="frame" x="74.5" y="487.5" width="171" height="29.5"/>
                                 <fontDescription key="fontDescription" name="-Normal" family="Родникъ" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -446,27 +543,31 @@
                             <constraint firstItem="Ist-jN-W1u" firstAttribute="top" secondItem="Sy6-Gv-ohE" secondAttribute="bottom" constant="8" id="42W-Vl-1zD"/>
                             <constraint firstItem="kfc-0p-ZSa" firstAttribute="centerX" secondItem="gqO-0y-Dc6" secondAttribute="centerX" id="4We-Op-gUZ"/>
                             <constraint firstItem="XZD-Hy-gGX" firstAttribute="centerX" secondItem="Nqr-R5-3CA" secondAttribute="centerX" id="4e9-0d-wwM"/>
+                            <constraint firstItem="Vel-oD-ZRI" firstAttribute="centerX" secondItem="gqO-0y-Dc6" secondAttribute="centerX" id="8KF-HN-SCy"/>
                             <constraint firstItem="Ftg-mo-TWF" firstAttribute="centerX" secondItem="gqO-0y-Dc6" secondAttribute="centerX" id="CO4-sK-E2F"/>
                             <constraint firstItem="q0O-JH-eC2" firstAttribute="centerX" secondItem="gqO-0y-Dc6" secondAttribute="centerX" id="FbA-Qo-uw1"/>
-                            <constraint firstItem="q0O-JH-eC2" firstAttribute="top" secondItem="Nqr-R5-3CA" secondAttribute="bottom" constant="8" id="Fhw-CQ-40K"/>
-                            <constraint firstItem="W8g-Op-ROb" firstAttribute="top" secondItem="6tD-el-FGb" secondAttribute="bottom" constant="8" id="Jv5-th-gCM"/>
+                            <constraint firstItem="q0O-JH-eC2" firstAttribute="top" secondItem="Nqr-R5-3CA" secondAttribute="bottom" constant="3" id="Fhw-CQ-40K"/>
+                            <constraint firstItem="W8g-Op-ROb" firstAttribute="top" secondItem="6tD-el-FGb" secondAttribute="bottom" constant="3" id="Jv5-th-gCM"/>
                             <constraint firstItem="6tD-el-FGb" firstAttribute="centerX" secondItem="gqO-0y-Dc6" secondAttribute="centerX" id="LDG-Hn-sDb"/>
                             <constraint firstItem="Nqr-R5-3CA" firstAttribute="centerX" secondItem="gqO-0y-Dc6" secondAttribute="centerX" id="Llc-CK-uFm"/>
+                            <constraint firstItem="U11-xF-VP4" firstAttribute="top" secondItem="Vel-oD-ZRI" secondAttribute="bottom" constant="3" id="Q5i-0n-iyX"/>
                             <constraint firstItem="W8g-Op-ROb" firstAttribute="centerX" secondItem="gqO-0y-Dc6" secondAttribute="centerX" id="RfA-Yq-rOc"/>
-                            <constraint firstItem="6tD-el-FGb" firstAttribute="top" secondItem="Ist-jN-W1u" secondAttribute="bottom" constant="19" id="SXG-Kc-4M1"/>
+                            <constraint firstItem="6tD-el-FGb" firstAttribute="top" secondItem="Ist-jN-W1u" secondAttribute="bottom" constant="10" id="SXG-Kc-4M1"/>
                             <constraint firstItem="XZD-Hy-gGX" firstAttribute="centerY" secondItem="Nqr-R5-3CA" secondAttribute="centerY" id="UCY-DS-sMH"/>
-                            <constraint firstItem="moj-Nq-aVb" firstAttribute="top" secondItem="Ftg-mo-TWF" secondAttribute="bottom" constant="8" id="UeF-q1-Yh9"/>
-                            <constraint firstItem="9lW-dv-yES" firstAttribute="top" secondItem="W8g-Op-ROb" secondAttribute="bottom" constant="8" id="UqS-vh-kLC"/>
+                            <constraint firstItem="moj-Nq-aVb" firstAttribute="top" secondItem="Ftg-mo-TWF" secondAttribute="bottom" constant="3" id="UeF-q1-Yh9"/>
+                            <constraint firstItem="9lW-dv-yES" firstAttribute="top" secondItem="W8g-Op-ROb" secondAttribute="bottom" constant="3" id="UqS-vh-kLC"/>
                             <constraint firstItem="Sy6-Gv-ohE" firstAttribute="centerX" secondItem="gqO-0y-Dc6" secondAttribute="centerX" id="WPT-yp-TvV"/>
-                            <constraint firstItem="Ftg-mo-TWF" firstAttribute="top" secondItem="9lW-dv-yES" secondAttribute="bottom" constant="8" id="Y3S-au-fGY"/>
+                            <constraint firstItem="Ftg-mo-TWF" firstAttribute="top" secondItem="9lW-dv-yES" secondAttribute="bottom" constant="3" id="Y3S-au-fGY"/>
                             <constraint firstItem="moj-Nq-aVb" firstAttribute="centerX" secondItem="gqO-0y-Dc6" secondAttribute="centerX" id="Yn7-N2-xZ7"/>
                             <constraint firstItem="kfc-0p-ZSa" firstAttribute="top" secondItem="gqO-0y-Dc6" secondAttribute="top" constant="15" id="drA-Bh-QZA"/>
+                            <constraint firstItem="Vel-oD-ZRI" firstAttribute="top" secondItem="4ej-cK-jnj" secondAttribute="bottom" constant="3" id="ea9-SG-AZQ"/>
                             <constraint firstItem="Sy6-Gv-ohE" firstAttribute="top" secondItem="kfc-0p-ZSa" secondAttribute="bottom" constant="12" id="hQn-2p-aep"/>
                             <constraint firstItem="9lW-dv-yES" firstAttribute="centerX" secondItem="gqO-0y-Dc6" secondAttribute="centerX" id="j95-QV-zHJ"/>
                             <constraint firstItem="4ej-cK-jnj" firstAttribute="centerX" secondItem="gqO-0y-Dc6" secondAttribute="centerX" id="lBr-Jd-Yau"/>
                             <constraint firstItem="Ist-jN-W1u" firstAttribute="centerX" secondItem="gqO-0y-Dc6" secondAttribute="centerX" id="mjl-6W-jmu"/>
-                            <constraint firstItem="Nqr-R5-3CA" firstAttribute="top" secondItem="moj-Nq-aVb" secondAttribute="bottom" constant="8" id="v57-zD-fIk"/>
-                            <constraint firstItem="4ej-cK-jnj" firstAttribute="top" secondItem="q0O-JH-eC2" secondAttribute="bottom" constant="8" id="zBQ-If-f61"/>
+                            <constraint firstItem="U11-xF-VP4" firstAttribute="centerX" secondItem="gqO-0y-Dc6" secondAttribute="centerX" id="rW3-Ib-yDa"/>
+                            <constraint firstItem="Nqr-R5-3CA" firstAttribute="top" secondItem="moj-Nq-aVb" secondAttribute="bottom" constant="3" id="v57-zD-fIk"/>
+                            <constraint firstItem="4ej-cK-jnj" firstAttribute="top" secondItem="q0O-JH-eC2" secondAttribute="bottom" constant="3" id="zBQ-If-f61"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gqO-0y-Dc6"/>
                     </view>
@@ -475,6 +576,8 @@
                         <outlet property="checkDateLabel" destination="Ist-jN-W1u" id="Qsq-LA-6fX"/>
                         <outlet property="dateTF" destination="t8x-0C-GsM" id="ks5-O3-uAb"/>
                         <outlet property="dayOfWeekLabel" destination="W8g-Op-ROb" id="I1N-DX-32V"/>
+                        <outlet property="epohaGodLabel" destination="U11-xF-VP4" id="gCH-AI-sDd"/>
+                        <outlet property="epohaLabel" destination="Vel-oD-ZRI" id="0Rh-c4-8tE"/>
                         <outlet property="monthAndDayLabel" destination="6tD-el-FGb" id="nfx-jW-fqj"/>
                         <outlet property="nameOfGodLabel" destination="Ftg-mo-TWF" id="7ae-YB-Art"/>
                         <outlet property="timeOfDayLabel" destination="YwA-WP-R70" id="ERL-sp-f3A"/>
@@ -875,7 +978,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="5zn-CK-iU5"/>
+        <segue reference="njb-sq-yxq"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.right" catalog="system" width="128" height="98"/>

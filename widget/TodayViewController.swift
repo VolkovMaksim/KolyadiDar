@@ -41,7 +41,6 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         rpDayImage.isHidden = true
         super.viewDidLoad()
         self.extensionContext?.widgetLargestAvailableDisplayMode = .expanded
-        
     }
         
     func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
@@ -52,26 +51,26 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         }
     }
     
-    func animateTextLabels() {
-        let isExpandedMode = self.extensionContext?.widgetActiveDisplayMode == .expanded
-        let scaleText:CGFloat = isExpandedMode ? 3 : 0.3
-        UIView.animate(withDuration: 0.3, delay: 0, options: [.curveEaseOut], animations: {
-            self.hourLabel.transform = .init(scaleX: scaleText, y: scaleText)
-            self.hourLabel.transform = isExpandedMode ? .init(translationX: 0, y: 20) : .identity
-        }) { (finished) in
-            UIView.animate(withDuration: 0.3, animations: {
-                self.hourLabel.transform = .identity
-            })
-        }
-    }
-    
-    func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
-        let widgetUserDefaults = UserDefaults.init(suiteName: "group.ru.superstarper.dev.KolyadiDar")
-        let text = widgetUserDefaults?.value(forKey: "hours")
-        self.hourLabel.text = text as? String
-        
-        completionHandler(NCUpdateResult.newData)
-    }
+//    func animateTextLabels() {
+//        let isExpandedMode = self.extensionContext?.widgetActiveDisplayMode == .expanded
+//        let scaleText:CGFloat = isExpandedMode ? 3 : 0.3
+//        UIView.animate(withDuration: 0.3, delay: 0, options: [.curveEaseOut], animations: {
+//            self.hourLabel.transform = .init(scaleX: scaleText, y: scaleText)
+//            self.hourLabel.transform = isExpandedMode ? .init(translationX: 0, y: 20) : .identity
+//        }) { (finished) in
+//            UIView.animate(withDuration: 0.3, animations: {
+//                self.hourLabel.transform = .identity
+//            })
+//        }
+//    }
+//
+//    func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
+//        let widgetUserDefaults = UserDefaults.init(suiteName: "group.ru.superstarper.dev.KolyadiDar")
+//        let text = widgetUserDefaults?.value(forKey: "hours")
+//        self.hourLabel.text = text as? String
+//
+//        completionHandler(NCUpdateResult.newData)
+//    }
     
     func updateTime() {
         if let hours = UserDefaults.init(suiteName: "group.ru.superstarper.dev.KolyadiDar")?.value(forKey: "hours") {

@@ -20,6 +20,8 @@ class MyDateViewController: UIViewController {
     @IBOutlet weak var titleOfYearLabel: UILabel!
     @IBOutlet weak var yearInRoundOfYearsLabel: UILabel!
     @IBOutlet weak var yearInRoundOfLifeLabel: UILabel!
+    @IBOutlet weak var epohaLabel: UILabel!
+    @IBOutlet weak var epohaGodLabel: UILabel!
     
     @IBOutlet weak var yearInfoLabel: UIButton!
     @IBOutlet weak var checkDateLabel: UIButton!
@@ -49,6 +51,8 @@ class MyDateViewController: UIViewController {
         yearInRoundOfLifeLabel.isHidden = true
         checkDateLabel.isHidden = true
         yearInfoLabel.isHidden = true
+        epohaLabel.isHidden = true
+        epohaGodLabel.isHidden = true
         dateTF.text = ""
         super.viewDidLoad()
         setTime()
@@ -99,6 +103,8 @@ class MyDateViewController: UIViewController {
         yearInRoundOfYearsLabel.isHidden = false
         yearInRoundOfLifeLabel.isHidden = false
         yearInfoLabel.isHidden = false
+        epohaLabel.isHidden = false
+        epohaGodLabel.isHidden = false
         // скрываем DatePicker при тапе на кнопку chackDate
         self.view.endEditing(true)
         
@@ -117,7 +123,8 @@ class MyDateViewController: UIViewController {
         yearInRoundOfYearsLabel.text = arrayOfOldDate[6]
         yearInRoundOfLifeLabel.text = arrayOfOldDate[7]
         titleOfYear = arrayOfOldDate[5]
-        //print(titleOfYear)
+        epohaLabel.text = arrayOfOldDate[8]
+        epohaGodLabel.text = arrayOfOldDate[9]
     }
     
     // скрываем DatePicker при тапе на view
