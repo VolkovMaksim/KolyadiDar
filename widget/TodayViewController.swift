@@ -18,26 +18,23 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     @IBOutlet weak var yearLabel: UILabel!
     @IBOutlet weak var rpDay: UIImageView!
     
+    var timer = Timer()
+    
+    func setupTimer() {
+        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(liveOldTime), userInfo: Date(), repeats: true)
+    }
+    
+    @objc func liveOldTime() {
+        //sepLabel.isHidden = !sepLabel.isHidden
+        updateTime()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        setupTimer()
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
-        
-        if let hours = UserDefaults.init(suiteName: "group.ru.superstarper.dev.KolyadiDar")?.value(forKey: "hours") {
-            hourLabel.text = hours as? String
-        }
-        if let minutes = UserDefaults.init(suiteName: "group.ru.superstarper.dev.KolyadiDar")?.value(forKey: "minutes") {
-            minuteLabel.text = minutes as? String
-        }
-        if let seconds = UserDefaults.init(suiteName: "group.ru.superstarper.dev.KolyadiDar")?.value(forKey: "seconds") {
-            secondLabel.text = seconds as? String
-        }
-        if let month = UserDefaults.init(suiteName: "group.ru.superstarper.dev.KolyadiDar")?.value(forKey: "month") {
-            monthLabel.text = month as? String
-            //monthLabel.font = UIFont(name: "-Normal", size: 25)
-        }
-        if let year = UserDefaults.init(suiteName: "group.ru.superstarper.dev.KolyadiDar")?.value(forKey: "year") {
-            yearLabel.text = year as? String
-            //monthLabel.font = UIFont(name: "-Normal", size: 25)
-        }
-        
+        updateTime()
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,6 +68,26 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         self.hourLabel.text = text as? String
         
         completionHandler(NCUpdateResult.newData)
+    }
+    
+    func updateTime() {
+        if let hours = UserDefaults.init(suiteName: "group.ru.superstarper.dev.KolyadiDar")?.value(forKey: "hours") {
+            hourLabel.text = hours as? String
+        }
+        if let minutes = UserDefaults.init(suiteName: "group.ru.superstarper.dev.KolyadiDar")?.value(forKey: "minutes") {
+            minuteLabel.text = minutes as? String
+        }
+        if let seconds = UserDefaults.init(suiteName: "group.ru.superstarper.dev.KolyadiDar")?.value(forKey: "seconds") {
+            secondLabel.text = seconds as? String
+        }
+        if let month = UserDefaults.init(suiteName: "group.ru.superstarper.dev.KolyadiDar")?.value(forKey: "month") {
+            monthLabel.text = month as? String
+            //monthLabel.font = UIFont(name: "-Normal", size: 25)
+        }
+        if let year = UserDefaults.init(suiteName: "group.ru.superstarper.dev.KolyadiDar")?.value(forKey: "year") {
+            yearLabel.text = year as? String
+            //monthLabel.font = UIFont(name: "-Normal", size: 25)
+        }
     }
     
 }

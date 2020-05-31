@@ -437,8 +437,68 @@ class CurrentViewController: UIViewController {
         }
     }
     
+    func daysOfConstellations_16(differenceDay: Int) {
+        if differenceDay >= 0 && differenceDay <= 20 {
+            titleOfConstellation.text = "Чертог Вепря"
+            nameOfGod.text = "Бог-Покровитель Рамхатъ"
+        } else if differenceDay >= 21 && differenceDay <= 43 {
+            titleOfConstellation.text = "Чертог Щуки"
+            nameOfGod.text = "Богиня-Покровительница Рожана"
+        } else if differenceDay >= 44 && differenceDay <= 64 {
+            titleOfConstellation.text = "Чертог Лебедя"
+            nameOfGod.text = "Богиня-Покровительница Макошь"
+        } else if differenceDay >= 65 && differenceDay <= 87 {
+            titleOfConstellation.text = "Чертог Змея"
+            nameOfGod.text = "Бог-Покровитель Съмарглъ"
+        } else if differenceDay >= 88 && differenceDay <= 109 {
+            titleOfConstellation.text = "Чертог Ворона"
+            nameOfGod.text = "Бог-Покровитель Колѧда"
+        } else if differenceDay >= 110 && differenceDay <= 133 {
+            titleOfConstellation.text = "Чертог Медведя"
+            nameOfGod.text = "Бог-Покровитель Сварогъ"
+        } else if differenceDay >= 134 && differenceDay <= 159 {
+            titleOfConstellation.text = "Чертог Бусла"
+            nameOfGod.text = "Бог-Покровитель Родъ"
+        } else if differenceDay >= 160 && differenceDay <= 184 {
+            titleOfConstellation.text = "Чертог Волка"
+            nameOfGod.text = "Бог-Покровитель Вьлесе"
+        } else if differenceDay >= 185 && differenceDay <= 207 {
+            titleOfConstellation.text = "Чертог Лисы"
+            nameOfGod.text = "Богиня-Покровительница Мара"
+        } else if differenceDay >= 208 && differenceDay <= 229 {
+            titleOfConstellation.text = "Чертог Тура"
+            nameOfGod.text = "Бог-Покровитель Крышьнь"
+        } else if differenceDay >= 230 && differenceDay <= 253 {
+            titleOfConstellation.text = "Чертог Лося"
+            nameOfGod.text = "Богиня-Покровительница Лада"
+        } else if differenceDay >= 254 && differenceDay <= 275 {
+            titleOfConstellation.text = "Чертог Финиста"
+            nameOfGod.text = "Бог-Покровитель Вышьнь"
+        } else if differenceDay >= 276 && differenceDay <= 298 {
+            titleOfConstellation.text = "Чертог Коня"
+            nameOfGod.text = "Бог-Покровитель Кѫпала"
+        } else if differenceDay >= 299 && differenceDay <= 320 {
+            titleOfConstellation.text = "Чертог Орла"
+            nameOfGod.text = "Бог-Покровитель Перуне"
+        } else if differenceDay >= 321 && differenceDay <= 344 {
+            titleOfConstellation.text = "Чертог Раса"
+            nameOfGod.text = "Бог-Покровитель Тархъ"
+        } else if differenceDay >= 345 && differenceDay <= 368 {
+            titleOfConstellation.text = "Чертог Девы"
+            nameOfGod.text = "Бог-Покровитель Джива"
+        }
+    }
+    
     func viewOfHolidays(differenceDay: Int) {
         if HolidayAndDay().holidays[differenceDay + 1] != nil {
+            holidayLabel.isHidden = false
+            holidayLabel.font = UIFont(name: "-Normal", size: 30)
+            holidayLabel.text = HolidayAndDay().holidays[differenceDay + 1]
+        }
+    }
+    
+    func viewOfHolidays_16(differenceDay: Int) {
+        if HolidayAndDay().holidays_16[differenceDay + 1] != nil {
             holidayLabel.isHidden = false
             holidayLabel.font = UIFont(name: "-Normal", size: 30)
             holidayLabel.text = HolidayAndDay().holidays[differenceDay + 1]
@@ -449,6 +509,15 @@ class CurrentViewController: UIViewController {
         let differenceSecond = currentDate.getDifferenceTime(year: startYear, month: startMonth, day: startDay, hour: startHour)
         let differenceDay = differenceSecond / (16 * 90 * 60)
         return differenceDay
+    }
+    
+    func allForMonthsAdnDays(differenceDay: Int) {
+        parrentsDays(differenceDay: differenceDay)
+        viewOfHolidays(differenceDay: differenceDay)
+        allPosts(differenceDay: differenceDay)
+        monthAndDay(differenceDay: differenceDay)
+        oldDaysOfWeek(differenceDay: differenceDay)
+        daysOfConstellations(differenceDay: differenceDay)
     }
     
     func oldMonth(oldYearsNumber: Int, year: Int, month: Int, day: Int, timeAfterSixPM: Bool) {
@@ -469,18 +538,7 @@ class CurrentViewController: UIViewController {
             let startDay = 22
             let startHour = 18
             let differenceDay = differenceTime(startYear: startYear, startMonth: startMonth, startDay: startDay, startHour: startHour)
-            
-            parrentsDays(differenceDay: differenceDay)
-            
-            viewOfHolidays(differenceDay: differenceDay)
-            
-            allPosts(differenceDay: differenceDay)
-            
-            monthAndDay(differenceDay: differenceDay)
-            
-            oldDaysOfWeek(differenceDay: differenceDay)
-            
-            daysOfConstellations(differenceDay: differenceDay)
+            allForMonthsAdnDays(differenceDay: differenceDay)
         }
         else if oldYearsNumber == 4 {
             var startYear: Int = 0
@@ -499,18 +557,7 @@ class CurrentViewController: UIViewController {
             let startDay = 22
             let startHour = 18
             let differenceDay = differenceTime(startYear: startYear, startMonth: startMonth, startDay: startDay, startHour: startHour)
-            
-            parrentsDays(differenceDay: differenceDay)
-            
-            viewOfHolidays(differenceDay: differenceDay)
-            
-            allPosts(differenceDay: differenceDay)
-            
-            monthAndDay(differenceDay: differenceDay)
-            
-            oldDaysOfWeek(differenceDay: differenceDay)
-            
-            daysOfConstellations(differenceDay: differenceDay)
+            allForMonthsAdnDays(differenceDay: differenceDay)
         }
         else if oldYearsNumber >= 5 && oldYearsNumber <= 7 {
             var startYear: Int = 0
@@ -529,18 +576,7 @@ class CurrentViewController: UIViewController {
             let startDay = 21
             let startHour = 18
             let differenceDay = differenceTime(startYear: startYear, startMonth: startMonth, startDay: startDay, startHour: startHour)
-            
-            parrentsDays(differenceDay: differenceDay)
-            
-            viewOfHolidays(differenceDay: differenceDay)
-            
-            allPosts(differenceDay: differenceDay)
-            
-            monthAndDay(differenceDay: differenceDay)
-            
-            oldDaysOfWeek(differenceDay: differenceDay)
-            
-            daysOfConstellations(differenceDay: differenceDay)
+            allForMonthsAdnDays(differenceDay: differenceDay)
         }
         else if oldYearsNumber == 8 {
             var startYear: Int = 0
@@ -560,18 +596,7 @@ class CurrentViewController: UIViewController {
             let startHour = 18
             
             let differenceDay = differenceTime(startYear: startYear, startMonth: startMonth, startDay: startDay, startHour: startHour)
-            
-            parrentsDays(differenceDay: differenceDay)
-            
-            viewOfHolidays(differenceDay: differenceDay)
-            
-            allPosts(differenceDay: differenceDay)
-            
-            monthAndDay(differenceDay: differenceDay)
-            
-            oldDaysOfWeek(differenceDay: differenceDay)
-            
-            daysOfConstellations(differenceDay: differenceDay)
+            allForMonthsAdnDays(differenceDay: differenceDay)
         }
         else if oldYearsNumber >= 9 && oldYearsNumber <= 11 {
             var startYear: Int = 0
@@ -590,18 +615,7 @@ class CurrentViewController: UIViewController {
             let startDay = 20
             let startHour = 18
             let differenceDay = differenceTime(startYear: startYear, startMonth: startMonth, startDay: startDay, startHour: startHour)
-            
-            parrentsDays(differenceDay: differenceDay)
-            
-            viewOfHolidays(differenceDay: differenceDay)
-            
-            allPosts(differenceDay: differenceDay)
-            
-            monthAndDay(differenceDay: differenceDay)
-            
-            oldDaysOfWeek(differenceDay: differenceDay)
-            
-            daysOfConstellations(differenceDay: differenceDay)
+            allForMonthsAdnDays(differenceDay: differenceDay)
         }
         else if oldYearsNumber == 12 {
             var startYear: Int = 0
@@ -620,18 +634,7 @@ class CurrentViewController: UIViewController {
             let startDay = 20
             let startHour = 18
             let differenceDay = differenceTime(startYear: startYear, startMonth: startMonth, startDay: startDay, startHour: startHour)
-            
-            parrentsDays(differenceDay: differenceDay)
-            
-            viewOfHolidays(differenceDay: differenceDay)
-            
-            allPosts(differenceDay: differenceDay)
-            
-            monthAndDay(differenceDay: differenceDay)
-            
-            oldDaysOfWeek(differenceDay: differenceDay)
-            
-            daysOfConstellations(differenceDay: differenceDay)
+            allForMonthsAdnDays(differenceDay: differenceDay)
         }
         else if oldYearsNumber >= 13 && oldYearsNumber <= 15 {
             var startYear: Int = 0
@@ -650,18 +653,7 @@ class CurrentViewController: UIViewController {
             let startDay = 19
             let startHour = 18
             let differenceDay = differenceTime(startYear: startYear, startMonth: startMonth, startDay: startDay, startHour: startHour)
-            
-            parrentsDays(differenceDay: differenceDay)
-            
-            viewOfHolidays(differenceDay: differenceDay)
-            
-            allPosts(differenceDay: differenceDay)
-            
-            monthAndDay(differenceDay: differenceDay)
-            
-            oldDaysOfWeek(differenceDay: differenceDay)
-            
-            daysOfConstellations(differenceDay: differenceDay)
+            allForMonthsAdnDays(differenceDay: differenceDay)
         }
         else if oldYearsNumber == 0 || oldYearsNumber == 16 {
             var startYear: Int = 0
@@ -682,24 +674,13 @@ class CurrentViewController: UIViewController {
             let differenceDay = differenceTime(startYear: startYear, startMonth: startMonth, startDay: startDay, startHour: startHour)
             
             parrentsDays_16(differenceDay: differenceDay)
-            
-            
-            
-            
+            viewOfHolidays_16(differenceDay: differenceDay)
             allPosts_16(differenceDay: differenceDay)
-            
             monthAndDay_16(differenceDay: differenceDay)
-            
             oldDaysOfWeek(differenceDay: differenceDay)
-            
-            
-            
-            
-            
-            
+            daysOfConstellations_16(differenceDay: differenceDay)
         }
     }
-    
     
     // MARK: - Funcs of Years
     
