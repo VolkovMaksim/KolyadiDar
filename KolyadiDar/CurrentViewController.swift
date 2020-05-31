@@ -214,6 +214,7 @@ class CurrentViewController: UIViewController {
         } else {
             rpDay.isHidden = true
         }
+        UserDefaults.init(suiteName: "group.ru.superstarper.dev.KolyadiDar")?.setValue(rpDay.image?.pngData(), forKey: "rpDay")
     }
     
     func parrentsDays_16(differenceDay: Int) {
@@ -229,6 +230,7 @@ class CurrentViewController: UIViewController {
         } else {
             rpDay.isHidden = true
         }
+        UserDefaults.init(suiteName: "group.ru.superstarper.dev.KolyadiDar")?.setValue(rpDay.image?.pngData(), forKey: "rpDay")
     }
     
     func allPosts(differenceDay: Int) {
@@ -379,9 +381,17 @@ class CurrentViewController: UIViewController {
         let oldDayOfWeek = Int(Double(differenceDay).truncatingRemainder(dividingBy: 9))
         if oldDayOfWeek != 0 {
             dayOfWeekLabel.text = (OldDaysOfWeek.init().dayOfWeek(day: oldDayOfWeek - 1))
+            UserDefaults.init(suiteName: "group.ru.superstarper.dev.KolyadiDar")?.setValue(OldDaysOfWeek.init().shortDayOfWeek(day: oldDayOfWeek - 1), forKey: "dayOfWeek")
         } else {
             dayOfWeekLabel.text = (OldDaysOfWeek.init().dayOfWeek(day: 8))
+            UserDefaults.init(suiteName: "group.ru.superstarper.dev.KolyadiDar")?.setValue(OldDaysOfWeek.init().shortDayOfWeek(day: 8), forKey: "dayOfWeek")
             dayOfWeekLabel.textColor = .red
+        }
+        
+        if dayOfWeekLabel.text!.contains("Седмица") && postdayLabel.isHidden == true {
+            postdayLabel.isHidden = false
+            postdayLabel.font = UIFont(name: "-Normal", size: 30)
+            postdayLabel.text = "Однодневный ПОСТЪ"
         }
     }
     

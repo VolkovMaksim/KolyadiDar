@@ -15,8 +15,9 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     @IBOutlet weak var minuteLabel: UILabel!
     @IBOutlet weak var secondLabel: UILabel!
     @IBOutlet weak var monthLabel: UILabel!
+    @IBOutlet weak var dayOfWeekLabel: UILabel!
     @IBOutlet weak var yearLabel: UILabel!
-    @IBOutlet weak var rpDay: UIImageView!
+    @IBOutlet weak var rpDayImage: UIImageView!
     
     var timer = Timer()
     
@@ -37,8 +38,10 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         updateTime()
     }
     override func viewDidLoad() {
+        rpDayImage.isHidden = true
         super.viewDidLoad()
         self.extensionContext?.widgetLargestAvailableDisplayMode = .expanded
+        
     }
         
     func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
@@ -81,12 +84,19 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             secondLabel.text = seconds as? String
         }
         if let month = UserDefaults.init(suiteName: "group.ru.superstarper.dev.KolyadiDar")?.value(forKey: "month") {
-            monthLabel.text = month as? String
-            //monthLabel.font = UIFont(name: "-Normal", size: 25)
+            monthLabel.text = (month as! String) + ","
         }
         if let year = UserDefaults.init(suiteName: "group.ru.superstarper.dev.KolyadiDar")?.value(forKey: "year") {
             yearLabel.text = year as? String
-            //monthLabel.font = UIFont(name: "-Normal", size: 25)
+        }
+        
+        if let dayOfWeek = UserDefaults.init(suiteName: "group.ru.superstarper.dev.KolyadiDar")?.value(forKey: "dayOfWeek") {
+            dayOfWeekLabel.text = dayOfWeek as? String
+        }
+        
+        if let rpDay = UserDefaults.init(suiteName: "group.ru.superstarper.dev.KolyadiDar")?.value(forKey: "rpDay") {
+            rpDayImage.isHidden = false
+            rpDayImage.image = UIImage.init(data: rpDay as! Data)
         }
     }
     

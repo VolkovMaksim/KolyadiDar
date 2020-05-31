@@ -21,6 +21,7 @@
 		375E913C246E6A4000C7D49C /* rodnik.otf in Resources */ = {isa = PBXBuildFile; fileRef = 375E913B246E6A4000C7D49C /* rodnik.otf */; };
 		379F4B342481172900F975D5 /* MyDateTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379F4B332481172900F975D5 /* MyDateTextField.swift */; };
 		379F4B37248140F500F975D5 /* CustomDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379F4B36248140F500F975D5 /* CustomDate.swift */; };
+		379F4B38248390C100F975D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37D8C25B2462A3E100E9C5F4 /* Assets.xcassets */; };
 		37D8C2532462A3E000E9C5F4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D8C2522462A3E000E9C5F4 /* AppDelegate.swift */; };
 		37D8C2552462A3E000E9C5F4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D8C2542462A3E000E9C5F4 /* SceneDelegate.swift */; };
 		37D8C25A2462A3E000E9C5F4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37D8C2582462A3E000E9C5F4 /* Main.storyboard */; };
@@ -283,6 +284,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				379F4B38248390C100F975D5 /* Assets.xcassets in Resources */,
 				3701F182247F6500009E4071 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

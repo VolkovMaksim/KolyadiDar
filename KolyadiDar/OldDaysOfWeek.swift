@@ -11,7 +11,13 @@ import Foundation
 struct OldDaysOfWeek {
     let daysOfWeek: [String] = ["Понедѣльникъ", "Вторникъ", "Тритейникъ", "Четвергъ", "Пятница", "Шестица", "Седмица", "Осьмица", "Недѣля"]
     
-    func dayOfWeek (day: Int) -> String{
+    let shortDaysOfWeek: [String] = ["Пн.", "Вт.", "Тр.", "Чт.", "Пт.", "Шт.", "Сд.", "Ом.", "Нд."]
+    
+    func dayOfWeek (day: Int) -> String {
         return daysOfWeek[day]
+    }
+    
+    func shortDayOfWeek (day: Int) -> String {
+        return shortDaysOfWeek[day]
     }
 }
