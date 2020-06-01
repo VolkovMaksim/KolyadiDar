@@ -16,6 +16,7 @@ class MyDateViewController: UIViewController {
     @IBOutlet weak var dayOfWeekLabel: UILabel!
     @IBOutlet weak var titleOfConstellationLabel: UILabel!
     @IBOutlet weak var nameOfGodLabel: UILabel!
+    @IBOutlet weak var treeLabel: UILabel!
     @IBOutlet weak var yearLabel: UILabel!
     @IBOutlet weak var titleOfYearLabel: UILabel!
     @IBOutlet weak var yearInRoundOfYearsLabel: UILabel!
@@ -45,6 +46,7 @@ class MyDateViewController: UIViewController {
         dayOfWeekLabel.isHidden = true
         titleOfConstellationLabel.isHidden = true
         nameOfGodLabel.isHidden = true
+        treeLabel.isHidden = true
         yearLabel.isHidden = true
         titleOfYearLabel.isHidden = true
         yearInRoundOfYearsLabel.isHidden = true
@@ -65,7 +67,7 @@ class MyDateViewController: UIViewController {
     }
     
     // в этой функции создается колдунство с участием DatePicker и TextField
-    func setTime(){
+    func setTime() {
         // DatePicker отображает только дату
         dPickerView.datePickerMode = .date
         // DatePicker с русской локализацией
@@ -81,6 +83,12 @@ class MyDateViewController: UIViewController {
         // если раскомментировать вызов функции ниже, то при переходе на вкладку "Расчет даты"  в TextField сразу будет отображаться текущая дата
         //handelDatePicker()
     }
+    
+//    func getDatePicker() -> Date {
+//        dPickerView.datePickerMode = .date
+//        print(dPickerView.date)
+//        return dPickerView.date
+//    }
     
     // до 18 часов или после?
     @IBAction func switchTime(_ sender: UISwitch) {
@@ -105,6 +113,7 @@ class MyDateViewController: UIViewController {
         yearInfoLabel.isHidden = false
         epohaLabel.isHidden = false
         epohaGodLabel.isHidden = false
+        treeLabel.isHidden = false
         // скрываем DatePicker при тапе на кнопку chackDate
         self.view.endEditing(true)
         
@@ -118,13 +127,15 @@ class MyDateViewController: UIViewController {
         dayOfWeekLabel.text = arrayOfOldDate[1]
         titleOfConstellationLabel.text = arrayOfOldDate[2]
         nameOfGodLabel.text = arrayOfOldDate[3]
-        yearLabel.text = arrayOfOldDate[4]
-        titleOfYearLabel.text = arrayOfOldDate[5]
-        yearInRoundOfYearsLabel.text = arrayOfOldDate[6]
-        yearInRoundOfLifeLabel.text = arrayOfOldDate[7]
-        titleOfYear = arrayOfOldDate[5]
-        epohaLabel.text = arrayOfOldDate[8]
-        epohaGodLabel.text = arrayOfOldDate[9]
+        treeLabel.text = arrayOfOldDate[4]
+        yearLabel.text = arrayOfOldDate[5]
+        titleOfYearLabel.text = arrayOfOldDate[6]
+        yearInRoundOfYearsLabel.text = arrayOfOldDate[7]
+        yearInRoundOfLifeLabel.text = arrayOfOldDate[8]
+        epohaLabel.text = arrayOfOldDate[9]
+        epohaGodLabel.text = arrayOfOldDate[10]
+        
+        titleOfYear = arrayOfOldDate[6]
     }
     
     // скрываем DatePicker при тапе на view
