@@ -123,12 +123,18 @@ class CustomDate {
         }
     }
     
-    func oldDaysOfWeek(differenceDay: Int) {
+    func oldDaysOfWeek(differenceDay: Int, oldYear: Int) {
+        print(differenceDay)
         let oldDayOfWeek = Int(Double(differenceDay).truncatingRemainder(dividingBy: 9))
+        print(oldDayOfWeek)
+        print(oldYear)
         if oldDayOfWeek != 0 {
-            arrayOfDate[1] = OldDaysOfWeek.init().dayOfWeek(day: oldDayOfWeek - 1)
+            
+            arrayOfDate[1] = OldDaysOfWeek.init().dayOfWeekForOldYear (oldYear: oldYear, day: oldDayOfWeek)
+            //arrayOfDate[1] = OldDaysOfWeek.init().dayOfWeek(day: oldDayOfWeek - 1)
         } else {
-            arrayOfDate[1] = OldDaysOfWeek.init().dayOfWeek(day: 8)
+            arrayOfDate[1] = OldDaysOfWeek.init().dayOfWeekForOldYear (oldYear: oldYear, day: 8)
+            //arrayOfDate[1] = OldDaysOfWeek.init().dayOfWeek(day: 8)
         }
     }
     
@@ -299,19 +305,237 @@ class CustomDate {
         return difference
     }
     
-    func oldMonth(oldYearsNumber: Int, year: Int, month: Int, day: Int, timeAfterSixPM: Bool) {
+    func oldMonthNew(oldYearsNumber: Int, year: Int, month: Int, day: Int, timeAfterSixPM: Bool) {
+        let oldYearsNumberInRoundOfLife = Int(Double(year + 4).truncatingRemainder(dividingBy: 144))
+        
+        var startYear: Int = 0
+        if month >= 1 && month <= 9 {
+            if month == 9 {
+                if oldYearsNumber >= 1 && oldYearsNumber <= 3 {
+                    startYear = year - 1
+                    
+                    
+                    
+                }
+                    
+            }
+             
+        }
+            if oldYearsNumber >= 1 && oldYearsNumber <= 3 {
+                var startYear: Int = 0
+                if month >= 1 && month <= 9 {
+                    if month == 9 {
+                        if (day == 22 && timeAfterSixPM == false) || day < 22 {
+                            startYear = year - 1
+                            print(startYear, oldYearsNumber)
+                        }
+                    } else {
+                        startYear = year - 1
+                    }
+                } else if month >= 10 && month <= 12 {
+                    startYear = year
+                }
+                let startMonth = 9
+                let startDay = 22
+                let startHour = 18
+                let differenceDay = differenceTime(startYear: startYear, finishYear: year, startMonth: startMonth, finishMonth: month, startDay: startDay, finishDay: day, startHour: startHour, finishHour: timeAfterSixPM) / (60 * 90 * 16)
+                print(differenceDay)
+                monthAndDay(differenceDay: differenceDay)
+                //oldDaysOfWeek(differenceDay: differenceDay, oldYear: oldYearsNumberInRoundOfLife)
+                
+                daysOfConstellations(differenceDay: differenceDay)
+                
+            }
+            else if oldYearsNumber == 4 {
+                var startYear: Int = 0
+                if month >= 1 && month <= 9 {
+                    if month == 9 {
+                        if (day == 21 && timeAfterSixPM == false) || day < 21 {
+                            startYear = year - 1
+                        }
+                    } else {
+                        startYear = year - 1
+                    }
+                } else if month >= 10 && month <= 12 {
+                    startYear = year
+                }
+                let startMonth = 9
+                let startDay = 22
+                let startHour = 18
+                let differenceDay = differenceTime(startYear: startYear, finishYear: year, startMonth: startMonth, finishMonth: month, startDay: startDay, finishDay: day, startHour: startHour, finishHour: timeAfterSixPM) / (60 * 90 * 16)
+                print(differenceDay)
+                monthAndDay(differenceDay: differenceDay)
+                //oldDaysOfWeek(differenceDay: differenceDay, oldYear: oldYearsNumberInRoundOfLife)
+                daysOfConstellations(differenceDay: differenceDay)
+            }
+            else if oldYearsNumber >= 5 && oldYearsNumber <= 7 {
+                var startYear: Int = 0
+                if month >= 1 && month <= 9 {
+                    if month == 9 {
+                        if (day == 21 && timeAfterSixPM == false) || day < 21 {
+                            startYear = year - 1
+                        }
+                    } else {
+                        startYear = year - 1
+                    }
+                } else if month >= 10 && month <= 12 {
+                    startYear = year
+                }
+                let startMonth = 9
+                let startDay = 21
+                let startHour = 18
+                let differenceDay = differenceTime(startYear: startYear, finishYear: year, startMonth: startMonth, finishMonth: month, startDay: startDay, finishDay: day, startHour: startHour, finishHour: timeAfterSixPM) / (60 * 90 * 16)
+                print(differenceDay)
+                monthAndDay(differenceDay: differenceDay)
+                //oldDaysOfWeek(differenceDay: differenceDay, oldYear: oldYearsNumberInRoundOfLife)
+                daysOfConstellations(differenceDay: differenceDay)
+            }
+            else if oldYearsNumber == 8 {
+                print("Лето \(oldYearsNumber)")
+                var startYear: Int = 0
+                var startDay: Int = 0
+                if month >= 1 && month <= 9 {
+                    if month == 9 {
+                        if (day == 20 && timeAfterSixPM == false) || day < 20 {
+                            startYear = year - 1
+                            startDay = 21 - 1
+                        } else if (day == 20 && timeAfterSixPM == true) ||  day > 20 {
+                            startYear = year
+                            startDay = 21
+                        }
+                    } else {
+                        startYear = year - 1
+                        startDay = 21 - 1
+                    }
+                } else if month >= 10 && month <= 12 {
+                    startYear = year
+                    startDay = 21
+                }
+                let startMonth = 9
+                
+                let startHour = 18
+                
+                let differenceDay = differenceTime(startYear: startYear, finishYear: year, startMonth: startMonth, finishMonth: month, startDay: startDay, finishDay: day, startHour: startHour, finishHour: timeAfterSixPM) / (60 * 90 * 16)
+                print(differenceDay)
+                monthAndDay(differenceDay: differenceDay)
+                //oldDaysOfWeek(differenceDay: differenceDay, oldYear: oldYearsNumberInRoundOfLife)
+                daysOfConstellations(differenceDay: differenceDay)
+            }
+            else if oldYearsNumber >= 9 && oldYearsNumber <= 11 {
+                print("Лето \(oldYearsNumber)")
+                var startYear: Int = 0
+                if month >= 1 && month <= 9 {
+                    print("Месяц \(month) Лето \(oldYearsNumber)")
+                    if month == 9 {
+                        print(day)
+                        if (day == 20 && timeAfterSixPM == false) || day < 20 {
+                            startYear = year - 1
+                        } else if (day == 20 && timeAfterSixPM == true) ||  day > 20 {
+                            startYear = year
+                        }
+                    } else {
+                        startYear = year - 1
+                    }
+                } else if month >= 10 && month <= 12 {
+                    print("Месяц \(month) Лето \(oldYearsNumber)")
+                    startYear = year
+                }
+                let startMonth = 9
+                let startDay = 20
+                let startHour = 18
+                let differenceDay = differenceTime(startYear: startYear, finishYear: year, startMonth: startMonth, finishMonth: month, startDay: startDay, finishDay: day, startHour: startHour, finishHour: timeAfterSixPM) / (60 * 90 * 16)
+                print(differenceDay)
+                monthAndDay(differenceDay: differenceDay)
+                //oldDaysOfWeek(differenceDay: differenceDay, oldYear: oldYearsNumberInRoundOfLife)
+                daysOfConstellations(differenceDay: differenceDay)
+            }
+            else if oldYearsNumber == 12 {
+                var startYear: Int = 0
+                if month >= 1 && month <= 9 {
+                    if month == 9 {
+                        if (day == 19 && timeAfterSixPM == false) || day < 19 {
+                            startYear = year - 1
+                        }
+                    } else {
+                        startYear = year - 1
+                    }
+                } else if month >= 10 && month <= 12 {
+                    startYear = year
+                }
+                let startMonth = 9
+                let startDay = 20
+                let startHour = 18
+                let differenceDay = differenceTime(startYear: startYear, finishYear: year, startMonth: startMonth, finishMonth: month, startDay: startDay, finishDay: day, startHour: startHour, finishHour: timeAfterSixPM) / (60 * 90 * 16)
+                print(differenceDay)
+                monthAndDay(differenceDay: differenceDay)
+                //oldDaysOfWeek(differenceDay: differenceDay, oldYear: oldYearsNumberInRoundOfLife)
+                daysOfConstellations(differenceDay: differenceDay)
+            }
+            else if oldYearsNumber >= 13 && oldYearsNumber <= 15 {
+                var startYear: Int = 0
+                if month >= 1 && month <= 9 {
+                    if month == 9 {
+                        if (day == 19 && timeAfterSixPM == false) || day < 19 {
+                            startYear = year - 1
+                        }
+                    } else {
+                        startYear = year - 1
+                    }
+                } else if month >= 10 && month <= 12 {
+                    startYear = year
+                }
+                let startMonth = 9
+                let startDay = 19
+                let startHour = 18
+                let differenceDay = differenceTime(startYear: startYear, finishYear: year, startMonth: startMonth, finishMonth: month, startDay: startDay, finishDay: day, startHour: startHour, finishHour: timeAfterSixPM) / (60 * 90 * 16)
+                print(differenceDay)
+                monthAndDay(differenceDay: differenceDay)
+                //oldDaysOfWeek(differenceDay: differenceDay, oldYear: oldYearsNumberInRoundOfLife)
+                daysOfConstellations(differenceDay: differenceDay)
+            }
+            else if oldYearsNumber == 0 || oldYearsNumber == 16 {
+                var startYear: Int = 0
+                if month >= 1 && month <= 9 {
+                    if month == 9 {
+                        if (day == 19 && timeAfterSixPM == false) || day < 19 {
+                            startYear = year - 1
+                        }
+                    } else {
+                        startYear = year - 1
+                    }
+                } else if month >= 10 && month <= 12 {
+                    startYear = year
+                }
+                let startMonth = 9
+                let startDay = 19
+                let startHour = 18
+                let differenceDay = differenceTime(startYear: startYear, finishYear: year, startMonth: startMonth, finishMonth: month, startDay: startDay, finishDay: day, startHour: startHour, finishHour: timeAfterSixPM) / (60 * 90 * 16)
+                monthAndDay_16(differenceDay: differenceDay)
+                //oldDaysOfWeek(differenceDay: differenceDay, oldYear: oldYearsNumberInRoundOfLife)
+                daysOfConstellations_16(differenceDay: differenceDay)
+                
+    //            monthAndDay_16(differenceDay: differenceDay)
+    //            oldDaysOfWeek(differenceDay: differenceDay)
+    //            daysOfConstellations_16(differenceDay: differenceDay)
+            }
+        }
+    
+    func oldMonth(oldYearsNumber: Int, oldYearsNumberInRoundOfLife: Int, year: Int, month: Int, day: Int, timeAfterSixPM: Bool) {
         if oldYearsNumber >= 1 && oldYearsNumber <= 3 {
             var startYear: Int = 0
             if month >= 1 && month <= 9 {
                 if month == 9 {
                     if (day == 22 && timeAfterSixPM == false) || day < 22 {
                         startYear = year - 1
+                        print(startYear, oldYearsNumber)
                     }
                 } else {
                     startYear = year - 1
+                    print(startYear, oldYearsNumber)
                 }
             } else if month >= 10 && month <= 12 {
                 startYear = year
+                print(startYear, oldYearsNumber)
             }
             let startMonth = 9
             let startDay = 22
@@ -319,7 +543,8 @@ class CustomDate {
             let differenceDay = differenceTime(startYear: startYear, finishYear: year, startMonth: startMonth, finishMonth: month, startDay: startDay, finishDay: day, startHour: startHour, finishHour: timeAfterSixPM) / (60 * 90 * 16)
             print(differenceDay)
             monthAndDay(differenceDay: differenceDay)
-            oldDaysOfWeek(differenceDay: differenceDay)
+            oldDaysOfWeek(differenceDay: differenceDay, oldYear: oldYearsNumberInRoundOfLife)
+            
             daysOfConstellations(differenceDay: differenceDay)
             
         }
@@ -329,12 +554,15 @@ class CustomDate {
                 if month == 9 {
                     if (day == 21 && timeAfterSixPM == false) || day < 21 {
                         startYear = year - 1
+                        print(startYear, oldYearsNumber)
                     }
                 } else {
                     startYear = year - 1
+                    print(startYear, oldYearsNumber)
                 }
             } else if month >= 10 && month <= 12 {
                 startYear = year
+                print(startYear, oldYearsNumber)
             }
             let startMonth = 9
             let startDay = 22
@@ -342,7 +570,7 @@ class CustomDate {
             let differenceDay = differenceTime(startYear: startYear, finishYear: year, startMonth: startMonth, finishMonth: month, startDay: startDay, finishDay: day, startHour: startHour, finishHour: timeAfterSixPM) / (60 * 90 * 16)
             print(differenceDay)
             monthAndDay(differenceDay: differenceDay)
-            oldDaysOfWeek(differenceDay: differenceDay)
+            oldDaysOfWeek(differenceDay: differenceDay, oldYear: oldYearsNumberInRoundOfLife)
             daysOfConstellations(differenceDay: differenceDay)
         }
         else if oldYearsNumber >= 5 && oldYearsNumber <= 7 {
@@ -351,12 +579,15 @@ class CustomDate {
                 if month == 9 {
                     if (day == 21 && timeAfterSixPM == false) || day < 21 {
                         startYear = year - 1
+                        print(startYear, oldYearsNumber)
                     }
                 } else {
                     startYear = year - 1
+                    print(startYear, oldYearsNumber)
                 }
             } else if month >= 10 && month <= 12 {
                 startYear = year
+                print(startYear, oldYearsNumber)
             }
             let startMonth = 9
             let startDay = 21
@@ -364,21 +595,28 @@ class CustomDate {
             let differenceDay = differenceTime(startYear: startYear, finishYear: year, startMonth: startMonth, finishMonth: month, startDay: startDay, finishDay: day, startHour: startHour, finishHour: timeAfterSixPM) / (60 * 90 * 16)
             print(differenceDay)
             monthAndDay(differenceDay: differenceDay)
-            oldDaysOfWeek(differenceDay: differenceDay)
+            oldDaysOfWeek(differenceDay: differenceDay, oldYear: oldYearsNumberInRoundOfLife)
             daysOfConstellations(differenceDay: differenceDay)
         }
         else if oldYearsNumber == 8 {
+            print("Лето \(oldYearsNumber)")
             var startYear: Int = 0
             if month >= 1 && month <= 9 {
                 if month == 9 {
                     if (day == 20 && timeAfterSixPM == false) || day < 20 {
                         startYear = year - 1
+                        print(startYear, oldYearsNumber)
+                    } else if (day == 20 && timeAfterSixPM == true) ||  day > 20 {
+                        startYear = year
+                        print(startYear, oldYearsNumber)
                     }
                 } else {
                     startYear = year - 1
+                    print(startYear, oldYearsNumber)
                 }
             } else if month >= 10 && month <= 12 {
                 startYear = year
+                print(startYear, oldYearsNumber)
             }
             let startMonth = 9
             let startDay = 21
@@ -387,20 +625,26 @@ class CustomDate {
             let differenceDay = differenceTime(startYear: startYear, finishYear: year, startMonth: startMonth, finishMonth: month, startDay: startDay, finishDay: day, startHour: startHour, finishHour: timeAfterSixPM) / (60 * 90 * 16)
             print(differenceDay)
             monthAndDay(differenceDay: differenceDay)
-            oldDaysOfWeek(differenceDay: differenceDay)
+            oldDaysOfWeek(differenceDay: differenceDay, oldYear: oldYearsNumberInRoundOfLife)
             daysOfConstellations(differenceDay: differenceDay)
         }
         else if oldYearsNumber >= 9 && oldYearsNumber <= 11 {
+            print("Лето \(oldYearsNumber)")
             var startYear: Int = 0
             if month >= 1 && month <= 9 {
+                print("Месяц \(month)")
                 if month == 9 {
+                    print(day)
                     if (day == 20 && timeAfterSixPM == false) || day < 20 {
                         startYear = year - 1
+                    } else if (day == 20 && timeAfterSixPM == true) ||  day > 20 {
+                        startYear = year
                     }
                 } else {
                     startYear = year - 1
                 }
             } else if month >= 10 && month <= 12 {
+                print("Месяц \(month)")
                 startYear = year
             }
             let startMonth = 9
@@ -409,7 +653,7 @@ class CustomDate {
             let differenceDay = differenceTime(startYear: startYear, finishYear: year, startMonth: startMonth, finishMonth: month, startDay: startDay, finishDay: day, startHour: startHour, finishHour: timeAfterSixPM) / (60 * 90 * 16)
             print(differenceDay)
             monthAndDay(differenceDay: differenceDay)
-            oldDaysOfWeek(differenceDay: differenceDay)
+            oldDaysOfWeek(differenceDay: differenceDay, oldYear: oldYearsNumberInRoundOfLife)
             daysOfConstellations(differenceDay: differenceDay)
         }
         else if oldYearsNumber == 12 {
@@ -431,7 +675,7 @@ class CustomDate {
             let differenceDay = differenceTime(startYear: startYear, finishYear: year, startMonth: startMonth, finishMonth: month, startDay: startDay, finishDay: day, startHour: startHour, finishHour: timeAfterSixPM) / (60 * 90 * 16)
             print(differenceDay)
             monthAndDay(differenceDay: differenceDay)
-            oldDaysOfWeek(differenceDay: differenceDay)
+            oldDaysOfWeek(differenceDay: differenceDay, oldYear: oldYearsNumberInRoundOfLife)
             daysOfConstellations(differenceDay: differenceDay)
         }
         else if oldYearsNumber >= 13 && oldYearsNumber <= 15 {
@@ -453,7 +697,7 @@ class CustomDate {
             let differenceDay = differenceTime(startYear: startYear, finishYear: year, startMonth: startMonth, finishMonth: month, startDay: startDay, finishDay: day, startHour: startHour, finishHour: timeAfterSixPM) / (60 * 90 * 16)
             print(differenceDay)
             monthAndDay(differenceDay: differenceDay)
-            oldDaysOfWeek(differenceDay: differenceDay)
+            oldDaysOfWeek(differenceDay: differenceDay, oldYear: oldYearsNumberInRoundOfLife)
             daysOfConstellations(differenceDay: differenceDay)
         }
         else if oldYearsNumber == 0 || oldYearsNumber == 16 {
@@ -474,7 +718,7 @@ class CustomDate {
             let startHour = 18
             let differenceDay = differenceTime(startYear: startYear, finishYear: year, startMonth: startMonth, finishMonth: month, startDay: startDay, finishDay: day, startHour: startHour, finishHour: timeAfterSixPM) / (60 * 90 * 16)
             monthAndDay_16(differenceDay: differenceDay)
-            oldDaysOfWeek(differenceDay: differenceDay)
+            oldDaysOfWeek(differenceDay: differenceDay, oldYear: oldYearsNumberInRoundOfLife)
             daysOfConstellations_16(differenceDay: differenceDay)
             
 //            monthAndDay_16(differenceDay: differenceDay)
@@ -489,44 +733,53 @@ class CustomDate {
             let oldYearsNumber = Int(Double(oldY).truncatingRemainder(dividingBy: 16))
             let oldYearsNumberInRoundOfLife = Int(Double(year + 4).truncatingRemainder(dividingBy: 144))
             
+            
+            
             if month == 9 {
                 if oldYearsNumber >= 0 && oldYearsNumber <= 3 {
                     if (day == 22 && timeAfter18 == true) ||  day > 22 {
                         addYearPlusOne(oldY: oldY, oldYearsNumber: oldYearsNumber, oldYearsNumberInRoundOfLife: oldYearsNumberInRoundOfLife)
-                        oldMonth(oldYearsNumber: oldYearsNumber, year: year, month: month, day: day, timeAfterSixPM: timeAfter18)
+                        oldMonth(oldYearsNumber: oldYearsNumber, oldYearsNumberInRoundOfLife: oldYearsNumberInRoundOfLife, year: year, month: month, day: day, timeAfterSixPM: timeAfter18)
                     }
                     else if (day == 22 && timeAfter18 == false) || day < 22 {
                         addYear(oldY: oldY, oldYearsNumber: oldYearsNumber, oldYearsNumberInRoundOfLife: oldYearsNumberInRoundOfLife)
+                        oldMonth(oldYearsNumber: oldYearsNumber, oldYearsNumberInRoundOfLife: oldYearsNumberInRoundOfLife, year: year, month: month, day: day, timeAfterSixPM: timeAfter18)
                     }
                 }
                 else if oldYearsNumber >= 4 && oldYearsNumber <= 7 {
                     if (day == 21 && timeAfter18 == true) ||  day > 21 {
                         addYearPlusOne(oldY: oldY, oldYearsNumber: oldYearsNumber, oldYearsNumberInRoundOfLife: oldYearsNumberInRoundOfLife)
+                        oldMonth(oldYearsNumber: oldYearsNumber, oldYearsNumberInRoundOfLife: oldYearsNumberInRoundOfLife, year: year, month: month, day: day, timeAfterSixPM: timeAfter18)
                     }
                     else if (day == 21 && timeAfter18 == false) || day < 21 {
                         addYear(oldY: oldY, oldYearsNumber: oldYearsNumber, oldYearsNumberInRoundOfLife: oldYearsNumberInRoundOfLife)
+                        oldMonth(oldYearsNumber: oldYearsNumber, oldYearsNumberInRoundOfLife: oldYearsNumberInRoundOfLife, year: year, month: month, day: day, timeAfterSixPM: timeAfter18)
                     }
                 }
                 else if oldYearsNumber >= 8 && oldYearsNumber <= 11 {
                     if (day == 20 && timeAfter18 == true) ||  day > 20 {
                         addYearPlusOne(oldY: oldY, oldYearsNumber: oldYearsNumber, oldYearsNumberInRoundOfLife: oldYearsNumberInRoundOfLife)
+                        oldMonth(oldYearsNumber: oldYearsNumber, oldYearsNumberInRoundOfLife: oldYearsNumberInRoundOfLife, year: year, month: month, day: day, timeAfterSixPM: timeAfter18)
                     }
                     else if (day == 20 && timeAfter18 == false) || day < 20 {
                         addYear(oldY: oldY, oldYearsNumber: oldYearsNumber, oldYearsNumberInRoundOfLife: oldYearsNumberInRoundOfLife)
+                        oldMonth(oldYearsNumber: oldYearsNumber, oldYearsNumberInRoundOfLife: oldYearsNumberInRoundOfLife, year: year, month: month, day: day, timeAfterSixPM: timeAfter18)
                     }
                 }
                 else if oldYearsNumber >= 12 && oldYearsNumber <= 15 {
                     if (day == 19 && timeAfter18 == true) ||  day > 19 {
                         addYearPlusOne(oldY: oldY, oldYearsNumber: oldYearsNumber, oldYearsNumberInRoundOfLife: oldYearsNumberInRoundOfLife)
+                        oldMonth(oldYearsNumber: oldYearsNumber, oldYearsNumberInRoundOfLife: oldYearsNumberInRoundOfLife, year: year, month: month, day: day, timeAfterSixPM: timeAfter18)
                     }
                     else if (day == 19 && timeAfter18 == false) || day < 19 {
                         addYear(oldY: oldY, oldYearsNumber: oldYearsNumber, oldYearsNumberInRoundOfLife: oldYearsNumberInRoundOfLife)
+                        oldMonth(oldYearsNumber: oldYearsNumber, oldYearsNumberInRoundOfLife: oldYearsNumberInRoundOfLife, year: year, month: month, day: day, timeAfterSixPM: timeAfter18)
                     }
                 }
             }
             else {
                 addYear(oldY: oldY, oldYearsNumber: oldYearsNumber, oldYearsNumberInRoundOfLife: oldYearsNumberInRoundOfLife)
-                oldMonth(oldYearsNumber: oldYearsNumber, year: year, month: month, day: day, timeAfterSixPM: timeAfter18)
+                oldMonth(oldYearsNumber: oldYearsNumber, oldYearsNumberInRoundOfLife: oldYearsNumberInRoundOfLife, year: year, month: month, day: day, timeAfterSixPM: timeAfter18)
             }
         }
         else if month >= 10 && month <= 12 {
@@ -534,7 +787,7 @@ class CustomDate {
             let oldYearsNumber = Int(Double(oldY).truncatingRemainder(dividingBy: 16))
             let oldYearsNumberInRoundOfLife = Int(Double(year + 5).truncatingRemainder(dividingBy: 144))
             addYear(oldY: oldY, oldYearsNumber: oldYearsNumber, oldYearsNumberInRoundOfLife: oldYearsNumberInRoundOfLife)
-            oldMonth(oldYearsNumber: oldYearsNumber, year: year, month: month, day: day, timeAfterSixPM: timeAfter18)
+            oldMonth(oldYearsNumber: oldYearsNumber, oldYearsNumberInRoundOfLife: oldYearsNumberInRoundOfLife, year: year, month: month, day: day, timeAfterSixPM: timeAfter18)
         }
         
         return arrayOfDate

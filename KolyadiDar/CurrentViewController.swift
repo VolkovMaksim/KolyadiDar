@@ -420,6 +420,12 @@ class CurrentViewController: UIViewController {
             postdayLabel.font = UIFont(name: "-Normal", size: 30)
             postdayLabel.text = "Однодневный ПОСТЪ"
         }
+        
+        
+        
+        
+        
+        
     }
     
     func daysOfConstellations(differenceDay: Int) {
